@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works</h1>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col">
+                <video autoplay muted loop id="index-BG-Video">
+                    <source src="https://res.cloudinary.com/dbscsb8w1/video/upload/v1669986948/Pl%C3%B6rr/main_bg_jlp32s.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
 {% endblock %}

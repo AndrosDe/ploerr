@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+html {
+    height: 100%;
+}
+
+.logo-font {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 60px;
+}
+
+#index-BG-Video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
