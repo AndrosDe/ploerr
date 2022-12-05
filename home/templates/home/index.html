@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    Welcome to
+                    <br>
+                    <span class="logo-font display-3">Plörrbräu</span>
+                </h1>
             </div>
         </div>
     </div>
@@ -17,6 +26,22 @@
                 <video autoplay muted loop id="index-BG-Video">
                     <source src="https://res.cloudinary.com/dbscsb8w1/video/upload/v1669986948/Pl%C3%B6rr/main_bg_jlp32s.mp4" type="video/mp4">
                 </video>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-2 col-sm-5 col-lg-7 my-auto"></div>
+            <div class="col-8 col-sm-7 col-lg-5 my-auto">
+                <h2 class="display-5 text-light text-shadow">
+                    <strong>The new flavour:</strong>
+                </h2>
+                <h3 class="display-3 text-light text-shadow">
+                    <span class="logo-font">Plörr</span> <span class="fw-semibold fst-italic">Lau</span>
+                </h3>
+                <div class="my-3 text-end">
+                    <h4>
+                        <a href="#" class="slightly-dark-bg btn btn-lg rounded-4 text-uppercase py-1 text-light">Try it now</a>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>

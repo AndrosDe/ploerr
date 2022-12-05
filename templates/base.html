@@ -33,56 +33,58 @@
     <title>Plörrbräu {% block extra_title %}{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dbscsb8w1/image/upload/v1669991724/Pl%C3%B6rr/ploerr_logo_eo7flt.ico">
   </head>
-  <body>
+  <body class="bg-dark">
     <!-- Base-Header -->
-    <header class="container-fluid fixed-top">
-      <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-          <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <h2 class="logo-font text-white my-0"><strong>Plörr</strong>bräu</h2>
+    <header class="container-fluid fixed-top slightly-dark-bg">
+      <div class="row">
+        <div class="col-5 col-lg-4 my-0 pt-2"></div>
+        <div class="col-2 col-lg-4 my-0 pt-2 text-center">
+          <a href="{% url 'home' %}">
+              <img id="logoimage" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1669991488/Pl%C3%B6rr/ploerr_logo_u3joel.png" width="150" height="150" alt="ploerr logo">
           </a>
         </div>
-        <div class="col-12 col-lg-4 text-center">
-          <img id="logoimage" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1669991488/Pl%C3%B6rr/ploerr_logo_u3joel.png" width="150" height="150" alt="ploerr logo">
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-            <li class="list-inline-item dropdown">
-              <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center text-white">
-                  <div><i class="fas fa-user fa-lg"></i></div>
-                  <p class="my-0"><strong>My Account</strong></p>
-                </div>
-              </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                {% if request.user.is_authenticated %}
-                  {% if request.user.is_superuser %}
-                    <a href="#" class="dropdown-item">Product Management</a>
-                  {% endif %}
-                  <a href="#" class="dropdown-item">My Profile</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                {% else %}
-                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                {% endif %}
-              </div>
-            </li>
-            <li class="list-inline-item">
-              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
-                <div class="text-center text-white">
-                  <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                  <p class="my-0">
-                    0.00 EUR
-                  </p>
-                </div>
-              </a>
-            </li>
-          </ul>
+        <div class="col-5 col-lg-4 my-0 pt-2">
+          <div id="topnav" class="row pt-lg-1 d-none d-lg-flex">
+            <div class="col-12">
+              <ul class="list-inline list-unstyled text-center">
+                <li class="list-inline-item dropdown">
+                  <a class="btn text-light nav-link" href="#" role="button" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="text-center text-light">
+                      <div><i class="fas fa-user fa-lg"></i></div>
+                      <p class="my-0"><strong>My Account</strong></p>
+                    </div>
+                  </a>
+                  <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                      {% if request.user.is_superuser %}
+                        <a href="#" class="dropdown-item">Product Management</a>
+                      {% endif %}
+                      <a href="#" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                    <div class="text-center text-light">
+                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                      <p class="my-0">
+                        0.00 EUR
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark w-100 pt-0 pb-1">
+          <button class="navbar-toggler ms-3" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           {% include 'includes/main_nav.html' %}
@@ -92,9 +94,9 @@
 
     <!-- Messages Display -->
     {% if messages %}
-        <div class="message-container">
+      <div class="message-container">
 
-        </div>
+      </div>
     {% endif %}
 
     <!-- Page-Header -->
@@ -107,18 +109,18 @@
 
     <!-- Base-Footer -->
     <footer class="container-fluid fixed-bottom">
-      <div id="delivery-banner" class="row text-center">
-        <div class="col-12 text-white">
+      <div class="row text-center text-shadow mb-2">
+        <div class="col-12 text-light">
           <h5>Visit Us on Facebook</h5>
         </div>
-        <div class="col-12 text-white">
-          <a class="font-weight-bold nav-link text-white mr-5" href="#" id="Facebook-link">
+        <div class="col-12 text-light">
+          <a class="font-weight-bold nav-link mr-5" href="#" id="Facebook-link">
             <i class="fa-brands fa-square-facebook"></i>
           </a>
         </div>
       </div>
-      <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
+      <div class="row slightly-dark-bg">
+        <nav class="navbar navbar-expand-lg navbar-light w-100 pt-1">
           {% include 'includes/food_nav.html' %}
         </nav>
       </div> 
