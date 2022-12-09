@@ -1,21 +1,86 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    Quality & Ingredients
+                </h1>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
-<div class="container h-100">
-    <div class="row h-100">
-            <div class="col text-center">
-                Hallo
+    <div class="overlay"></div>
+    <div class="container h-100">
+        <div class="row h-100">
+            <h3 class="mb-2">Ingredients</h3>
+            <div id="ingredients-img-1" class="col-md-5 img-bg-base"></div>
+            <div class="col-md-7">
+                <p>
+                    All our <span class="logo-font">Plörrbräu</span> is made according the <strong>German "Reinheitsgebot"</strong> with:
+                    <br>
+                    <strong>
+                        Barley<br>
+                        Hops<br>
+                        Water<br>
+                    </strong>
+                    <br>
+                    As well as the <strong>Beer-Industries Standard</strong> of introducing pressurized carbon dioxide for the carbonation.
+                </p>
+            </div>
+            <div class="col col-md-7 mt-2">
+                <p>
+                    In order to <strong>support our local community</strong>, we only use <strong>local ingredients</strong> from germany, if feas- and possible.
+                    <br>
+                    <br>
+                    The <strong>local ingriances</strong> are to our knowlege <strong>traditional</strong>y grown, harvested and processed.
+                </p>
+            </div>
+            <div id="ingredients-img-2" class="col-md-5 img-bg-base mt-2"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h4>Local Farmers</h4>
+            </div>
+            <div class="col-12 iframe-container">
+                <a href="https://www.magdochjeder.de/">
+                    <iframe class="responsive-iframe"
+                        src="https://www.youtube.com/watch?v=WBwPZzt-hlM&autoplay=1&mute=1">
+                    </iframe>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="mb-2">Water</h3>
+            <div id="ingredients-img-3" class="col-md-5 img-bg-base">
+            </div>
+            <div class="col-md-7">
+                <p>
+                    Water is the main ingredient of beer, accounting for 93% of its weight.
+                    <br>
+                    In <span class="logo-font">Plörrbräu</span> it is accounting for 95% (97% by <span class="logo-font">Plörrbräu</span> Lau).
+                    <br>
+                    <br>
+                    Though water itself is, ideally, flavorless, its level of dissolved minerals, specifically, bicarbonate ion, does influence beer's finished taste.
+                </p>
+            </div>
+            <div class="col-md-7 mt-2">
+                <p>
+                    Due to the mineral properties of each region's water, specific areas were originally the sole producers of certain types of beer, each identifiable by regional characteristics.
+                    <br>
+                    <br>
+                    <span class="logo-font">Plörrbräu</span> is brewed with water form the <strong>local Natural Reserve: <span class="text-uppercase">Tibaum</span></strong>.
+                </p>
+            </div>
+            <div id="ingredients-img-4" class="col-md-5 img-bg-base mt-2">
             </div>
         </div>
     </div>

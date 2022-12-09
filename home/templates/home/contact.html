@@ -2,21 +2,84 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col text-shadow">
+            <h1 class="my-5 display-5 text-light text-center">
+                Contact and Directions
+            </h1>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col">
-
+            <div class="col-12 text-dark" id="googleMap" style="width:100%;height:600px;"></div>
+            <div class="col-12 mt-4 text-center">
+                <p>
+                    Only 2.7 miles from the away from the motorway exit you can find the building.<br>
+                    It is very easy to find, as one only has to follow the "Ostenhellweg" down to "Rünthe".<br>
+                    Trun into the direction to "Werne", once the "Ostenhellweg" crosses the "Kamener Str."<br>
+                    After one kilometers trun into the "Flöz-Zollverein-Straße" and follow the road.
+                </p>
             </div>
         </div>
+        <div class="row mt-4">
+            <div class="col-12 mt-4 text-center">
+                <h6>You can contact us by:</h6>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <ul class="list-group mt-3">
+                    <li class="list-group-item">
+                        Phone: +49 (0) 123 44 55 66
+                    </li>
+                    <li class="list-group-item">
+                        Fax: +49 (0) 123 44 55 99
+                    </li>
+                    <li class="list-group-item">
+                        Email: info@ploerr.com
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4"></div>
+        </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0eLQk6jeFfIuQtg1w0XUnp24Jq5bxQN4&callback=myMap"></script>
+    
+    <script>
+        var markerCenter = new google.maps.LatLng(51.650353,7.663000);
+        var marker = null;
+
+        function initialize() {
+            var mapProp = {
+                center: markerCenter,
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true,
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(51.658353,7.643672),
+                icon: '../media/ploerr_logo_map.ico'
+            });
+            marker.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+                content:"Plörr GmbH"
+            });
+            infowindow.open(map,marker);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+        
 {% endblock %}

@@ -1,8 +1,71 @@
-#index-BG-Video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -100;
+.img-bg-base {
+  background-size: cover;
+  height: auto;
+}
+
+/* -------------------------------- Index */
+#index-bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+}
+
+/* -------------------------------- Quality */
+#ingredients-img-1 {
+  background: url('/media/ingredients-hops.jpg') no-repeat center center;
+  min-height: 150px;
+}
+#ingredients-img-2 {
+  background: url('/media/ingredients-barley.jpg') no-repeat center center;
+}
+#ingredients-img-3 {
+  background: url('/media/lippe.jpg') no-repeat center center;
+  min-height: 150px;
+}
+#ingredients-img-4 {
+  background: url('/media/am-tiebaum.jpg') no-repeat 0% 70%;
+}
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  margin-bottom: -10%;
+}
+.responsive-iframe {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  bottom: 20%;
+  right: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+/* -------------------------------- Brewery */
+#brewery-video {
+  max-width: 80%;
+  height: auto;
+}
+
+#berwery-img-1 {
+  background: url('/media/zeche-werne-1.jpg') no-repeat center center;
+}
+#berwery-img-3 {
+  background: url('/media/zeche-werne-3.jpg') no-repeat center center;
+  min-height: 250px;
+}
+
+/* -------------------------------- Media Queries */
+/* changing the picture for ingredients for screen with 767px width or lower */
+@media (max-width: 767px) {
+  #ingredients-img-1 {
+    background: url('/media/ingredients.jpg') no-repeat center 20%;
   }
+  #berwery-img-3 {
+    background: url('/media/zeche-werne-2.jpg') no-repeat center center;
+  }
+}

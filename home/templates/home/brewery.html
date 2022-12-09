@@ -1,21 +1,96 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col text-shadow">
+            <h1 class="my-5 display-5 text-light text-center">
+                Our Brewery
+            </h1>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
+    <div class="container h-100">
+        <div class="row h-100">
+            <h3 class="mb-2">History</h3>
+            <div id="berwery-img-3" class="col-md-5 img-bg-base"></div>
+            <div class="col-md-7">
+                <p>
+                    Lord Otto von Rinnsal was original founder of <span class="logo-font">Plörrbräu</span>.<br>
+                    He was always focused on getting the best out of people:<br>
+                    Money!<br>
+                    So in order to prevent people to fell more or less seriously ill from polluted water, Otto started a brewery to support the workers with beer. 
+                    Due to the high ratio of Water is higher to barley and hops, it was called <span class="logo-font">Dünnbräu</span>.<br>
+                    <br>
+                    Being one of the few still drinkable beer in the German "Biernot" crisis (caused by an ergot infestion of wheat and barley), it saved multiple festivals, like the Oktoberfest, from being sober events.
+                </p>
+            </div>
+            <div class="col col-md-7 mt-2">
+                <p>
+                    <strong>As thanks the William IV, Duke of Bavaria named him "Otto von Plörr".</strong><br>
+                    Therefore making <span class="logo-font">Dünnbräu</span> into <strong><span class="logo-font">Plörrbräu</span></strong>.<br>
+                    <br>
+                    Originally <span class="logo-font">Plörrbräu</span> was only brewed on <strong><span class="logo-font">Castle Plörr</span></strong> until it's forclosure.
+                    <br>
+                    Nowadays <span class="logo-font">Plörrbräu</span> is brewed in old local mining building, which was used to store mining equipment and heavy mining maschinery.
+                    <br>
+                    <br>
+                    Since 1990 it is part of the <strong>German Cultural Heritage</strong>. 
+                    <br>
+                </p>
+            </div>
+            <div id="berwery-img-1" class="col-md-5 img-bg-base mt-2"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <video autoplay muted loop id="brewery-video">
+                    <source src="/media/brewery.webm" type="video/webm">
+                </video>
+            </div>
+        </div>
         <div class="row">
-            <div class="col">
-
+            <h3 class="my-2">The Brewing</h3>
+            <div id="ingredients-bg-3" class="col-md-5 img-bg-base">
+            </div>
+            <div class="col-md-7">
+                <p>
+                    The purpose of brewing is to convert the starch source into a sugary liquid called wort and to convert the wort into the alcoholic drink known as beer in a fermentation process effected by yeast.<br>
+                    The first step, where the wort is prepared by mixing the starch source (normally malted barley) with hot water, is known as "mashing". Hot water is mixed with crushed malt in a mash tun.<br>
+                    The mashing process takes around 1 to 2 hours, during which the starches are converted to sugars, and then the sweet wort is drained off the grains.<br>
+                    The grains are then washed in a process known as "sparging". This washing allows the brewer to gather as much of the fermentable liquid from the grains as possible. The process of filtering the spent grain from the wort and sparge water is called wort separation.<br>
+                    The traditional process for wort separation is lautering, in which the grain bed itself serves as the filter medium.<br>
+                </p>
+            </div>
+            <div class="col-md-7 mt-2">
+                <p>
+                    This washing allows the brewer to gather as much of the fermentable liquid from the grains as possible. In the continuous sparge, collecting the original wort and the sparge water together.
+                    The sweet wort collected from sparging is put into a kettle, or "copper"and boiled, usually for about one hour. During boiling, water in the wort evaporates, but the sugars and other components of the wort remain; this allows more efficient use of the starch sources in the beer. Boiling also destroys any remaining enzymes left over from the mashing stage. Hops are added during boiling as a source of bitterness, flavour and aroma. Hops may be added at more than one point during the boil. 
+                </p>
+            </div>
+            <div id="ingredients-bg-4" class="col-md-5 img-bg-base mt-2">
+            </div>
+            <div id="ingredients-bg-3" class="col-md-5 img-bg-base">
+            </div>
+            <div class="col-md-7">
+                <p>
+                    After boiling, the hopped wort is cooled, ready for the yeast. In some breweries, the hopped wort may pass through a hopback, which is a small vat filled with hops, to add aromatic hop flavouring and to act as a filter; but usually the hopped wort is simply cooled for the fermenter, where the yeast is added. During fermentation, the wort becomes beer in a process that requires a week to months depending on the type of yeast and strength of the beer. Once fermentation is complete, the yeast also settles, leaving the beer clear.
+                </p>
+            </div>
+            <div class="col-md-7 mt-2">
+                <p>
+                    During fermentation most of the carbon dioxide is allowed to escape through a trap and the beer is left with carbonation of only about one atmosphere of pressure. The carbonation is often increased either by transferring the beer to a pressure vessel such as a keg and introducing pressurized carbon dioxide, or by transferring it before the fermentation is finished so that carbon dioxide pressure builds up inside the container as the fermentation finishes
+                </p>
+            </div>
+            <div id="ingredients-bg-4" class="col-md-5 img-bg-base mt-2">
             </div>
         </div>
     </div>
