@@ -1,0 +1,67 @@
+{% extends "account/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block inner_header %}
+  <h1 class="my-5 display-5 text-light text-center">{% trans "Sign In" %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    {% get_providers as socialaccount_providers %}
+
+    {% if socialaccount_providers %}
+      <p class="mb-3 text-light text-center">{% blocktrans with site.name as site_name %}Please sign in with one
+      of your existing third party accounts. Or, <a class="text-light" href="{{ signup_url }}">sign up</a>
+      for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+      <div class="socialaccount_ballot">
+
+        <ul class="socialaccount_providers">
+          {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+        </ul>
+
+        <div class="login-or">{% trans 'or' %}</div>
+
+      </div>
+
+      {% include "socialaccount/snippets/login_extra.html" %}
+
+    {% else %}
+      <p class="mb-3 text-light text-center">{% blocktrans %}If you have not created an account yet, then please
+      <a class="text-light" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+    {% endif %}
+  </div>
+  <div class="row mb-5">
+    <div class="col-1 col-sm-4"></div>
+    <div class="col-10 col-sm-4">
+      <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form | crispy }}
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="row my-4">
+          <div class="col-3"></div>
+          <div class="col-6 text-center">
+            <a class="button secondaryAction text-light" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10 text-center">
+            <button class="btn btn-light btn-lg" class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </form>
+    </div>
+    <div class="col-1 col-sm-4"></div>
+  </div>
+
+{% endblock %}

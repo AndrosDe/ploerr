@@ -15,18 +15,18 @@
 
 /* -------------------------------- Quality */
 #ingredients-img-1 {
-  background: url('/media/ingredients-hops.jpg') no-repeat center center;
+  background: url('/media/home/ingredients-hops.webp') no-repeat center center;
   min-height: 150px;
 }
 #ingredients-img-2 {
-  background: url('/media/ingredients-barley.jpg') no-repeat center center;
+  background: url('/media/home/ingredients-barley.webp') no-repeat center center;
 }
 #ingredients-img-3 {
-  background: url('/media/lippe.jpg') no-repeat center center;
+  background: url('/media/home/lippe.webp') no-repeat center center;
   min-height: 150px;
 }
 #ingredients-img-4 {
-  background: url('/media/am-tiebaum.jpg') no-repeat 0% 70%;
+  background: url('/media/home/am-tiebaum.webp') no-repeat 0% 70%;
 }
 .iframe-container {
   position: relative;
@@ -52,20 +52,37 @@
 }
 
 #berwery-img-1 {
-  background: url('/media/zeche-werne-1.jpg') no-repeat center center;
+  background: url('/media/home/schloss-ploerr.webp') no-repeat center center;
+  min-height: 250px;
+}
+#berwery-img-2 {
+  background: url('/media/home/zeche-werne-1.webp') no-repeat center center;
 }
 #berwery-img-3 {
-  background: url('/media/zeche-werne-3.jpg') no-repeat center center;
+  background: url('/media/home/ploerr-brauen.webp') no-repeat center center;
   min-height: 250px;
+}
+#berwery-img-4 {
+  background: url('/media/home/ploerr-brauen4.webp') no-repeat center center;
+}
+#berwery-img-5 {
+  background: url('/media/home/ploerr-brauen2.webp') no-repeat center center;
+  min-height: 200px;
+}
+#berwery-img-6 {
+  background: url('/media/home/ploerr-brauen3.webp') no-repeat center center;
 }
 
 /* -------------------------------- Media Queries */
 /* changing the picture for ingredients for screen with 767px width or lower */
 @media (max-width: 767px) {
   #ingredients-img-1 {
-    background: url('/media/ingredients.jpg') no-repeat center 20%;
+    background: url('/media/home/ingredients.webp') no-repeat center 20%;
+  }
+  #berwery-img-1 {
+    background: url('/media/home/zeche-werne-3.jpg') no-repeat center center;
   }
   #berwery-img-3 {
-    background: url('/media/zeche-werne-2.jpg') no-repeat center center;
+    background: url('/media/home/ploerr-brauen4.webp') no-repeat center center;
   }
 }
