@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    Our <span class="logo-font display-3">Plörrbräu</span> Products
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col">
+                {{ products }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
