@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    {{ product.friendly_name }}
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid h-100">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-container my-5">
+                    {% if product.image %}
+                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.friendly_name }}">
+                    {% else %}
+                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="product-details-container mb-5 mt-md-5">
+                    <p class="mt-3 mb-2 h6">{{ product.description }}</p>
+                    {% if product.ingredients %}
+                    <p class="mb-1"><strong>Ingredients:</strong> {{ product.ingredients }}</p>
+                    {% endif %}
+                    {% if product.character %}
+                    <p class="mb-1"><strong>Character:</strong> {{ product.character }}</p>
+                    {% endif %}
+                    {% if product.harmonize_with %}
+                    <p class="mb-1"><strong>Goes well with:</strong> {{ product.harmonize_with }}</p>
+                    {% endif %}
+                    {% if product.brewing_type %}
+                    <p class="mb-1"><strong>Type of brewing:</strong> {{ product.brewing_type }}</p>
+                    {% endif %}
+                    {% if product.bitter %}
+                    <p class="mb-1"><strong>Bitter units:</strong> {{ product.bitter }}</p>
+                    {% endif %}
+                    {% if product.original_wort %}
+                    <p class="mb-1"><strong>Original wort:</strong> {{ product.original_wort }}%</p>
+                    {% endif %}
+                    {% if product.alcohol_content %}
+                    <p class="mb-1"><strong>Alcohol content:</strong> {{ product.alcohol_content }}% vol.</p>
+                    {% endif %}
+                    {% if product.energy_100ml %}
+                    <p class="mb-1"><strong>Energy per 100 ml: </strong>{{ product.energy_100ml }}</p>
+                    {% endif %}
+                    <p class="mb-1"><strong>Drinking temperature:</strong> {{ product.temperature }}°C</p>
+                    <p class="mb-1">{{ product.total_volumen }} liter
+                        {% if product.total_volumen > product.volumen %}
+                             - <small>{{ product.volumen }} liter a can</small>
+                        {% endif %}
+                    </p>
+                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                    {% if product.rating %}
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    {% else %}
+                        <small class="text-muted">No Rating</small>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
