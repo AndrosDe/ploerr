@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    Your Shopping Bag
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-md-center mb-5">
+        {% if bag_items %}
+            <div class="col">           
+                <div class="table-responsive rounded"></div>
+            </div>
+        {% else %}
+            <div class="col text-center">
+                <p class="lead mb-5 ">Your bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn rounded-0 btn-lg text-light">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
