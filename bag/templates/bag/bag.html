@@ -14,15 +14,66 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row justify-content-md-center mb-5">
+    <div class="row mb-5">
         {% if bag_items %}
-            <div class="col">           
-                <div class="table-responsive rounded"></div>
-            </div>
+        <div class="table-responsive rounded">
+            <table class="table table-sm table-borderless text-light">
+                <thead class="text-light">
+                    <tr>
+                        <th scope="col">Product Info</th>
+                        <th scope="col"></th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+
+                {% for item in bag_items %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.product.friendly_name}}</strong></p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">{{ item.product.price }} EUR</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0">{{ item.quantity }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">{{ item.product.price }} EUR</p>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="5" class="pt-5 text-right">
+                        <h6><strong>Bag Total: {{ total|floatformat:2 }} EUR</strong></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-right">
+                        <a href="{% url 'products' %}" class="btn rounded-0 btn-lg mt-5 text-light">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                        <a href="" class="btn rounded-4 text-uppercase mt-5 btn-light">
+                            <span class="text-uppercase">Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
         {% else %}
             <div class="col text-center">
                 <p class="lead mb-5 ">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn rounded-0 btn-lg text-light">
+                <a href="{% url 'products' %}" class="btn rounded-0 btn-lg mt-5 text-light">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
