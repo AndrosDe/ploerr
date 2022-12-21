@@ -25,7 +25,8 @@
     {% block corejs %}
         <script src="https://kit.fontawesome.com/5bf0c6b681.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     {% endblock %}
     {% block extra_js %}
     {% endblock %}
@@ -37,20 +38,20 @@
   <body class="bg-dark">
     <!-- Base-Header -->
     <header class="container-fluid fixed-top slightly-dark-bg">
-      <div class="row">
-        <div class="col-5 col-lg-4 my-0 pt-2"></div>
-        <div class="col-2 col-lg-4 my-0 pt-2 text-center">
+      <div class="row text-center">
+        <div class="col-lg-4 my-0 pt-2"></div>
+        <div class="col-lg-4 my-0 pt-2">
           <a href="{% url 'home' %}">
               <img id="logoimage" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" width="150" height="150" alt="ploerr logo">
           </a>
         </div>
-        <div class="col-5 col-lg-4 my-0 pt-2">
+        <div class="col-lg-4 my-0 pt-2">
           <div id="topnav" class="row pt-lg-1 d-none d-lg-flex">
             <div class="col-12">
-              <ul class="list-inline list-unstyled text-center">
+              <ul class="list-inline list-unstyled">
                 <li class="list-inline-item dropdown">
-                  <a class="btn text-light nav-link" href="#" role="button" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="text-center text-light">
+                  <a class="text-light nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
                       <div><i class="fas fa-user fa-lg"></i></div>
                       <p class="my-0"><strong>My Account</strong></p>
                     </div>
@@ -71,7 +72,11 @@
                 <li class="list-inline-item">
                   <a class="{% if total %}text-info font-weight-bold{% endif %} nav-link" href="{% url 'view_bag' %}">
                     <div class="text-center text-light">
-                      <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                      <div><i class="fa-solid fa-cart-shopping"></i>
+                        {% if total %}
+                          <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span>
+                        {% endif %}
+                      </div>
                       <p class="my-0">
                         {% if total %}
                           {{ total|floatformat:2 }} EUR
@@ -89,9 +94,10 @@
       </div>
       <div class="row">
         <nav class="navbar navbar-expand-lg navbar-dark w-100 pt-0 pb-1">
-          <button class="navbar-toggler ms-3" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler mx-3" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          {% include 'includes/mobile_top_header.html' %}
           {% include 'includes/main_nav.html' %}
         </nav>
       </div>          
@@ -100,7 +106,19 @@
     <!-- Messages Display -->
     {% if messages %}
       <div class="message-container">
-
+        {% for message in messages %}
+          {% with message.level as level %}
+              {% if level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+              {% elif level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+              {% elif level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+              {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+              {% endif %}
+          {% endwith %}
+        {% endfor %}
       </div>
     {% endif %}
 
@@ -113,7 +131,7 @@
     {% endblock %}
 
     <!-- Base-Footer -->
-    <footer class="container-fluid align-bottom mt-5 pt-5">
+    <footer class="container-fluid mt-5 pt-5">
       <div class="row text-center text-shadow mb-2">
         <div class="col-12 text-light">
           <h5>Visit Us on Facebook</h5>
@@ -130,7 +148,11 @@
         </nav>
       </div> 
     </footer>
+    
     {% block postloadjs %}
+    <script type="text/javascript">
+      $('.toast').toast('show');
+    </script>
     {% endblock %}
   </body>
 </html>

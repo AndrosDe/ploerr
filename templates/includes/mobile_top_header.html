@@ -1,0 +1,38 @@
+<li class="list-inline-item dropdown">
+    <a class="text-light nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="text-center">
+            <div><i class="fas fa-user fa-lg"></i></div>
+            <p class="my-0">My Account</p>
+        </div>
+    </a>
+    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+                <a href="#" class="dropdown-item">Product Management</a>
+            {% endif %}
+            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        {% else %}
+            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+        {% endif %}
+    </div>
+</li>
+<li class="list-inline-item">
+    <a class="{% if total %} text-light font-weight-bold {% endif %} nav-link d-block d-lg-none me-3" href="{% url 'view_bag' %}">
+        <div class="text-center">
+            <div><i class="fa-solid fa-cart-shopping"></i>
+                {% if total %}
+                <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span>
+                {% endif %}
+            </div>
+            <p class="my-0">
+                {% if total %}
+                {{ total|floatformat:2 }} EUR
+                {% else %}
+                0.00 EUR
+                {% endif %}
+            </p>
+        </div>
+    </a>
+</li>

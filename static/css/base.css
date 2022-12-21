@@ -34,6 +34,23 @@ body {
     font-size: 30px;
 }
 
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -59,14 +76,14 @@ body {
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .header-container {
         padding-top: 18%;
     }
 
     #logoimage {
         height: 100%;
-        width: 75%;
+        width: 15%;
         min-width: 50px;
     }
 }

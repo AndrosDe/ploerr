@@ -10,15 +10,18 @@ class Product(models.Model):
     harmonize_with = models.CharField(max_length=254, null=True, blank=True)
     brewing_type = models.CharField(max_length=254, null=True, blank=True)
     bitter = models.CharField(max_length=254, null=True, blank=True)
-    original_wort = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    alcohol_content = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    original_wort = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
+    alcohol_content = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
     energy_100ml = models.CharField(max_length=254, null=True, blank=True)
     temperature = models.IntegerField(default=7)
     image = models.ImageField(null=True, blank=True)
     volumen = models.DecimalField(max_digits=6, decimal_places=2)
     total_volumen = models.DecimalField(max_digits=6, decimal_places=2)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.name
