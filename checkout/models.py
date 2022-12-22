@@ -9,21 +9,21 @@ from products.models import Product
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    frist_name = models.CharField(max_length=50, null=False, blank=False)
+    first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    ountry = models.CharField(max_length=40, null=False, blank=False)
+    country = models.CharField(max_length=40, null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    shipping_cost = models.DecimalField(max_digits=6, decimal_places=2,
-                                        null=False, default=0)
-    weight_total = models.DecimalField(max_digits=6, decimal_places=2,
-                                        null=False, default=0)
+    shipping_cost = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0)
+    weight_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2,
@@ -42,10 +42,10 @@ class Order(models.Model):
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        
+
         self.weight_total = self.lineitems.aggregate(
             Sum('lineitem_total_weight'))['lineitem_total_weight__sum'] or 0
-             
+
         if self.weight_total < 5:
             self.shipping_cost = 5
         elif self.weight_total < 10:
@@ -54,12 +54,12 @@ class Order(models.Model):
             self.shipping_cost = 16
         elif self.weight_total < 50:
             self.shipping_cost = 30
-        else: self.shipping_cost = 0
+        else:
+            self.shipping_cost = 0
 
         self.grand_total = self.order_total + self.shipping_cost
         self.save()
 
-    
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
@@ -80,18 +80,18 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total_price = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False,
-                                         editable=False)
-    lineitem_total_deposit = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False,
-                                         editable=False)
-    lineitem_total_weight = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False,
-                                         editable=False)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False,
-                                         editable=False)
+    lineitem_total_price = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
+    lineitem_total_deposit = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
+    lineitem_total_weight = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
@@ -105,4 +105,6 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.product.friendly_name} on order {self.order.order_number}'
+        return f'''
+        {self.product.friendly_name} on order {self.order.order_number}
+        '''
