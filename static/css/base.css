@@ -34,6 +34,11 @@ body {
     font-size: 30px;
 }
 
+.double-underline {
+    text-decoration-line: underline;
+    text-decoration-style: double;
+  }
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {

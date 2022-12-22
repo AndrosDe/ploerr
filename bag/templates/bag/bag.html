@@ -50,6 +50,7 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0">{{ item.product.price }} EUR</p>
+                            <p class="my-0"><small>+ {{ item.product.deposit }} EUR<br>can deposit</small></p>
                         </td>
                         <td class="py-3">
                             <form class="form update-form mb-1 pb-2" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -86,18 +87,54 @@
                         </td>
                         <td class="py-3 text-end">
                             <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} EUR</p>
+                            <p class="my-0"><small>+ {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR<br>can deposit</small></p>
                         </td>
                     </tr>
                 {% endfor %}
                 <tr>
-                    <td colspan="6" class="pt-5 text-end">
-                        <h6><strong>Bag Total: {{ total|floatformat:2 }} EUR</strong></h6>
-                        <h6><strong>Total Weight: {{ weight|floatformat:2 }} Kg</strong></h6>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="6" class="pt-5">
+                        <h6>
+                            <strong>
+                                Total Weight: 
+                                <span class="float-end">{{ weight|floatformat:2 }} Kg</span>
+                            </strong>
+                        </h6>
+                        <h6 class="pt-2">
+                            <strong>
+                                Bag: 
+                                <span class="float-end">{{ total|floatformat:2 }} EUR</span>
+                            </strong>
+                        </h6>
+                        <h6>
+                            <small>
+                                Deposit Total: 
+                                <span class="float-end">+ {{ total_deposit|floatformat:2 }} EUR</span>
+                            </small>
+                        </h6>
                         {% if shipping_cost == 0 %}
-                        <h6><small>Free Shipping</small></h6>
+                            <h6>
+                                <small>
+                                    Free Shipping
+                                </small>
+                            </h6>
                         {% else %}
-                        <h6><small>Shipping Cost: {{ shipping_cost|floatformat:2 }} EUR</small></h6>
+                            <h6>
+                                <small>
+                                    Shipping Cost: 
+                                    <span class="float-end">+ {{ shipping_cost|floatformat:2 }} EUR</span>
+                                </small>
+                            </h6>
                         {% endif %}
+                        <h6 class="pt-2">
+                            <strong>
+                                Grand Total: 
+                                <span class="float-end double-underline">{{ grand_total|floatformat:2 }} EUR</span>
+                            </strong>
+                        </h6>
                     </td>
                 </tr>
                 <tr>

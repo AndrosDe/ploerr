@@ -13,7 +13,9 @@
             </div>
         </div>
         {% if total %}
-            <p class="text-black py-1">Your Bag <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span></p>
+            <a class="nav-link" href="{% url 'view_bag' %}">
+                <p class="text-black py-1"><strong>Your Bag</strong> <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span></p>
+            </a>
             <div class="bag-notification-wrapper">
                 {% for item in bag_items %}
                     <div class="row">
@@ -31,21 +33,33 @@
                 <div class="col">
                     <p class="mt-3 mb-1 text-black">
                         <strong>
-                            Bag Total: 
+                            Bag:
                             <span class="float-end">{{ total|floatformat:2 }} EUR</span>
                         </strong>
                     </p>
-                    {% if shipping_cost == 0 %}
-                    <p><small>Free Shipping</small></p>
-                    {% else %}
-                    <p>
+                    <p class="mb-1">
                         <small>
-                            Shipping Cost: 
-                            <span class="float-end">{{ shipping_cost|floatformat:2 }} EUR</span>
+                            Deposit Total:
+                            <span class="float-end">+ {{ total_deposit|floatformat:2 }} EUR</span>
                         </small>
                     </p>
+                    {% if shipping_cost == 0 %}
+                        <p><small>Free Shipping</small></p>
+                    {% else %}
+                        <p>
+                            <small>
+                                Shipping Cost:
+                                <span class="float-end">+ {{ shipping_cost|floatformat:2 }} EUR</span>
+                            </small>
+                        </p>
                     {% endif %}
-                    <a href="{% url 'view_bag' %}" class="btn btn-dark btn-block rounded-0">
+                    <p>
+                        <strong>
+                            Grand Total:
+                            <span class="float-end double-underline">{{ grand_total|floatformat:2 }} EUR</span>
+                        </strong>
+                    </p>
+                    <a href="{% url 'view_bag' %}" class="btn btn-dark btn-block rounded-4">
                         <span class="text-uppercase">Go To Secure Checkout</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>

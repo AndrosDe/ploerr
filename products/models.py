@@ -20,6 +20,8 @@ class Product(models.Model):
     volumen = models.DecimalField(max_digits=6, decimal_places=2)
     total_volumen = models.DecimalField(max_digits=6, decimal_places=2)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    deposit = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
 
