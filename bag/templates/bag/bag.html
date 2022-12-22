@@ -139,13 +139,13 @@
                 </tr>
                 <tr>
                     <td colspan="6" class="text-end">
-                        <a href="{% url 'products' %}" class="btn rounded-0 btn-lg mt-5 text-light">
+                        <a href="{% url 'products' %}" class="btn btn-outline-light border-0 rounded-4 mt-5" >
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
-                        <a href="" class="btn rounded-4 text-uppercase mt-5 btn-light">
+                        <a href="{% url 'checkout' %}" class="btn rounded-4 text-uppercase mt-5 btn-light">
                             <span class="text-uppercase">Secure Checkout</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
@@ -158,7 +158,7 @@
         {% else %}
             <div class="col text-center">
                 <p class="lead mb-5 ">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn rounded-0 btn-lg mt-5 text-light">
+                <a href="{% url 'products' %}" class="btn btn-outline-light border-0 rounded-4 mt-5">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
