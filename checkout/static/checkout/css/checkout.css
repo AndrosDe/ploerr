@@ -1,0 +1,48 @@
+/* -- Stripe -- */
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 0px solid;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 white;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: white !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #757373;
+}
+
+/* -- Form -- */
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+.loading-spinner {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}

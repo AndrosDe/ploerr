@@ -21,7 +21,7 @@
 
 {% block content %}
     <div class="row mx-3">
-        <div class="col-12 col-lg-5 order-lg-last mb-5">
+        <div class="col-12 col-lg-5 px-xs-2 px-sm-5 px-lg-3 px-xl-5  order-lg-last mb-5">
             <h5 class="text-light">Order Summary <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span></h5>
             <div class="row">
                 <div class="col-7 offset-2">
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-7 px-xs-2 px-sm-5 px-lg-5">
             <h5 class="text-light">Please fill out the form below to complete your order</h5>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
@@ -130,4 +130,11 @@
             </form>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
