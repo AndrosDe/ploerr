@@ -9,8 +9,7 @@ from products.models import Product
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    first_name = models.CharField(max_length=50, null=False, blank=False)
-    last_name = models.CharField(max_length=50, null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = models.CharField(max_length=40, null=False, blank=False)
@@ -26,8 +25,13 @@ class Order(models.Model):
         max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
+    deposit_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                        null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False,
+                                  default='')
 
     def _generate_order_number(self):
         """
@@ -43,21 +47,24 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
+        self.deposit_total = self.lineitems.aggregate(
+            Sum('lineitem_total_deposit'))['lineitem_total_deposit__sum'] or 0
+
         self.weight_total = self.lineitems.aggregate(
             Sum('lineitem_total_weight'))['lineitem_total_weight__sum'] or 0
 
-        if self.weight_total < 5:
+        if self.weight_total >= 5:
             self.shipping_cost = 5
-        elif self.weight_total < 10:
+        elif self.weight_total >= 10:
             self.shipping_cost = 9
-        elif self.weight_total < 31:
+        elif self.weight_total >= 31:
             self.shipping_cost = 16
-        elif self.weight_total < 50:
+        elif self.weight_total >= 50:
             self.shipping_cost = 30
         else:
             self.shipping_cost = 0
 
-        self.grand_total = self.order_total + self.shipping_cost
+        self.grand_total = self.order_total + self.deposit_total + self.shipping_cost
         self.save()
 
     def save(self, *args, **kwargs):

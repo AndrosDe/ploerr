@@ -56,13 +56,17 @@
                 <div class="col-6 offset-2">
                     <p class="my-0">Order Total:</p>
                     <p class="my-0"><small>Deposit:</small></p>
-                    <p class="my-0"><small>Shipping:</small></p>
+                    <p class="my-0 {% if order.shipping_cost == 0 %}invisible{% endif %}"><small>Shipping:</small></p>
                     <p class="my-0"><strong>Grand Total:</strong></p>
                 </div>
                 <div class="col-4">
                     <p class="my-0">{{ total | floatformat:2 }} EUR</p>
                     <p class="my-0"><small>+ {{ total_deposit | floatformat:2 }} EUR</small></p>
-                    <p class="my-0"><small>+ {{ shipping_cost | floatformat:2 }} EUR</small></p>
+                    {% if shipping_cost == 0 %}
+                        <p class="my-0 text-end"><small>Free Shipping</small></p>
+                    {% else %}
+                        <p class="my-0"><small>+ {{ shipping_cost | floatformat:2 }} EUR</small></p>
+                    {% endif %}
                     <p class="my-0 double-underline"><strong>{{ grand_total | floatformat:2 }} EUR</strong></p>
                 </div>
             </div>
@@ -73,8 +77,7 @@
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-light px-2 w-auto"><h6>Details</h6></legend>
-                    {{ order_form.first_name | as_crispy_field }}
-                    {{ order_form.last_name | as_crispy_field }}
+                    {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
                 <fieldset class="rounded px-3 mb-5">
@@ -105,7 +108,7 @@
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
-
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <div class="submit-button text-end mt-5 mb-2">                    
                     <a href="{% url 'view_bag' %}" class="btn btn-outline-light border-0">
@@ -124,11 +127,18 @@
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>
-                        <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                        <span>Your card will be charged <strong> {{ grand_total|floatformat:2 }} EUR</strong></span>
                     </p>
                 </div>
             </form>
         </div>
+    </div>
+    <div id="loading-overlay">
+        <h1 class="text-light logo-font loading-spinner">
+            <span class="icon">
+                <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+            </span>
+        </h1>
     </div>
 {% endblock %}
 

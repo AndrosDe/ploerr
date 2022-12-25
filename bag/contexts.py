@@ -25,15 +25,15 @@ def bag_contents(request):
             'product': product,
         })
 
-    if weight == 0:
+    if weight < 5:
         shipping_cost = 0
-    elif weight < 5:
+    elif weight >= 5:
         shipping_cost = 5
-    elif weight < 10:
+    elif weight >= 10:
         shipping_cost = 9
-    elif weight < 31:
+    elif weight >= 31:
         shipping_cost = 16
-    elif weight < 50:
+    elif weight >= 50:
         shipping_cost = 30
 
     grand_total = total + shipping_cost + total_deposit
