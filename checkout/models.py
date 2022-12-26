@@ -54,17 +54,22 @@ class Order(models.Model):
             Sum('lineitem_total_weight'))['lineitem_total_weight__sum'] or 0
 
         if self.weight_total >= 5:
-            self.shipping_cost = 5
-        elif self.weight_total >= 10:
-            self.shipping_cost = 9
-        elif self.weight_total >= 31:
-            self.shipping_cost = 16
-        elif self.weight_total >= 50:
-            self.shipping_cost = 30
+            if self.weight_total >= 10:
+                if self.weight_total >= 31:
+                    if self.weight_total >= 50:
+                        self.shipping_cost = 30
+                    else:
+                        self.shipping_cost = 16
+                else:
+                    self.shipping_cost = 9
+            else:
+                self.shipping_cost = 5
         else:
             self.shipping_cost = 0
 
-        self.grand_total = self.order_total + self.deposit_total + self.shipping_cost
+        self.grand_total = (
+            self.order_total + self.deposit_total + self.shipping_cost
+            )
         self.save()
 
     def save(self, *args, **kwargs):
@@ -108,7 +113,9 @@ class OrderLineItem(models.Model):
         self.lineitem_total_price = self.product.price * self.quantity
         self.lineitem_total_deposit = self.product.deposit * self.quantity
         self.lineitem_total_weight = self.product.total_volumen * self.quantity
-        self.lineitem_total = self.lineitem_total_price + self.lineitem_total_deposit
+        self.lineitem_total = (
+            self.lineitem_total_price + self.lineitem_total_deposit
+            )
         super().save(*args, **kwargs)
 
     def __str__(self):

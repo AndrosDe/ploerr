@@ -44,7 +44,12 @@
                         </small>
                     </p>
                     {% if shipping_cost == 0 %}
-                        <p><small>Free Shipping</small></p>
+                        <p>
+                            <small>
+                                <span class="invisible">Shipping Cost:</span>
+                                <span class="float-end">Free Shipping</span>
+                            </small>
+                        </p>
                     {% else %}
                         <p>
                             <small>
