@@ -12,7 +12,8 @@
                 <h1 class="my-5 display-5 text-light text-center">
                     Thank You!
                 </h1>
-                <h5 class="text-light text-center">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</h5>
+                <h5 class="text-light text-center">Your order information is below. A confirmation email will be sent to:<br>
+                    <strong>{{ order.email }}</strong></h5>
             </div>
         </div>
     </div>
@@ -21,7 +22,7 @@
 {% block content %}
     <div class="row">
         <div class="col-1 col-lg-3"></div>
-        <div class="col-10 col-lg-7">
+        <div class="col-10 col-lg-6">
             <div class="order-confirmation-wrapper p-2 border">
                 <div class="row mb-1">
                     <div class="col">
