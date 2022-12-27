@@ -1,4 +1,6 @@
 '''imports'''
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import User
 from django import forms
 from .models import UserProfile
 
@@ -31,6 +33,36 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = (
+                'rounded-3, profile-form-input')
+            self.fields[field].label = False
+
+
+class EditUserSettingsForm(forms.ModelForm):
+    class Meta:
+        '''Setting up the Input Formfields'''
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'username': 'Username',
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'email': 'Email',
+        }
+
+        for field in self.fields:
+            if self.fields[field].required:
+                placeholder = f'{placeholders[field]} *'
+            else:
+                placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = (
                 'rounded-3, profile-form-input')
             self.fields[field].label = False

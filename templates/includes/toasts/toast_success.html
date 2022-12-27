@@ -12,7 +12,7 @@
                 <hr class="mt-1 mb-3">
             </div>
         </div>
-        {% if total %}
+        {% if total and not on_profile_page %}
             <a class="nav-link" href="{% url 'view_bag' %}">
                 <p class="text-black py-1"><strong>Your Bag</strong> <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span></p>
             </a>

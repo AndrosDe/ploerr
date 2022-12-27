@@ -1,14 +1,27 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm, EditUserSettingsForm
 
 
+@login_required
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
 
-    form = UserProfileForm(request.POST, instance=profile)
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(request,
+                           ('Update failed. Please ensure '
+                            'the form is valid.'))
+    else:
+        form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
@@ -16,6 +29,34 @@ def profile(request):
         'profile': profile,
         'form': form,
         'orders': orders,
+        'on_profile_page': True
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_user_settings(request):
+    ''' Updating the Settings '''
+
+    if request.method == 'POST':
+        form = EditUserSettingsForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'User Information successfully updated')
+            return redirect('profile')
+        else:
+            messages.error(request,
+                           ('Update failed. Please ensure '
+                            'the form is valid.'))
+    else:
+        form = EditUserSettingsForm(instance=request.user)
+
+    template = 'profiles/profile_settings_edit.html'
+    context = {
+        'form': form,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
