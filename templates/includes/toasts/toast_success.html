@@ -64,12 +64,18 @@
                             <span class="float-end double-underline">{{ grand_total|floatformat:2 }} EUR</span>
                         </strong>
                     </p>
-                    <a href="{% url 'checkout' %}" class="btn btn-dark btn-block rounded-4">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                        <span class="icon">
+                    <a href="{% url 'checkout' %}" class="btn btn-dark btn-block rounded-3">
+                        <span>Go To Secure Checkout</span>
+                        <span>
                             <i class="fas fa-lock"></i>
                         </span>
                     </a>
+                    <button type="button" class="btn btn-outline-dark mx-1 rounded-3 float-end" data-dismiss="toast" aria-label="Close">
+                        <span>Close</span>
+                        <span>
+                            <i class="fa-solid fa-xmark"></i>
+                        </span>
+                    </button>
                 </div>
             </div>
         {% endif %}
