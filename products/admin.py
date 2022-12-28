@@ -10,7 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
         'price',
         'rating'
     )
-    ordering = ('total_volumen', 'name')
+    ordering = ('total_volumen',)
 
 
 admin.site.register(Product, ProductAdmin)

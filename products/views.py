@@ -10,7 +10,7 @@ from .forms import ProductForm
 def all_products(request):
     """ A view to show all products """
 
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('total_volumen')
 
     context = {
         'products': products,
