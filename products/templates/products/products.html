@@ -42,6 +42,12 @@
                                     {% else %}
                                         <small class="text-muted">No Rating</small>
                                     {% endif %}
+                                    {% if request.user.is_staff %}
+                                        <strong class="ml-3 ms-2">
+                                            <a class="text-warning" href="">Edit</a> | 
+                                            <a class="text-danger" href="">Delete</a>
+                                        </strong>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
