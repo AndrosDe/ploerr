@@ -197,6 +197,7 @@ The CRUD is depicted in the feature with the following color code:
 ## Bugs, Issues, and Solutions
 | # | Bugs, Errors, and Issues | Solutions |
 | :--- | :--- | :--- |
+| 1 | Purchase confirmation Email not sent | Removed the new updates to deal with the changes in Stripe in November 2022 to the webhook_handler.py code and whent with the old code |
 
 <br>
 <hr>
