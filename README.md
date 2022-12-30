@@ -198,6 +198,7 @@ The CRUD is depicted in the feature with the following color code:
 | # | Bugs, Errors, and Issues | Solutions |
 | :--- | :--- | :--- |
 | 1 | Purchase confirmation Email not sent | Removed the new updates to deal with the changes in Stripe in November 2022 to the webhook_handler.py code and whent with the old code |
+| 2 | Heroku deployment failed - backports.zoneinfo could not be build | Removed backports.zoneinfo==0.2.1 from requirments.txt
 
 <br>
 <hr>
