@@ -1,0 +1,12 @@
+{% load bag_tools %}
+
+<p class="my-0"><strong>{{ item.product.friendly_name}}</strong></p>
+<p class="my-0">{{ item.product.total_volumen | calc_subweight:item.quantity }} liter
+    {% if calc_subweight != item.product.total_volumen and item.quantity != 1 or item.product.total_volumen > item.product.volumen %}
+        {% if item.product.volumen < 10 %}
+        <p class="my-0"><small>{{ item.product.volumen }} liter a can</small></p>
+        {% else %}
+        <p class="my-0"><small>{{ item.product.volumen }} liter a keg</small></p>
+        {% endif %}
+    {% endif %}
+</p>

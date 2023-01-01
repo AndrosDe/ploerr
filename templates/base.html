@@ -40,19 +40,19 @@
   <body class="bg-dark">
     <!-- Base-Header -->
     <header class="container-fluid fixed-top slightly-dark-bg">
-      <div class="row text-center">
+      <div class="row">
         <div class="col-lg-4 my-0 pt-2"></div>
-        <div class="col-lg-4 my-0 pt-2">
+        <div class="col-lg-4 my-0 pt-2 text-center">
           <a href="{% url 'home' %}">
               <img id="logoimage" src="https://ploerr.s3.eu-central-1.amazonaws.com/media/main/ploerr-logo.png" width="150" height="150" alt="ploerr logo">
           </a>
         </div>
-        <div class="col-lg-4 my-0 pt-2">
+        <div class="col-lg-4 my-0 pt-2 text-center">
           <div id="topnav" class="row pt-lg-1 d-none d-lg-flex">
             <div class="col-12">
               <ul class="list-inline list-unstyled">
                 <li class="list-inline-item dropdown">
-                  <a class="text-light nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="text-light nav-link main-nav-btn" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                       <div><i class="fas fa-user fa-lg"></i></div>
                       <p class="my-0"><strong>My Account</strong></p>
@@ -73,7 +73,7 @@
                   </div>
                 </li>
                 <li class="list-inline-item">
-                  <a class="{% if total %}text-info font-weight-bold{% endif %} nav-link" href="{% url 'view_bag' %}">
+                  <a class="{% if total %}text-info font-weight-bold{% endif %} nav-link main-nav-btn" href="{% url 'view_bag' %}">
                     <div class="text-center text-light">
                       <div><i class="fa-solid fa-cart-shopping"></i>
                         {% if total %}
@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row pe-lg-3">
         <nav class="navbar navbar-expand-lg navbar-dark w-100 pt-0 pb-1">
           <button class="navbar-toggler mx-3" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -145,7 +145,7 @@
           </a>
         </div>
       </div>
-      <div class="row slightly-dark-bg">
+      <div class="row slightly-less-dark-bg">
         <nav class="navbar navbar-expand-lg navbar-light w-100 pt-1">
           {% include 'includes/food_nav.html' %}
         </nav>

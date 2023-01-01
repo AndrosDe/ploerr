@@ -1,0 +1,39 @@
+<h6>
+    <strong>
+        Total Weight: 
+        <span class="float-end">{{ weight|floatformat:2 }} Kg</span>
+    </strong>
+</h6>
+<h6 class="pt-2">
+    <strong>
+        Bag: 
+        <span class="float-end">{{ total|floatformat:2 }} EUR</span>
+    </strong>
+</h6>
+<h6>
+    <small>
+        Deposit Total: 
+        <span class="float-end">+ {{ total_deposit|floatformat:2 }} EUR</span>
+    </small>
+</h6>
+{% if shipping_cost == 0 %}
+    <h6>
+        <small>
+            <span class="invisible">Shipping Cost:</span>
+            <span class="float-end">Free Shipping</span>
+        </small>
+    </h6>
+{% else %}
+    <h6>
+        <small>
+            Shipping Cost: 
+            <span class="float-end">+ {{ shipping_cost|floatformat:2 }} EUR</span>
+        </small>
+    </h6>
+{% endif %}
+<h6 class="pt-2">
+    <strong>
+        Grand Total: 
+        <span class="float-end double-underline">{{ grand_total|floatformat:2 }} EUR</span>
+    </strong>
+</h6>

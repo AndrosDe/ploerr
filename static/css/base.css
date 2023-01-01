@@ -9,7 +9,11 @@ body {
 }
 
 .slightly-dark-bg {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.slightly-less-dark-bg {
+    background-color: rgba(0, 0, 0, 0.45);
 }
 
 .radial-gradient-dark-bg {
@@ -38,6 +42,35 @@ body {
     text-decoration-line: underline;
     text-decoration-style: double;
   }
+
+.main-nav-link:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+
+.main-nav-btn {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.014);
+
+}
+
+.main-nav-btn:hover {
+    border-bottom: solid white;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+  /* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
 
 /* ------------------------------- bootstrap toasts */
 
@@ -132,6 +165,19 @@ body {
         top: 220px;
         right: 15px;
         z-index: 99999999999;
+    }
+
+    .btn.btn-light.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-light.rounded-4, .btn.btn-outline-light.rounded-4 {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
     }
 }
 

@@ -519,6 +519,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ## Acknowledgements
 * Big Thank you to [Chris Z.](https://github.com/ckz8780), as the "Boutique Ado"-Project helped me with a lot of the code for this project.<br>
 I specially liked the approachto the base.html, as it provides a lot of option for all other templates with the extra code blocks right from the start.
+* [eRcht24](https://www.e-recht24.de) for the free (german) templates of the Imprint and GTC
 * Special mention and thanks to my mentor, Dario Carrasquel, for his support and insights
 
 <hr>

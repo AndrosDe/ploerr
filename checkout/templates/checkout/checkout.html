@@ -24,10 +24,10 @@
         <div class="col-12 col-lg-5 px-xs-2 px-sm-5 px-lg-3 px-xl-5 order-lg-last mb-5">
             <h5 class="text-light">Order Summary <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span></h5>
             <div class="row">
-                <div class="col-7 offset-2">
+                <div class="col-6 offset-2">
                     <p class="mb-1 mt-0 small text-light">Item</p>
                 </div>
-                <div class="col-3 text-end">
+                <div class="col-4 text-end">
                     <p class="mb-1 mt-0 small text-light">Subtotal</p>
                 </div>
             </div>
@@ -42,24 +42,24 @@
                             {% endif %}
                         </a>
                     </div>
-                    <div class="col-7">
+                    <div class="col-6">
                         <p class="my-0"><strong>{{ item.product.friendly_name }}</strong></p>
                         <p class="my-0 small text-light">Qty: {{ item.quantity }}</p>
                     </div>
-                    <div class="col-3 text-end">
+                    <div class="col-4 text-end">
                         <p class="my-0 small text-light">{{ item.product.price | calc_subtotal:item.quantity }} EUR</p>
                     </div>
                 </div>
             {% endfor %}
             <hr class="my-0">
             <div class="row text-light text-end">
-                <div class="col-6 offset-2">
+                <div class="col-6 offset-1">
                     <p class="my-0">Order Total:</p>
                     <p class="my-0"><small>Deposit:</small></p>
                     <p class="my-0 {% if order.shipping_cost == 0 %}invisible{% endif %}"><small>Shipping:</small></p>
                     <p class="my-0"><strong>Grand Total:</strong></p>
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <p class="my-0">{{ total | floatformat:2 }} EUR</p>
                     <p class="my-0"><small>+ {{ total_deposit | floatformat:2 }} EUR</small></p>
                     {% if shipping_cost == 0 %}

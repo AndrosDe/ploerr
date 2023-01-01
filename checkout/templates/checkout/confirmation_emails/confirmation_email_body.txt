@@ -8,10 +8,8 @@ Total Weight: {{ order.weight_total }} Kg
 
 Order Total:       {{ order.order_total }} EUR
 Deposit Total: +   {{ order.deposit_total }} EUR
-{% if order.shiping_cost == 0 %}
-                   Free Shipping
-{% else %}
-Delivery:       +  {{ order.shiping_cost }} EUR
+{% if order.shipping_cost == 0 %}                   Free Shipping
+{% else %}Delivery:       +  {{ order.shipping_cost }} EUR
 {% endif %}
 Grand Total:       {{ order.grand_total }} EUR
 
