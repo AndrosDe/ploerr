@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    {{ block.super }}
+    <meta name="description" content="Mit Plörrbräu ist der Tag...">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
@@ -24,7 +29,7 @@
         <div class="row h-100">
             <div class="col">
                 <video autoplay muted loop id="index-bg-video">
-                    <source src="https://ploerr.s3.eu-central-1.amazonaws.com/media/home/main-bg.webm" type="video/webm">
+                    <source src="https://ploerr.s3.eu-central-1.amazonaws.com/media/home/main-bg.webm" type="video/webm" aria-label="Index Page Background Viedo">
                 </video>
             </div>
         </div>
@@ -39,11 +44,49 @@
                 </h3>
                 <div class="my-3 text-center">
                     <h4>
-                        <a href="{% url 'products' %}" class="slightly-less-dark-bg btn btn-lg rounded-4 text-uppercase py-1 text-light">Try it now</a>
+                        <a href="{% url 'products' %}" class="slightly-less-dark-bg btn btn-lg rounded-4 text-uppercase py-1 text-light" aria-label="Promotion Link - Goes to the Product Page">Try it now</a>
                     </h4>
                 </div>
             </div>
         </div>
         <div class="row my-xxl-5"></div>
     </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="container-fluid fixed-bottom d-none d-sm-block">
+        <div class="row text-center text-shadow mb-2">
+            <div class="col-12 text-light">
+                <h5>Visit Us on Facebook</h5>
+            </div>
+            <div class="col-12 text-light">
+                <a class="font-weight-bold nav-link mr-5" href="#" id="Facebook-link" aria-label="Facebook - Buissness Site Link">
+                <i class="fa-brands fa-square-facebook"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row slightly-less-dark-bg">
+            <nav class="navbar navbar-expand-lg navbar-light w-100 pt-1">
+                {% include 'includes/food_nav.html' %}
+            </nav>
+        </div> 
+    </footer>
+
+    <footer class="container-fluid mt-5 pt-5 d-block d-sm-none">
+        <div class="row text-center text-shadow mb-2">
+            <div class="col-12 text-light">
+                <h5>Visit Us on Facebook</h5>
+            </div>
+            <div class="col-12 text-light">
+                <a class="font-weight-bold nav-link mr-5" href="#" id="Facebook-link" aria-label="Facebook - Buissness Site Link">
+                <i class="fa-brands fa-square-facebook"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row slightly-less-dark-bg">
+            <nav class="navbar navbar-expand-lg navbar-light w-100 pt-1">
+                {% include 'includes/food_nav.html' %}
+            </nav>
+        </div> 
+    </footer>
 {% endblock %}

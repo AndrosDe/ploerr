@@ -13,7 +13,7 @@
             </div>
         </div>
         {% if total and not on_profile_page %}
-            <a class="nav-link" href="{% url 'view_bag' %}">
+            <a class="nav-link" href="{% url 'view_bag' %}" aria-label="Go to shopping Card">
                 <p class="text-black py-1"><strong>Your Bag</strong> <span class="badge bg-warning rounded-pill text-dark">{{ product_count }}</span></p>
             </a>
             <div class="bag-notification-wrapper">
@@ -21,9 +21,9 @@
                     <div class="row">
                         <div class="col-3 my-1">
                         {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.friendly_name }}">
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name }}">
                         {% else %}
-                            <img class="w-100" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}">
+                            <img class="w-100" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ item.product.friendly_name }}">
                         {% endif %}
                         </div>
                         <div class="col-9">
@@ -68,7 +68,7 @@
                             <span class="float-end double-underline">{{ grand_total|floatformat:2 }} EUR</span>
                         </strong>
                     </p>
-                    <a href="{% url 'checkout' %}" class="btn btn-dark btn-block rounded-3">
+                    <a href="{% url 'checkout' %}" class="btn btn-dark btn-block rounded-3" aria-label="Go to Checkout Page">
                         <span>Go To Secure Checkout</span>
                         <span>
                             <i class="fas fa-lock"></i>

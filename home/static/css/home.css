@@ -51,25 +51,25 @@
   height: auto;
 }
 
-#berwery-img-1 {
+#brewery-img-1 {
   background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/schloss-ploerr.webp') no-repeat center center;
   min-height: 250px;
 }
-#berwery-img-2 {
+#brewery-img-2 {
   background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/zeche-werne-1.webp') no-repeat center center;
 }
-#berwery-img-3 {
-  background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ploerr-brauen.webp') no-repeat center center;
+#brewery-img-3 {
+  background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ploerr-brauen.webp') no-repeat center 27%;
   min-height: 250px;
 }
-#berwery-img-4 {
+#brewery-img-4 {
   background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ploerr-brauen4.webp') no-repeat center center;
 }
-#berwery-img-5 {
+#brewery-img-5 {
   background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ploerr-brauen2.webp') no-repeat center center;
   min-height: 200px;
 }
-#berwery-img-6 {
+#brewery-img-6 {
   background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ploerr-brauen3.webp') no-repeat center center;
 }
 
@@ -79,10 +79,10 @@
   #ingredients-img-1 {
     background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ingredients.webp') no-repeat center 20%;
   }
-  #berwery-img-1 {
+  #brewery-img-1 {
     background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/zeche-werne-3.jpg') no-repeat center center;
   }
-  #berwery-img-3 {
+  #brewery-img-3 {
     background: url('https://ploerr.s3.eu-central-1.amazonaws.com/media/home/ploerr-brauen4.webp') no-repeat center center;
   }
 }

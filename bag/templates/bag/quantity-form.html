@@ -4,18 +4,18 @@
         <div class="input-group input-group-{{ item.item_id }}">
             <div class="input-group-prepend">
                 <button class="decrement-qty btn btn-sm btn-light rounded-0 decrement-qty_{{ item.item_id }}" 
-                    data-item_id="{{ item.item_id }}">
+                    data-item_id="{{ item.item_id }}" aria-label="decrease quantity">
                     <span class="icon">
                         <i class="fas fa-minus"></i>
                     </span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }}"
+            <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} text-center"
                 type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" 
-                data-item_id="{{ item.item_id }}">
+                data-item_id="{{ item.item_id }}" aria-label="set quantity">
             <div class="input-group-append">
                 <button class="increment-qty btn btn-sm btn-light rounded-0 increment-qty_{{ item.item_id }}" 
-                    data-item_id="{{ item.item_id }}">
+                    data-item_id="{{ item.item_id }}" aria-label="increase quantity">
                     <span class="icon">
                         <i class="fas fa-plus"></i>
                     </span>

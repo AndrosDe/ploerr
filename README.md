@@ -2,13 +2,13 @@
 <h2 class="logo-font"> Welcome </h2>
 
 <h4>
-    This is the buissness website for the company Plörr GmbH, were the company will more than showcase their products with great detail.
-    It will provide extensive information on the buisness, ingridance and the berwery.
+    This is the business website for the company Plörr GmbH, where the company will more than showcase its products with great detail.
+    It will provide extensive information on the business, ingredients, and brewery.
     <br><br>
-    Additionally a great online shop is availbe to pruchase the featured products, which can also be used without registaring and has a quick checkout option.<br>
-    For regular customers regestaring would be benifcial, as the would additonally to the order confirmation email, also be able to revisit all succefully completed order summarys on their personal profile page this website.
+    Additionally, a great online shop is available to purchase the featured products, which can also be used without registering and has a quick checkout option.<br>
+    Regular customers registering would be beneficial, as they would add to the order confirmation email, and also be able to revisit all completed order summaries on their profile page on this website.
     <br><br>
-    Plörrbräu wishes all of you the best and hopes that you will have great time on our website.
+    Plörrbräu wishes all of you the best and hopes that you will have a great time on our website.
 </h4>
 
 <h2 align="center"><img src="" height="500" width="900"></h2>
@@ -55,46 +55,46 @@
 
 ## Strategy
   - ### Project Goals
-    * The website should offer an overview of all avaible products
+    * The website should offer an overview of all available products
     * The website should offer detailed information on each product
-    * The website should offer detailed information on the buissnes
+    * The website should offer detailed information on the business
     * The side is responsive and can be displayed on mobile and desktop devices
     * Provide users the option to register and create an account
     * Provide users the option to buy any listed product on the page
     * Registered users will be able to save and update their delivery information
     * Registered users will be able to review old orders
     * Provide Administrator / User designated as "staff" access to a complete CRUD functionality over products
-    * To go along with the joke on beer commericals by Otto Waalkes and still persent it as a serious business page<br>
+    * To go along with the joke on beer commercials by Otto Waalkes and still present it as a serious business page<br>
     <small>("Plörr" a short version of "Plörre" means: "Dish Water", "Bräu" is german for "Brew")</small><br>
     <small>Plörrbräu <=> dish water brew</small>
     <br><br>
 
   - ### User Demographic
-    * Anyone who is the owner of their own credit card
-    * Bussnises in the catering trade
+    * Anyone who is the owner of their credit card
+    * Businesses in the catering trade
     * Customers interested in buying german beer and Plörrbräu
     <br><br>
 
 ## User Stories
   - ### Site User Goals - As a Site User I want to be able to
     * know how to get in contact with the brewery so that I can visit the brewery and purchase products right there to save shipping costs
-    * learn more about the brewery and ingredients so that I can have a better understanding of the product and quality
-    * easily register for an account so that I can have a personal account and be able to view my profile
-    * quickly login or logout so I can access my personal account information
-    * have a personalized user profile so that I can view my personal order history and order confirmations and save my payment information
+    * Learn more about the brewery and ingredients so that I can have a better understanding of the product and quality
+    * Easily register for an account so that I can have a personal account and be able to view my profile
+    * quickly log in or log out so I can access my account information
+    * have a personalized user profile so that I can view my order history and order confirmations and save my payment information
     * receive an email confirmation after registering so that I can verify that my account registration was successful
     * quickly recover my password so that I can recover access to my account
     <br><br>
-  - ### Customer Goals - As a Shopper I want to be able to:
+  - ### Customer Goals - As a Shopper, I want to be able to:
     * easily select the quantity of a product when purchasing it so that I can ensure that I don't accidentally select the wrong product or quantity
-    * adjust the quantity of individual products in my bag so that I can easily make changes to my purchases before checkout
+    * adjust the number of individual products in my bag so that I can easily make changes to my purchases before checkout
     * view items in my bag to be purchased so that I can identify the total cost of my purchase and all items I will receive
     * feel my personal and payment information is safe & secure so that I can confidently provide the needed information to make a purchase
-    * view an order confirmation after checkout so that I can verify that I have not made any mistakes
-    * quickly enter my payment information so that I can checkout quickly
+    * View an order confirmation after checkout so that I can verify that I have not made any mistakes
+    * quickly enter my payment information so that I can check out quickly
     * quickly identify deals and special offers so that I can take advantage of special savings on products I'd like to buy
     * easily view the total of my purchase at any time so that I can avoid spending too much
-    * view individual product details so that I can identify the price, description, ingredients, product rating, product image, and volume
+    * View individual product details so that I can identify the price, description, ingredients, product rating, product image, and volume
     * view a list of all products so that I can select some to purchase
     * receive an email confirmation after checking out so that I can keep the confirmation on what I've purchased for my records
     * search and sort the products so that I can quickly find the product I'm looking for
@@ -121,7 +121,7 @@
   | 3 | Add products to the shopping bag | 5 | 5 |
   | 4 | Select / update quantity of a products | 5 | 5 |
   | 5 | Remove a product from the shopping bag | 5 | 5 |
-  | 6 | Detailed information on the upcomming costs in the shopping bag | 5 | 5 |
+  | 6 | Detailed information on the upcoming costs of the shopping bag | 5 | 5 |
   | 7 | Annymos checkout possible | 4 | 5 |
   | 8 | Register, Login and Logout to Account | 5 | 5 |
   | 9 | Email confirmation are sent | 5 | 5 |
@@ -138,7 +138,7 @@
   | 23 | Going along with the joke | 3 | 2 |
 
   <br>
-  Based on the results of the Feature Ideas Planning, I have decided to attempt to implement most Features, except for 22 as for the current scope of products no such feature is needed. For Stores with more products "Searching and Sorting" would be nessecary.
+  Based on the results of the Feature Ideas Planning, I have decided to attempt to implement most Features, except for 22 as for the current scope of products no such feature is needed. For Stores with more products "Searching and Sorting" would be necessary.
   <br><br>
 
 - ### Functionality Requirements
@@ -146,10 +146,10 @@
   * Clean and themed presentation of the products details
   * Clean and themed presentation of the shopping bag
   * Clean and themed presentation of the checkout page
-  * Clean and themed presentation of company
+  * Clean and themed presentation of the company
   * Intuitive App navigation
   * Full CRUD functionality on products for store owners
-  * Use of Defensive Programming to ensure customers can review their shopping bag before chicking out
+  * Use of Defensive Programming to ensure customers can review their shopping bag before checking out
   * Robust error handling provides information
   <br><br>
 <hr>
@@ -200,7 +200,7 @@
       - <a href="#">Profile Page</a><br>
       - <a href="#">Profile Settings Page</a><br>
       - <a href="#">Products Page</a><br>
-      - <a href="#">Product Detais Page</a><br>
+      - <a href="#">Product Details Page</a><br>
       - <a href="#">Edit Product Page</a><br>
       - <a href="#">Add Product Page Page</a><br>
       - <a href="#">Bag Page</a><br>
@@ -211,15 +211,15 @@
 
   - ### Design
     [Bootstrap5  CSS](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used for styling and customized for the front-end development.
-    [Bootstrap4  JS](https://getbootstrap.com/docs/4.0/getting-started/introduction/) was used for java script as the toast worked better on Bootstrap4 and customized for the front-end development.
+    [Bootstrap4  JS](https://getbootstrap.com/docs/4.0/getting-started/introduction/) was used for java script as the toast worked better on Bootstrap4 and was customized for the front-end development.
 
     - #### Typography
       I used Google Fonts to import the fonts I used across the application.
 
     - #### Imagery & UI
-      I used a minimized home page approach and wanted the main focus of the index page to be on the backgound.<br>
-      Which is depicting a looped video of beer being handed out to customers, giving the impression that this must beer a highly requsted product.<br>
-      This required color scheme mostly of dark-background / light-text, which helps to highlight any colored content on the pages and the inverted color scheme of the messages.
+      I used a minimized home page approach and wanted the main focus of the index page to be in the background.<br>
+      Which is depicting a looped video of beer being handed out to customers, giving the impression that this must beer a highly requested product.<br>
+      This required color scheme mostly of dark-background / light text, which helps to highlight any colored content on the pages and the inverted color scheme of the messages.
       
     <br><br>
 <hr>
@@ -254,14 +254,14 @@ The CRUD is depicted in the feature with the following color code:
 
 
 ## Defensive Programming
-To keep the application secure and protected profile requires the user to be logged in.
-Any product creation, updating or deletion is feature restricted to the administrator.
-The payment is handeled by stripe and therefore makes sure that the payment process is secure.
-THe user is always informed on changes via messages.
+Keeping the application secure and a protected profile requires the user to be logged in.
+Any product creation, updating, or deletion is feature restricted to the administrator.
+The payment is handled by stripe and therefore makes sure that the payment process is secure.
+The user is always informed of changes via messages.
 
 ## Future Implementation
 * offer more payment options
-* update the model for products by splitting it in two connected model:
+* update the model for products by splitting it into two connected models:
   * one for product: Plörr, Plörr Lau
   * one for the container: Single Can, Sixpack, 4x Sixpack, 10l-keg, 25l-keg, 50l-keg
 * rating system for customers
@@ -283,13 +283,13 @@ THe user is always informed on changes via messages.
     * was used to enable users to upload images for their recipes whilst keeping the App safe and secure
   
 * [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
-    * create, configure, and manage AWS services, such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3).
+    * Create, configure, and manage AWS services, such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3).
 
 * [Django](https://www.djangoproject.com/)
     * Django was used to create the models for the database, forms to post data into the database, the templates, and the view connecting them all.
 
 * [Postgres](https://www.postgresql.org/)
-    * Postgres was the relational database used to store user registration, login, and authentication. Postgres was also used to store the products and orders.
+    * Postgres was the relational database used to store user registration, login, and authentication. Postgres was also used to store products and orders.
 
 * [pip](https://pip.pypa.io/en/stable/)
     * Pip is the package installer for Python, allowing us to install the packages we need for this site.
@@ -298,7 +298,7 @@ THe user is always informed on changes via messages.
     * Dnspython is a DNS toolkit for python.
 
 * [Bootstrap 5 - CSS](https://getbootstrap.com/)
-    * Bootstrap is one of the most popular front-end open source toolkits and was used for ease of styling the pages.
+    * Bootstrap is one of the most popular front-end open-source toolkits and was used for ease of styling the pages.
 
 * [Bootstrap 4 - JS](https://getbootstrap.com/)
     * Sadly the Bootstrap 5 JS-source toolkit is not as good as the  Bootstrap 4 counterpart when it came down to toasts.
@@ -343,8 +343,8 @@ THe user is always informed on changes via messages.
 ## Bugs, Issues, and Solutions
 | # | Bugs, Errors, and Issues | Solutions |
 | :--- | :--- | :--- |
-| 1 | Purchase confirmation Email not sent | Removed the new updates to deal with the changes in Stripe in November 2022 to the webhook_handler.py code and whent with the old code - My Stripe-API-keys were created in october 2022, which might be the reason why only the old code is accepted |
-| 2 | Heroku deployment failed - backports.zoneinfo could not be build | Removed backports.zoneinfo==0.2.1 from requirments.txt |
+| 1 | Purchase confirmation Email not sent | Removed the new updates to deal with the changes in Stripe in November 2022 to the webhook_handler.py code and went with the old code - My Stripe-API-keys were created in October 2022, which might be the reason why only the old code is accepted |
+| 2 | Heroku deployment failed - backports.zoneinfo could not be built | Removed backports.zoneinfo==0.2.1 from requirments.txt |
 | 3 | Toasts not working with Bootstrap 5 | Used Bootstrap 4 for the JS-toolkit and it worked perfectly
 
 <br>
@@ -392,7 +392,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
   1. Leave this tab open for later. 
 ### 3. Project preparation in Gitpod:
   1. Open up your Gitpod tab
-  1. In order to connect to an external database, install **dj_database_url** and **psycopg2** via the **terminal**.
+  1. To connect to an external database, install **dj_database_url** and **psycopg2** via the **terminal**.
   ```
     $  pip3 install dj_database_url==0.5.0 psycopg2
   ```
@@ -486,19 +486,19 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ## Credits
 ### Code
   * This project was heavily influenced by the "Boutique Ado"-Project from Code Institute / [Chris Z.](https://github.com/ckz8780).<br>
-  Especially the checkout app, stripe and java scripts, as they were very well made and exsactly what I was looking for impementing into my store part of the project.<br>
-  The biggest dirrence is, that I prever to use more bootstrap classes and less custom css.
+  Especially the checkout app, stripe, and java scripts, as they were very well made and exactly what I was looking for implementing into my store part of the project.<br>
+  The biggest difference is, that I prefer to use more bootstrap classes and less custom css.
   * CSS Font Border - [code:](https://stackoverflow.com/questions/2570972/css-font-border)
-  * You tube implementation - [w3schools](https://www.w3schools.com/html/html_youtube.asp)
+  * Youtube implementation - [w3schools](https://www.w3schools.com/html/html_youtube.asp)
   * Responsive iFrames - [w3schools](https://www.w3schools.com/howto/howto_css_responsive_iframes.asp)
   * Google maps - [w3schools](https://www.w3schools.com/graphics/google_maps_intro.asp)
 ### Media
   * #### Videos
     * The main background video on the index page was Stock footage provided by <a class="link author-link-popup" target="_blank" href="https://www.videvo.net/profile/videvo">Videvo</a>, downloaded from <a class="videvo-redirect" target="_blank" href="https://www.videvo.net">videvo.net</a>
-    * The middel video on the brewery page was Stock footage provided by <a class="link author-link-popup" target="_blank" href="https://www.videvo.net/profile/vidfy-Pressmaster">Pressmaster</a>, downloaded from <a class="videvo-redirect" target="_blank" href="https://www.videvo.net">videvo.net</a>
+    * The middle video on the brewery page was Stock footage provided by <a class="link author-link-popup" target="_blank" href="https://www.videvo.net/profile/vidfy-Pressmaster">Pressmaster</a>, downloaded from <a class="videvo-redirect" target="_blank" href="https://www.videvo.net">videvo.net</a>
 
   * #### Pictures
-    * All used pictures were changed/modified and are mostly only used for testing purpose
+    * All used pictures were changed/modified and are mostly only used for testing purposes
     * Beerkegs:
       * Photo by <a href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elevate</a> on <a href="httpshttps://www.pexels.com/de-de/foto/stapel-zylinder-silberfass-tank-lot-1267328/">Unsplash</a>
       * Photo by <a href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elevate</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -518,7 +518,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ## Acknowledgements
 * Big Thank you to [Chris Z.](https://github.com/ckz8780), as the "Boutique Ado"-Project helped me with a lot of the code for this project.<br>
-I specially liked the approachto the base.html, as it provides a lot of option for all other templates with the extra code blocks right from the start.
+I especially liked the approach to the base.html, as it provides a lot of options for all other templates with the extra code blocks right from the start.
 * [eRcht24](https://www.e-recht24.de) for the free (german) templates of the Imprint and GTC
 * Special mention and thanks to my mentor, Dario Carrasquel, for his support and insights
 

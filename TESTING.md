@@ -26,7 +26,7 @@ Created:
 <br> This will serve as test content in the following tests.
 
 1. Test runs - Visitor access:
-    * a) Reviewing visitor journey through the PLÖRR-Website.<br>Visitor can access and use the following features:
+    * a) Reviewing visitor journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
         | :--- | :--- | :--- | :--- |
 
@@ -37,7 +37,7 @@ Created:
 2. Test runs - Registered User access:
     User used: abeier
     
-    * a) Reviewing user journey through the PLÖRR-Website.<br>Visitor can access and use the following features:
+    * a) Reviewing user journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
         | :--- | :--- | :--- | :--- |
     
@@ -48,7 +48,7 @@ Created:
 2. Test runs - Administrator access:
     User used: admin
 
-    * a) Reviewing user journey through the PLÖRR-Website.<br>Visitor can access and use the following features:
+    * a) Reviewing user journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
         | :--- | :--- | :--- | :--- |
     
@@ -68,7 +68,7 @@ Created:
     * [/checkout](#)
     * [/bag](#)
     * [/profies/profile](#)
-    * [/profies/profile_settings_edit](#)
+    * [/profiles/profile_settings_edit](#)
     * [/products](#)
     * [/products/product_details](#)
     * [/products/add_product](#)
@@ -76,29 +76,20 @@ Created:
 
 - ### CSS: W3C CSS Validator Test Results
     * [css validation](#)<br>
+    * [css validation](#)<br>
     <br><br>
 
 - ### Python: PEP8 Online Test Results
     | # | File | Error Count | Error Detail |
     | :--- | :--- | :--- | :--- |
-    | 1 | # models.py |  | all right |
-    | 2 | # forms.py |  | line too long|
-    | 3 | # admin.py |  | all right |
-    | 4 | # urls.py |  | line too long  |
-    | 5 | # views.py |  | line too long |
-    | 6 | # forms.py |  | line too long  |
-    | 7 | # urls.py |  | line too long |
-    | 8 | # views.py |  | line too long |
-    | 9 | # models.py |  | all right |
-    | 10 | # forms.py |  | line too long |
-    | 11 | # admin.py |  | line too long |
-    | 12 | # urls.py |  | line too long |
-    | 13 | # views.py |  | line too long |
-    | 14 | # urls.py |  | all right |
-    | 15 | # settings.py |  | line too long |
-    | 16 | manage.py |  | all right |
+    | 1 | checkout/apps.py | 1 | 'checkout.signals' imported but unused |
+    | 2 | checkout/webhook_handler.py | 2 | line too long |
+    | 3 | checkout/webhooks.py | 1 | line too long |
+    | 4 | products/widgets.py | 1 | line too long |
+    | 5 | ploerr/settings.py | 5 | line too long |
 
     All "line too long" either can't be fixed or would make the code unreadable.
+    Checkout/apps.py needs 'checkout.signals', since the checkout app has a signal.py file.
     <br><br>
 
 - ### Lighthouse Test Results
@@ -123,18 +114,18 @@ Created:
     * know how to get in contact with the brewery so that I can visit the brewery and purchase products right there to save shipping costs
     * learn more about the brewery and ingredients so that I can have a better understanding of the product and quality
     * easily register for an account so that I can have a personal account and be able to view my profile
-    * quickly login or logout so I can access my personal account information
-    * have a personalized user profile so that I can view my personal order history and order confirmations and save my payment information
+    * quickly log in or log out so I can access my account information
+    * have a personalized user profile so that I can view my order history and order confirmations and save my payment information
     * receive an email confirmation after registering so that I can verify that my account registration was successful
     * quickly recover my password so that I can recover access to my account
     <br><br>
-  - ### Customer Goals - As a Shopper I want to be able to:
+  - ### Customer Goals - As a Shopper, I want to be able to:
     * easily select the quantity of a product when purchasing it so that I can ensure that I don't accidentally select the wrong product or quantity
-    * adjust the quantity of individual products in my bag so that I can easily make changes to my purchases before checkout
+    * adjust the number of individual products in my bag so that I can easily make changes to my purchases before checkout
     * view items in my bag to be purchased so that I can identify the total cost of my purchase and all items I will receive
     * feel my personal and payment information is safe & secure so that I can confidently provide the needed information to make a purchase
     * view an order confirmation after checkout so that I can verify that I have not made any mistakes
-    * quickly enter my payment information so that I can checkout quickly
+    * quickly enter my payment information so that I can check out quickly
     * quickly identify deals and special offers so that I can take advantage of special savings on products I'd like to buy
     * easily view the total of my purchase at any time so that I can avoid spending too much
     * view individual product details so that I can identify the price, description, ingredients, product rating, product image, and volume

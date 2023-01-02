@@ -59,7 +59,7 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
+        Update the grand total each time a line item is added,
         accounting for shipping costs.
         """
         self.order_total = self.lineitems.aggregate(

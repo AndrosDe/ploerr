@@ -2,6 +2,8 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %}- Shopping Card{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -47,11 +49,11 @@
                             <div class="col-12 col-sm-6 mb-2">
                                 {% include "bag/product-info.html" %}
                             </div>
-                            <div class="col-12 col-sm-6 order-sm-last">
+                            <div class="col-12 col-sm-6 order-sm-last mb-3">
                                 <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} EUR</p>
-                                <p class="my-0"><small>+ {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR<br>can deposit</small></p>
+                                <p class="my-0"><small>+ {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR can deposit</small></p>
                             </div>
-                            <div class="col-12 col-sm-6">
+                            <div class="col-12 col-sm-6 mx-auto" style="width: 260px;">
                                 {% include "bag/quantity-form.html" %}
                             </div>
                         </div>
@@ -118,7 +120,7 @@
             {% else %}
                 <div class="col text-center">
                     <p class="lead mb-5 ">Your bag is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-light border-0 rounded-4 mt-5">
+                    <a href="{% url 'products' %}" class="btn btn-outline-light border-0 rounded-4 mt-5" aria-label="Go back to the Product-Page">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>

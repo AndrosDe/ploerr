@@ -5,7 +5,7 @@
     <div class="container header-container">
         <div class="row">
             <div class="col text-shadow">
-                <h1 class="my-5 display-5 text-light text-center">
+                <h1 class="mt-5 display-5 text-light text-center">
                     Our <span class="logo-font display-3">Plörrbräu</span> Products
                 </h1>
             </div>
@@ -23,11 +23,11 @@
                     <div class="card h-100 border-0 mx-3">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.friendly_name }}">
+                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.friendly_name }}" aria-label="Go to {{ product.friendly_name }} details">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}" aria-label="Go to {{ product.friendly_name }} details">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">

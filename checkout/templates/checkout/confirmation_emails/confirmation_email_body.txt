@@ -2,22 +2,21 @@ Hello {{ order.full_name }}!
 
 This is a confirmation of your order at Plörrbräu. Your order information is below:
 
-Order Number: {{ order.order_number }}
-Order Date: {{ order.date }}
-Total Weight: {{ order.weight_total }} Kg
+Order Number:       {{ order.order_number }}
+Order Date:            {{ order.date }}
+Total Weight:          {{ order.weight_total }} Kg
 
-Order Total:       {{ order.order_total }} EUR
-Deposit Total: +   {{ order.deposit_total }} EUR
-{% if order.shipping_cost == 0 %}                   Free Shipping
-{% else %}Delivery:       +  {{ order.shipping_cost }} EUR
-{% endif %}
-Grand Total:       {{ order.grand_total }} EUR
+Order Total:           {{ order.order_total }} EUR
+Deposit Total:    + {{ order.deposit_total }} EUR
+{% if order.shipping_cost == 0 %}                               Free Shipping{% else %}Delivery:            + {{ order.shipping_cost }} EUR{% endif %}
+Grand Total:          {{ order.grand_total }} EUR
 
 Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
 We've got your phone number on file as {{ order.phone_number }}.
 
-If you have any questions, feel free to contact us at info@ploerr.com.
+If you have any questions, feel free to contact us at:
+info@ploerr.com
 
 Thank you for your order!
 

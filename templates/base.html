@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
     {% block extra_meta %}
+        <meta name="keywords" content="brewing company, german beer, inexpensive ale, inexpensive beer, traditional brew, beer near me">
     {% endblock %}
 
     <!-- Stylesheets -->
@@ -35,7 +36,7 @@
 
     <!-- Base-Title -->
     <title>Plörrbräu {% block extra_title %}{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="https://ploerr.s3.eu-central-1.amazonaws.com/media/main/ploerr-logo.ico">
+    <link rel="icon" type="image/x-icon" href="https://ploerr.s3.eu-central-1.amazonaws.com/media/main/ploerr-logo.ico" alt="ploerr logo icon">
   </head>
   <body class="bg-dark">
     <!-- Base-Header -->
@@ -62,13 +63,13 @@
                     {% if request.user.is_authenticated %}
                       <p class="ms-3 mb-1"><strong>Hello, {{user.username}}!</strong></p>
                       {% if request.user.is_staff %}
-                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                        <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="Enter Product Management">Product Management</a>
                       {% endif %}
-                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                      <a href="{% url 'profile' %}" class="dropdown-item" aria-label="Enter Profile Page">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="Logout of your Account">Logout</a>
                     {% else %}
-                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                      <a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="Register a new Account">Register</a>
+                      <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="Login to your Account">Login</a>
                     {% endif %}
                   </div>
                 </li>
@@ -134,13 +135,14 @@
     {% endblock %}
 
     <!-- Base-Footer -->
+    {% block footer %}
     <footer class="container-fluid mt-5 pt-5">
       <div class="row text-center text-shadow mb-2">
         <div class="col-12 text-light">
           <h5>Visit Us on Facebook</h5>
         </div>
         <div class="col-12 text-light">
-          <a class="font-weight-bold nav-link mr-5" href="#" id="Facebook-link">
+          <a class="font-weight-bold nav-link mr-5" href="#" id="Facebook-link" aria-label="Facebook - Buissness Site Link">
             <i class="fa-brands fa-square-facebook"></i>
           </a>
         </div>
@@ -151,6 +153,7 @@
         </nav>
       </div> 
     </footer>
+    {% endblock %}
     
     {% block postloadjs %}
     <script type="text/javascript">

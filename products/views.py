@@ -46,7 +46,7 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request,
-                           ('Failed to update product. '
+                           ('Failed to update the product. '
                             'Please ensure the form is valid.'))
     else:
         form = ProductForm()
@@ -75,7 +75,7 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request,
-                           ('Failed to update product. '
+                           ('Failed to update the product. '
                             'Please ensure the form is valid.'))
     else:
         form = ProductForm(instance=product)

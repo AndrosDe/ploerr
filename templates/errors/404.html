@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- 404 Error{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    Sorry!
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-12 mt-4 text-center">
+                <h2 class="display-6 text-light text-center">
+                    The page you are looking for isn't available
+                </h2>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" 
+                            class="btn btn-lg rounded-0 text-uppercase py-3">
+                                Return to shop
+                        </a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="row my-xxl-5"></div>
+    </div>
+{% endblock %}

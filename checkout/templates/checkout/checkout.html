@@ -3,6 +3,8 @@
 {% load bag_tools %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}- Checkout{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -36,9 +38,9 @@
                     <div class="col-2 mb-1">
                         <a href="{% url 'product_detail' item.product.id %}">
                             {% if item.product.image %}
-                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.friendly_name }}">
+                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name }}">
                             {% else %}
-                                <img class="w-100" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}">
+                                <img class="w-100" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ item.product.friendly_name }}">
                             {% endif %}
                         </a>
                     </div>
@@ -95,8 +97,8 @@
                             <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
                         {% else %}
                             <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                <a class="text-info" href="{% url 'account_signup' %}" aria-label="Create an account">Create an account</a> or 
+                                <a class="text-info" href="{% url 'account_login' %}" aria-label="Log into your account">login</a> to save this information
                             </label>
                         {% endif %}
                     </div>
@@ -111,13 +113,13 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <div class="submit-button text-end mt-5 mb-2">                    
-                    <a href="{% url 'view_bag' %}" class="btn btn-outline-light border-0">
+                    <a href="{% url 'view_bag' %}" class="btn btn-outline-light border-0" aria-label="Go back to the Shopping Card">
                         <span>
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span>Adjust Bag</span>
                     </a>
-                    <button id="submit-button" class="btn btn-outline-light rounded-3">
+                    <button id="submit-button" class="btn btn-outline-light rounded-3" aria-label="Click to pay {{ grand_total|floatformat:2 }} EUR">
                         <span>Complete Order</span>
                         <span>
                             <i class="fas fa-lock"></i>
