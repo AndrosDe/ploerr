@@ -1,6 +1,5 @@
 <h1 align="center"> PLÖRR Testing Documentation </h1>
-
-<h2 align="center"><img src="#" height="500" width="900"></h2>
+<h2 align="center"><img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/top-readme.webp" height="500" width="900"></h2>
 
 <hr>
 <br>
@@ -140,14 +139,14 @@ Created:
 - ### HTML: W3C Markup Validator Test Results
     * [/home](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2F)
     * [/contact](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fcontact%2F)
-    * [/quality](#)
-    * [/brewery](#)
+    * [/quality](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fquality%2F)
+    * [/brewery](https://ploerr.herokuapp.com/brewery/)
     * [/impressum](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fimpressum%2F)
-    * [/agb](#)
+    * [/agb](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fagb%2F)
     * [/checkout/checkout_success](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprofile%2Forder_history%2FDA7D7DB2A8D64C90B25D91661592393E)
     * [/checkout](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fcheckout%2F)
     * [/bag](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fbag%2F)
-    * [/profies/profile](https://ploerr.herokuapp.com/profile/)
+    * [/profiles/profile](https://ploerr.herokuapp.com/profile/)
     * [/profiles/profile_settings_edit](https://ploerr.herokuapp.com/profile/settings/)
     * [/products](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2F)
     * [/products/product_details](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2F1%2F)
@@ -177,7 +176,7 @@ Created:
     <br><br>
 
 - ### Lighthouse Test Results
-    The results of all pages variate within 2% for desctop and 7% for mobile, therefore these two representatives were chosen:
+    The results of all pages variate within 2% for desktop and 7% for mobile, therefore these two representatives were chosen:
     * Desktop:
         ![desktop](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/lighthouse-desktop-ploerr-index.png)
     * Mobile:
@@ -188,8 +187,17 @@ Created:
 <br>
 
 ## Responsive Design Testing
-
+* The responsiveness was tested via [screenfly](https://bluetree.ai/screenfly/?u=https%3A//ploerr.herokuapp.com/&a=19&b=10).<br>
+The Website is responsive up to 320px width without any issues.<br>
+Below 300px width, the navigation bar will stag on each other.<br>
+This could be fixed with a smaller font but was deemed unnecessary as the smallest mobile dives are at 320px width.
 <br>
+
+* Examples:
+    * [Chromebook Pixel 1280x850](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/Chromebook-Pixel-1280x850.webp)
+    * [iPad Mini 768x1024](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/iPad-Mini-768x1024.webp)
+    * [Samsung Galaxy Note 5 480x853](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/SamsungGalaxyNote5-480x853.webp)
+    * [iPhone 5 320x568](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/iPhone5-320x568.webp)
 <hr>
 <br>
 

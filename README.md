@@ -10,8 +10,8 @@
     <br><br>
     Plörrbräu wishes all of you the best and hopes that you will have a great time on our website.
 </h4>
-
-<h2 align="center"><img src="" height="500" width="900"></h2>
+<br><br>
+<h2 align="center"><img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/top-readme.webp" height="500" width="900"></h2>
 
 [View the live project here](https://ploerr.herokuapp.com/)
 
@@ -205,7 +205,7 @@
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout-success.png">Checkout Success Page</a><br>
     </details>
 
-    During the development, the profile and product pages became overcrowed with information and features.
+    During the development, the profile and product pages became overcrowded with information and features.
     Therefore these pages were changed and split up into:
     - Products and Product Details
     - Profile and Profile-Settings
@@ -221,7 +221,7 @@
     - #### Imagery & UI
       I used a minimized home page approach and wanted the main focus of the index page to be in the background.<br>
       Which is depicting a looped video of beer being handed out to customers, giving the impression that this must beer a highly requested product.<br>
-      This required color scheme mostly of dark-background / light text, which helps to highlight any colored content on the pages and the inverted color scheme of the messages.
+      This required a color scheme mostly of dark-background / light text, which helps to highlight any colored content on the pages and the inverted color scheme of the messages.
       
     <br><br>
 <hr>
@@ -267,7 +267,8 @@ The user is always informed of changes via messages.
   * one for product: Plörr, Plörr Lau
   * one for the container: Single Can, Sixpack, 4x Sixpack, 10l-keg, 25l-keg, 50l-keg
 * rating system for customers
-* requesting confirmation on product deletion
+* login via social media account
+* securing order history to be only viewed by the customer that made the order
 <hr>
 
 ## Technologies Used
@@ -348,6 +349,7 @@ The user is always informed of changes via messages.
 | 1 | Purchase confirmation Email not sent | Removed the new updates to deal with the changes in Stripe in November 2022 to the webhook_handler.py code and went with the old code - My Stripe-API-keys were created in October 2022, which might be the reason why only the old code is accepted |
 | 2 | Heroku deployment failed - backports.zoneinfo could not be built | Removed backports.zoneinfo==0.2.1 from requirments.txt |
 | 3 | Toasts not working with Bootstrap 5 | Used Bootstrap 4 for the JS-toolkit and it worked perfectly
+| 4 | CSS for the checkbox is not applied | No solution found so far - as the issue is so minor, it will be ignored
 
 <br>
 <hr>
