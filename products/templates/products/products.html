@@ -45,7 +45,7 @@
                                     {% if request.user.is_staff %}
                                         <strong class="ml-3 ms-2">
                                             <a class="text-warning" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                            <a class="text-danger" href="{% url 'product_detail' product.id %}" title="This will send you to the Product Details, as you can only delete the product there">Delete</a>
                                         </strong>
                                     {% endif %}
                                 </div>

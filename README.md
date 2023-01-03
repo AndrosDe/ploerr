@@ -188,25 +188,27 @@
     The wireframes created for this project:
     <summary><h3><strong>Guest User</strong></h3></summary>
     <details>
-      - <a href="#">Index Page</a><br>
-      - <a href="#">Quality Page</a><br>
-      - <a href="#">Brewery Page</a><br>
-      - <a href="#">Impressum Page</a><br>
-      - <a href="#">AGB Page</a><br>
-      - <a href="#">Contact Page</a><br>
-      - <a href="#">Register Page</a><br>
-      - <a href="#">Login Page</a><br>
-      - <a href="#">Logout Page</a><br>
-      - <a href="#">Profile Page</a><br>
-      - <a href="#">Profile Settings Page</a><br>
-      - <a href="#">Products Page</a><br>
-      - <a href="#">Product Details Page</a><br>
-      - <a href="#">Edit Product Page</a><br>
-      - <a href="#">Add Product Page Page</a><br>
-      - <a href="#">Bag Page</a><br>
-      - <a href="#">Checkout Page</a><br>
-      - <a href="#">Checkout Success Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-index.png">Index Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-quality.png">Quality Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-brewery.png">Brewery Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-imprint.png">Impressum Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-gtc.png">AGB Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-contact.png">Contact Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-register.png">Register Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-login.png">Login Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-profile.png">Profile Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-products.png">Product Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-add-product.png">Edit Product Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-updeate-product.png">Add Product Page Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-shopping-cart.png">Bag Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout.png">Checkout Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout-success.png">Checkout Success Page</a><br>
     </details>
+
+    During the development, the profile and product pages became overcrowed with information and features.
+    Therefore these pages were changed and split up into:
+    - Products and Product Details
+    - Profile and Profile-Settings
 
 
   - ### Design

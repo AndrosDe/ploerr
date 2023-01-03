@@ -59,7 +59,8 @@ body {
 
 .btt-link,
 .update-link,
-.remove-item {
+.remove-item,
+.delete-btn {
     cursor: pointer;
 }
 
@@ -119,7 +120,7 @@ body {
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #dc3545;
-    border-color: #dc3545;
+    border-color: #e32134;
     border-radius: 0;
 }
 

@@ -28,33 +28,113 @@ Created:
 1. Test runs - Visitor access:
     * a) Reviewing visitor journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
-        | :--- | :--- | :--- | :--- |
+        | :--- | :--- | :--- | :--- | :--- |
+        | 1 | index | content is visible | pass | pass |
+        | 2 | index | Navigation links | pass | pass |
+        | 3 | products | content is visible | pass | pass |
+        | 4 | products | link to product details | pass | pass |
+        | 5 | products | edit & delete function | fail | fail - these features are only visible to Store Owners |
+        | 6 | product_details | content is visible | pass | pass |
+        | 7 | product_details | quantity can be selected  | pass | pass |
+        | 8 | product_details | "Add To Bag" - button adds the product with the selected quantity to the bag | pass | pass |
+        | 9 | - | "Message: Success" is shown, with the bag contents visible | pass | pass |
+        | 10 | - | "Message: Success" links to bag | pass | pass |
+        | 11 | - | "Message: Success" links to checkout | pass | pass |
+        | 12 | quality | content is visible | pass | pass - the youtube video might need a refresh of the page to start up |
+        | 13 | quality | link to third-party website | pass | pass |
+        | 14 | brewery | content is visible | pass | pass |
+        | 15 | impressum | content is visible | pass | pass |
+        | 16 | agb | content is visible | pass | pass |
+        | 17 | contact | content is visible | pass | pass |
+        | 18 | bag | content is visible | pass | pass - either the selected products or "bag is empty" |
+        | 19 | bag | products can be removed | pass | pass |
+        | 20 | bag | products quantity can be updated | pass | pass |
+        | 21 | bag | bag total, weight, deposit total, shipping costs, grand total are displayed | pass | pass - they change according to the products and quantity in the bag |
+        | 22 | checkout | content is visible | pass | pass |
+        | 23 | checkout | order summary is visible | pass | pass |
+        | 24 | checkouts | save delivery information | fail | fail -  You need to be logged in to have that feature |
+        | 25 | checkout | prompted to login or create account under the delivery information| pass | pass -  not needed to complete the order |
+        | 26 | checkout | enter credit card details | pass | pass |
+        | 27 | checkout | complete order (with correct credit card details) | pass | pass |
+        | 28 | checkout_success | content (Oder Summary)  is visible | pass | pass |
+        | 29 | checkout | email confirmation is send | pass | pass |
+        | 30 | login | content is visible | pass | pass |
+        | 31 | password_reset | content is visible | pass | pass |
+        | 32 | signup | content is visible | pass | pass |
+        | 33 | - | email confirmations are sent| pass | pass |
+        | 34 | - | messages are shown| pass | pass |
+
+        Conclusion:<br>
+        The visitor has exactly as much access to the Plörr-Website and Online Shop as intended.
+        All information on the business and the product are visible and purchases can be done anonymously.
 
     * b) Reviewing visitor access by manually posting the URLs in the address bar:
         | # | Site | Feature | Expected Outcome | Result |
-        | :--- | :--- | :--- | :--- |
+        | :--- | :--- | :--- | :--- | :--- |
+        | 1 | 404 | Custom Error-Page | pass | pass - if a site is not available the error page is displayed |
+        | 2 | profile | content is visible | fail | fail - redirected to login page |
+        | 3 | password_change | content is visible | fail | fail - redirected to login page |
+        | 4 | profile_settings | content is visible | fail | fail - redirected to login page |
+        | 5 | add_product | content is visible | fail | fail - redirected to login page |
+        | 6 | edit_product | content is visible | fail | fail - redirected to login page |
+        | 7 | delete_product | product is deleted | fail | fail - redirected to login page |
+        | 8 | order_history | content is visible | pass | pass - sadly that is true for all orders |
 
+        Conclusion:<br>
+        As expected the visitor is prohibited from using any other feature that would require to be logged in.<br>
+        The greatest downside is that everyone could look up any order summary.
+        However, to do that, the order number is needed. This number is randomly generated and only known to the customer and our administrators.<br><br>
+        
 2. Test runs - Registered User access:
     User used: abeier
     
     * a) Reviewing user journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
-        | :--- | :--- | :--- | :--- |
+        | :--- | :--- | :--- | :--- | :--- |
+        | 1 | profile | content is visible | pass | pass |
+        | 2 | profile | delivery information can be updated | pass | pass |
+        | 3 | profile | "Message: Success" is displayed without the bag contents | pass | pass |
+        | 4 | password_change | content is visible | pass | pass |
+        | 5 | password_change | password can be changed | pass | pass |
+        | 6 | profile_settings | content is visible | pass | pass |
+        | 7 | profile_settings | username, name & email can be updated | pass | pass |
+        | 8 | checkout | save delivery information | pass | pass |
+        | 9 | checkout | save delivery information checkbox is red | pass | fail - for some reason the css is not applied |
+        | 10 | logout | content is visible | pass | pass |
+        | 11 | logout | able to log out from the profile | pass | pass |
+
+        Conclusion:<br>
+        In addition to all the normal visitor access logged in users have some little conveniences with their profile, where they can update delivery and personal information, as well as an overview of all previously made orders.
     
     * b) Reviewing user access by manually posting the URLs in the address bar:
         | # | Site | Feature | Expected Outcome | Result |
-        | :--- | :--- | :--- | :--- |
+        | :--- | :--- | :--- | :--- | :--- |
+        | 1 | add_product | content is visible | fail | fail - error message shown |
+        | 1 | edit_product | content is visible | fail | fail - error message shown |
+        | 1 | delete_product | product is deleted | fail | fail - error message shown |
+
+        Conclusion:<br>
+        Trying to access restricted features will display a custom error message.<br><br>
     
-2. Test runs - Administrator access:
+3. Test runs - Administrator access:
     User used: admin
 
     * a) Reviewing user journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
-        | :--- | :--- | :--- | :--- |
+        | :--- | :--- | :--- | :--- | :--- |
+        | 1 | add_product | link is shown in the navigation bar | pass | pass |
+        | 2 | add_product | content is visible | pass | pass |
+        | 3 | add_product | new product is added | pass | pass |
+        | 4 | edit_product | link is shown in products and produc_details | pass | pass |
+        | 5 | edit_product | content is visible | pass | pass |
+        | 6 | edit_product | product is updated | pass | pass |
+        | 7 | delete_product | link is shown in produc_details | pass | pass |
+        | 8 | delete_product | product is deleted | pass | pass |
+
+        Conclusion:<br>
+        Store Owners have extra features to add, edit and delete products.<br>
+        Deleting the product can only be done from the product details and requires confirmation.
     
-    * b) Reviewing user access by manually posting the URLs in the address bar:
-        | # | Site | Feature | Expected Outcome | Result |
-        | :--- | :--- | :--- | :--- |
 
 ## Validation Results
 - ### HTML: W3C Markup Validator Test Results
@@ -75,8 +155,7 @@ Created:
     * [/products/edit_product](#)
 
 - ### CSS: W3C CSS Validator Test Results
-    * [css validation](#)<br>
-    * [css validation](#)<br>
+    * [css validation](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/ploerr-w3c-css-validation.png)<br>
     <br><br>
 
 - ### Python: PEP8 Online Test Results
@@ -93,12 +172,12 @@ Created:
     <br><br>
 
 - ### Lighthouse Test Results
-    The results of all pages are within 4% variation, therefore these two representatives were chosen:
+    The results of all pages variate within 2% for desctop and 7% for mobile, therefore these two representatives were chosen:
     * Desktop:
-        ![desktop](#)
+        ![desktop](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/lighthouse-desktop-ploerr-index.png)
     * Mobile:
-        ![mobile](#)
-
+        ![mobile](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/lighthouse-mobile-ploerr-index.png)
+        The biggest issue for mobile is bootstrap css, bootstrap js, and stripe js.
 <br>
 <hr>
 <br>
