@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /profile/
+Disallow: /checkout/
+Disallow: /bag/
+Disallow: /accounts/
+Disallow: /admin/
+Sitemap: https://ploerr.herokuapp.com//sitemap.xml
