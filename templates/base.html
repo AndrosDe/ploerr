@@ -30,6 +30,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
         <!-- Stripe -->
         <script src="https://js.stripe.com/v3/"></script>
+        <!-- Mail chimp -->
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5b2884aa7ffb4e97becb8a3b4/012701e3e699498cd37c2f9a8.js");</script>
     {% endblock %}
     {% block extra_js %}
     {% endblock %}
@@ -139,12 +141,22 @@
     <footer class="container-fluid mt-5 pt-5">
       <div class="row text-center text-shadow mb-2">
         <div class="col-12 text-light">
-          <h5>Visit Us on Facebook</h5>
+          <h5>Visit Us on Facebook and Suscribe to Our Newsletter!</h5>
         </div>
-        <div class="col-12 text-light">
-          <a class="font-weight-bold nav-link mr-5 facebook-link" href="#" target="_blank" aria-label="Facebook - Buissness Site Link">
-            <i class="fa-brands fa-square-facebook"></i>
-          </a>
+        <div class="row g-0 text-center">
+          <div class="col-4"></div>
+          <div class="col-2 text-light">
+            <a class="font-weight-bold nav-link mr-5 facebook-link" href="https://www.facebook.com/profile.php?id=100089091254716" rel="external" target="_blank" aria-label="Facebook - Buissness Site Link">
+                <i class="fa-brands fa-square-facebook"></i>
+            </a>
+        </div>
+        <div class="col-2 text-light">
+            <div class="font-weight-bold nav-link mr-5 facebook-link">
+                <i class="fa-brands fa-square-facebook"></i>
+                
+            </div>
+        </div>
+          <div class="col-4"></div>
         </div>
       </div>
       <div class="row slightly-less-dark-bg">
