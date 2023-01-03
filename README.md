@@ -496,6 +496,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   * Youtube implementation - [w3schools](https://www.w3schools.com/html/html_youtube.asp)
   * Responsive iFrames - [w3schools](https://www.w3schools.com/howto/howto_css_responsive_iframes.asp)
   * Google maps - [w3schools](https://www.w3schools.com/graphics/google_maps_intro.asp)
+  * Mailchimp PopUp on Click -[Rahman Zeb](https://rahmanzeb.com/how-to-make-mailchimps-popup-window-appear-with-click-only/)
 ### Media
   * #### Videos
     * The main background video on the index page was Stock footage provided by <a class="link author-link-popup" target="_blank" href="https://www.videvo.net/profile/videvo">Videvo</a>, downloaded from <a class="videvo-redirect" target="_blank" href="https://www.videvo.net">videvo.net</a>
