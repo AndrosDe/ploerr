@@ -138,21 +138,26 @@ Created:
 
 ## Validation Results
 - ### HTML: W3C Markup Validator Test Results
-    * [/home](#)
-    * [/contact](#)
+    * [/home](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2F)
+    * [/contact](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fcontact%2F)
     * [/quality](#)
     * [/brewery](#)
-    * [/impressum](#)
+    * [/impressum](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fimpressum%2F)
     * [/agb](#)
-    * [/checkout/checkout_success](#)
-    * [/checkout](#)
-    * [/bag](#)
-    * [/profies/profile](#)
-    * [/profiles/profile_settings_edit](#)
-    * [/products](#)
-    * [/products/product_details](#)
-    * [/products/add_product](#)
-    * [/products/edit_product](#)
+    * [/checkout/checkout_success](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprofile%2Forder_history%2FDA7D7DB2A8D64C90B25D91661592393E)
+    * [/checkout](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fcheckout%2F)
+    * [/bag](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fbag%2F)
+    * [/profies/profile](https://ploerr.herokuapp.com/profile/)
+    * [/profiles/profile_settings_edit](https://ploerr.herokuapp.com/profile/settings/)
+    * [/products](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2F)
+    * [/products/product_details](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2F1%2F)
+    * [/products/add_product](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fadd%2F)
+    * [/products/edit_product](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fedit%2F1%2F)
+    * [/accounts/signup/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Fsignup%2F)
+    * [/accounts/login/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Flogin%2F)
+    * [/accounts/logout/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Flogout%2F)
+    * [/password/change/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Fpassword%2Fchange%2F)
+    
 
 - ### CSS: W3C CSS Validator Test Results
     * [css validation](https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/ploerr-w3c-css-validation.png)<br>
