@@ -60,7 +60,8 @@ body {
 .btt-link,
 .update-link,
 .remove-item,
-.delete-btn {
+.delete-btn,
+.facebook-link {
     cursor: pointer;
 }
 
