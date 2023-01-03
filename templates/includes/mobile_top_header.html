@@ -1,4 +1,4 @@
-<li class="list-inline-item dropdown ms-3">
+<div class="list-inline-item dropdown ms-3">
     <a class="text-light nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-user fa-lg"></i></div>
@@ -18,8 +18,8 @@
             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
         {% endif %}
     </div>
-</li>
-<li class="list-inline-item">
+</div>
+<div class="list-inline-item">
     <a class="{% if total %} text-light font-weight-bold {% endif %} nav-link d-block d-lg-none me-3" href="{% url 'view_bag' %}">
         <div class="text-center">
             <div><i class="fa-solid fa-cart-shopping"></i>
@@ -36,4 +36,4 @@
             </p>
         </div>
     </a>
-</li>
+</div>
