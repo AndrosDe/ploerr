@@ -62,6 +62,7 @@ Created:
         | 32 | signup | content is visible | pass | pass |
         | 33 | - | email confirmations are sent| pass | pass |
         | 34 | - | messages are shown| pass | pass |
+        | 32 | privacy policy | content is visible | pass | pass |
 
         Conclusion:<br>
         The visitor has exactly as much access to the Plörr-Website and Online Shop as intended.
@@ -78,6 +79,7 @@ Created:
         | 6 | edit_product | content is visible | fail | fail - redirected to login page |
         | 7 | delete_product | product is deleted | fail | fail - redirected to login page |
         | 8 | order_history | content is visible | pass | pass - sadly that is true for all orders |
+        | 9 | delete_product | access to the confirm delete page | fail | fail - redirected to login page |
 
         Conclusion:<br>
         As expected the visitor is prohibited from using any other feature that would require to be logged in.<br>
@@ -109,8 +111,9 @@ Created:
         | # | Site | Feature | Expected Outcome | Result |
         | :--- | :--- | :--- | :--- | :--- |
         | 1 | add_product | content is visible | fail | fail - error message shown |
-        | 1 | edit_product | content is visible | fail | fail - error message shown |
-        | 1 | delete_product | product is deleted | fail | fail - error message shown |
+        | 2 | edit_product | content is visible | fail | fail - error message shown |
+        | 3 | delete_product | product is deleted | fail | fail - error message shown |
+        | 4 | delete_product | access to the confirm delete page | fail | fail - error message shown |
 
         Conclusion:<br>
         Trying to access restricted features will display a custom error message.<br><br>
@@ -129,6 +132,7 @@ Created:
         | 6 | edit_product | product is updated | pass | pass |
         | 7 | delete_product | link is shown in produc_details | pass | pass |
         | 8 | delete_product | product is deleted | pass | pass |
+        | 9 | delete_product | access to the confirm delete page | pass | pass |
 
         Conclusion:<br>
         Store Owners have extra features to add, edit and delete products.<br>

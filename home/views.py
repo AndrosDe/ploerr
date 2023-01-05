@@ -27,6 +27,11 @@ def impressum(request):
     return render(request, 'home/impressum.html')
 
 
+def privacypolicy(request):
+    """ A view to return the privacypolicy page """
+    return render(request, 'home/privacypolicy.html')
+
+
 def agb(request):
     """ A view to return the GTC page """
     return render(request, 'home/agb.html')

@@ -1,14 +1,14 @@
-<h1 align="center"> Plörrbräu </h1>
+<h1 align="center"> 𝔓𝔩ö𝔯𝔯𝔟𝔯ä𝔲 </h1>
 <h2 class="logo-font"> Welcome </h2>
 
 <h4>
-    This is the business website for the company Plörr GmbH, where the company will more than showcase its products with great detail.
+    This is the business website for the company 𝔓𝔩ö𝔯𝔯 GmbH, where the company will more than showcase its products with great detail.
     It will provide extensive information on the business, ingredients, and brewery.
     <br><br>
     Additionally, a great online shop is available to purchase the featured products, which can also be used without registering and has a quick checkout option.<br>
     Regular customers registering would be beneficial, as they would add to the order confirmation email, and also be able to revisit all completed order summaries on their profile page on this website.
     <br><br>
-    Plörrbräu wishes all of you the best and hopes that you will have a great time on our website.
+    𝔓𝔩ö𝔯𝔯𝔟𝔯ä𝔲 wishes all of you the best and hopes that you will have a great time on our website.
 </h4>
 <br><br>
 <h2 align="center"><img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/top-readme.webp" height="500" width="900"></h2>
@@ -17,7 +17,6 @@
 
 <hr>
 
-<h2> Table of content </h2>
 <h2> Table of content </h2>
 
 - ### [Strategy](#strategy-1)
@@ -35,8 +34,30 @@
   - [Design](#design)
 - ### [Features](#features-1)
   - [Multi Page Elements](#multi-page-elements)
-  - [Home/Index Page](#home-index-page)
-
+  - [Home/Index Page](#homeindex)
+  - [Quality](#quality)
+  - [Brewery](#brewery)
+  - [Contact](#contact)
+  - [Imprint](#imprint)
+  - [Private Policy](#privacy-policy)
+  - [GTC](#gtc)
+  - [Products](#products)
+  - [Product Details](#product-details)
+  - [Bag](#bag)
+  - [Checkout](#checkout)
+  - [Checkout Success](#checkout-success)
+  - [Register](#register)
+  - [Login](#login)
+  - [Reset Password](#reset-password)
+  - [Profile](#profile)
+  - [Profile Settings](#profile-settings)
+  - [Change Password](#change-password)
+  - [Product Mangement](#product-mangement)
+  - [Edit Product](#edit-product)
+  - [Delete Product](#delete-product)
+- ### [Defensive Programming](#defensive-programming-1)
+- ### [SEO-Dokumentation](#seo-dokumentation-1)
+- ### [Future Implementation](#future-implementation-1)
 - ### [Technologies Used](#technologies-used-1)
 - ### [Testing](#testing-1)
 - ### [Bugs, Issues, and Solutions](#bugs-issues-and-solutions-1)
@@ -160,33 +181,32 @@
   The grey elements in these diagrams are the pages not accessible to a particular user.<br>
   <summary><h3><strong>Guest User</strong></h3></summary>
   <details>
-    <img src="#" name="GUEST USER JOURNEY ACROSS PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/ploerr-authorisation-visitor.webp" name="GUEST USER JOURNEY ACROSS PLÖRR">
   </details>
   <br>
 
   <summary><h3><strong>Registered User</strong></h3></summary>
   <details>
-    <img src="#" name="REGISTERED USER'S JOURNEY ACROSS PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/ploerr-authorisation-user.webp" name="REGISTERED USER'S JOURNEY ACROSS PLÖRR">
   </details>
   <br>
 
   <summary><h3><strong>Administrator / Staff Memeber</strong></h3></summary>
   <details>
-    <img src="#" name="STAFF MEMBER'S PERMISSION AND ACCESS ACROSS PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/ploerr-authorisation-admin.webp" name="STAFF MEMBER'S PERMISSION AND ACCESS ACROSS PLÖRR">
   </details>
   <br>
 - ### Database Schema and Structure
   Plörr uses PostgreSQL and was created with Django+sqlparse.
   <summary><p>The current version can be seen below in the details.</p></summary>
   <details>
-    <img src="#" name="POSTGRES DATABASES SCHEMA of PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/database-schema/ploerr-database.webp" name="POSTGRES DATABASES SCHEMA of PLÖRR">
   </details>
 <hr>
 
 ## Skeleton
   - ### Wireframes
     The wireframes created for this project:
-    <summary><h3><strong>Guest User</strong></h3></summary>
     <details>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-index.png">Index Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-quality.png">Quality Page</a><br>
@@ -209,6 +229,11 @@
     Therefore these pages were changed and split up into:
     - Products and Product Details
     - Profile and Profile-Settings
+
+    Last-minute additions were:
+    - the private policy page, which is a wireframe copy of the Imprint Page
+    - a custom 404-Error-Page with just standard wireframe from the base with centered text in the content block
+    - the confirm deletion page, which is a wireframe copy of the Product Detail Page.
 
 
   - ### Design
@@ -253,13 +278,713 @@ The CRUD is depicted in the feature with the following color code:
 
 - ## Multi Page Elements
     - ### Header
+      ![Header of 𝔓𝔩ö𝔯𝔯](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav.webp)
+      <details>
+      <summary><strong>General Features of the Header</strong></summary>
+        <ul>
+          <li>
+          Logo
+          </li>
+        </ul>
+        <br>
+        Navigation to:
+        <ul>
+          <li>
+          Home (Link is in the Logo)
+          </li>
+          <li>
+          Registration
+          </li>
+          <li>
+          Login
+          </li>
+          <details>
+          <summary>Image</summary>
+          <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account-2.webp" name="navigation dropdown">
+          </details>
+          <li>
+          Shopping Bag
+          </li>
+          <li>
+          Products
+          </li>
+          <li>
+          Quality
+          </li>
+          <li>
+          Brewery
+          </li>
+        </ul>
+      </details>
+      <br>
+      <details>
+      <summary><strong>Features of the Header for authenticated users </strong></summary>
+        Navigation to:
+        <ul>
+          <li>
+          Profile
+          </li>
+          <li>
+          Logout
+          </li>
+          <details>
+          <summary>Image</summary>
+          <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account-3.webp" name="navigation links for user">
+          </details>
+        </ul>
+      </details>
+      <br>
+      <details>
+      <summary><strong>Features of the Header for Shop Owners </strong></summary>
+        Navigation to:
+        <ul>
+          <li>
+          Product Management
+          </li>
+          <details>
+          <summary>Image</summary>
+          <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account.webp" name="navigation links for shop owners">
+          </details>
+        </ul>
+      </details>
+      <br>
 
+    - ### Footer
+      ![Footer of 𝔓𝔩ö𝔯𝔯](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-footer-nav.webp)
+      <details>
+        <summary>Link to Facebook Business Page</summary>
+      </details>
+      <details>
+        <summary>Subscription to Newsletter</summary>
+      </details>
+      <details>
+        <summary>Nagigation to:</summary>
+        <ul>
+          <li>
+            Contact
+          </li>
+          <li>
+            Imprint
+          </li>
+          <li>
+            Privacy Policy
+          </li>
+          <li>
+            GTC
+          </li>
+        </ul>
+      </details>
+      <br>
+
+    - ### Messages
+      <details>
+      <summary>4 Types of messages:</summary>
+      <ul>
+        <details>
+          <summary>Success</summary>
+          <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-messages.webp" name="Message">
+        </details>
+        <details>
+          <summary>Info</summary>
+        </details>
+        <details>
+          <summary>Warining</summary>
+        </details>
+        <details>
+          <summary>Error</summary>
+        </details>
+      </ul>
+      </details>
+      
+      <details>
+      <summary>If one or more products have been placed in the bag, it will show a content overview of the bag with:</summary>
+      <ul>
+          <li>
+            the total amount of items in your bag
+          </li>
+          <li>
+            list of the products with image, name, and quantity 
+          </li>
+          <li>
+            price, deposit total, shipping costs, grand total
+          </li>
+          <li>
+            link to the shopping bag
+          </li>
+          <li>
+            link to the checkout page
+          </li>
+          <details>
+          <summary>Image</summary>
+          <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-messages-2.webp" name="Message with bag contents">
+          </details>
+      </ul>
+      </details>
+  <br>
+- ## Home/Index
+  <details>
+    <summary>Background video in a loop of "beer being handed out to customers"</summary>
+  </details>
+  <details>
+    <summary>A friendly greeting</summary>
+  </details>
+  <details>
+    <summary>Promotion of new products</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/testing/Chromebook-Pixel-1280x850.webp" name="Index Page of Plörr">
+  </details>
+  <br>
+- ## Quality
+  <details>
+    <summary>Detailed information on the ingredients of Plörrbräu</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-quality-1.webp" name="Quality Page of Plörr">
+  </details>
+  <br>
+  <details>
+    <summary>External link to local farmers</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-quality-link.webp" name="Link and video of local farmers">
+  </details>
+  <br>
+- ## Brewery
+  <details>
+    <summary>Detailed information on the History of the Plörrbräu and the brewing process</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-brewery-1.webp" name="Brewery Page of Plörr">
+  </details>
+  <br>
+- ## Contact
+  <details>
+    <summary>Google Map with a custom marker for the 𝕻𝖑𝖔𝖗𝖗 GmbH</summary>
+  </details>
+  <details>
+    <summary>Directions</summary>
+  </details>
+  <details>
+    <summary>Email, Fax, and Phone contact information</summary>
+  </details>
+  <details>
+  <details>
+  <summary>Image</summary>
+  <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-contact-1.webp" name="Contact Page of Plörr">
+  </details>
+  <br>
+- ## Imprint
+  <details>
+    <summary>The Imprint page with all the required information on the 𝕻𝖑𝖔𝖗𝖗 GmbH</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-imprint-1.webp" name="Imprint Page of Plörr">
+  </details>
+  <br>
+- ## Privacy Policy
+  <details>
+    <summary>Overview of the Privacy Policy</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-private-policy.webp" name="Privacy Policy Page of Plörr">
+  </details>
+  <br>
+- ## GTC
+  <details>
+    <summary>Overview of the General Terms and Conditions</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-gtc-1.webp" name="GTC Page of Plörr">
+  </details>
+  <br>
+- ## Products
+  <details>
+    <summary>Overview of all products with image, price, and product rating</summary>
+  </details>
+    <details>
+    <summary>Link to the products details</summary>
+  </details> 
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products.webp" name="Product Overview of Plörr">
+  </details>
+  <br>
+- ## <span style="color: orange">Product Details</span>
+  <span style="color: orange"><details></span>
+  <summary>Detailed information about a product</summary>
+    <ul>
+      <li>
+      Name
+      </li>
+      <li>
+      Image
+      </li>
+      <li>
+      Description
+      </li>
+      <li>
+      Price
+      </li>
+      <li>
+      Volumen
+      </li>
+      <li>
+      Deposit
+      </li>
+      and a lot more...<br>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details.webp" name="Product Details">
+      </details>
+    </ul>
+  </details>
+  <span style="color: orange"><details></span>
+    <summary>Option to set the quantity</summary>
+    <span style="color: orange">
+    <ul>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-quantity.webp" name="Quantity selector">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <span style="color: orange"><details></span>
+    <summary>Add to Bag - Feature</summary>
+    <span style="color: orange">
+    <ul>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-addtobag.webp" name="Add to Bag">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Bag</span>
+  <details>
+  <summary>List of the bags content with</summary>
+    <ul>
+    <li>
+    image
+    </li>
+    <li>
+    Name
+    </li>
+    <li>
+    Volume
+    </li>
+    <li>
+    Price
+    </li>
+    <li>
+    Deposit
+    </li>
+    <li>
+    Subtotal
+    </li>
+    <li>
+    Subtotal - Deposit
+    </li>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-shopping-cart-1.webp" name="Shopping Bag Page of Plörr">
+      </details>
+    </ul>
+  </details>
+  <span style="color: orange"><details></span>
+    <summary>Option to set the quantity</summary>
+    <span style="color: orange">
+    <ul>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-quantity.webp" name="Checkout Success Page of Plörr">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <span style="color: red"><details></span>
+    <summary>Remove item from the Bag</summary>
+    <span style="color: red">
+    <ul>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-shopping-cart-1.webp" name="Checkout Success Page of Plörr">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Checkout</span>
+  <details>
+    <summary>Summary of the order</summary>
+  </details>
+  <details>
+    <summary><span style="color: orange">Checkout Form with Billing and Delivery Information</span></summary>
+    <ul>
+      This can be prefilled for logged-in Users if they have added this information to the Profile page.
+    </ul>
+  </details>
+  <details>
+    <summary><span style="color: orange">Option to safe DeliveryInformation to Profile for logged in Users</span></summary>
+  </details>
+  <details>
+    <summary>Secure Payment Form for Credit Cards</summary>
+  </details>
+  <details>
+    <summary>Adjust Bag Option, which takes the user back to the bag</summary>
+  </details>
+  <details>
+    <summary><span style="color: green">Complete Order Option</span></summary>
+      <ul>
+        This will create the order.
+      </ul>
+      <ul>
+        This will send a confirmation email for this order.
+      </ul>
+  </details>
+  <details>
+    <summary>Image 1</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-checkout-1.webp" name="Checkout Page of Plörr">
+  </details>
+  <details>
+    <summary>Image 2</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-checkout-2.webpp" name="Checkout Page of Plörr">
+  </details>
+  <br>
+- ## Checkout Success
+  <details>
+    <summary>Summary of the order</summary>
+  </details>
+  <details>
+    <summary>Image</summary>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-checkout-success-1.webp" name="Checkout Success Page of Plörr">
+  </details>
+  <br>
+- ## Register
+  <details>
+    <summary>creates a new account</summary>
+  </details>
+  <details>
+    <summary>error messages are in a different color</summary>
+  </details>
+  <details>
+    <summary>offers a link to the login page</summary>
+  </details>
+  <details>
+    <summary>will send a confirmation email with a confirmation link</summary>
+  </details>
+  <br>
+- ## Login
+  <details>
+  <summary>General Features of Login</summary>
+  <ul>
+    <li>
+      offers a link to the registration page
+    </li>
+    <li>
+      offers a link to the password reset page
+    </li>
+  </ul>
+  </details>
+  <details>
+  <summary>Features of Login for authenticated users</summary>
+  <ul>
+    <li>
+      log into the user account
+    </li>
+  </ul>
+  </details>
+  <br>
+- ## Reset Password
+  <details>
+  <summary>will send an email with a link to reset the password</summary>
+  </details>
+  <br>
+- ## Profile
+  <details>
+  <summary>Features for authenticated users</summary>
+    <ul>
+      <li>
+      Section 1
+        <ul>
+          <li>
+            User Details:
+            <ul>
+              <li>
+                Username
+              </li>
+              <li>
+                Name
+              </li>
+              <li>
+                Email
+              </li>
+            </ul>
+          </li>
+          <li>
+            Link to Profile Settings
+          </li>
+          <li>
+            Link to Change Password (update password)
+          </li>
+        </ul>
+      </li>
+      <br>
+      <li>
+      Section 2 - Default Delivery Form:
+        <ul>
+          <li>
+            Display any previously saved data of:
+            <ul>
+              <li> 
+                Phone Number
+              </li>
+              <li>
+                Postal Code
+              </li>
+              <li>
+                Town or City
+              </li>
+              <li>
+                Street Address 1
+              </li>
+              <li>
+                Street Address 2
+              </li>
+              <li>
+                County, State, or Locality
+              </li>
+              <li>
+                Country
+              </li>
+            </ul>
+          </li>
+          <span style="color: orange">
+            <li>
+              Update Data in Delivery Form.
+            </li>
+          </span>
+        </ul>
+      </li>
+      <br>
+      <li>
+      Section 3 - Order history:
+        <ul>
+          <li>
+            Displaying all previously made orders
+          </li>
+          <li>
+            Links to the order summary of checkout success for these specific orders
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <details>
+    <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-profile-1.webp" name="Profile Page of Plörr">
+    </details>
+  </details>
+  <br>
+- ## <span style="color: orange">Profile Settings</span>
+  <details>
+    <summary><span style="color: orange">Features for authenticated users:</span></summary>
+    <span style="color: orange">
+    Edit Function for:
+    <ul>
+      <li>
+        Username
+      </li>
+      <li>
+        First Name
+      </li>
+      <li>
+        Last Name
+      </li>
+      <li>
+        Email
+      </li>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Change Password</span>
+  <details>
+    <summary><span style="color: orange">Features for authenticated users:</span></summary>
+    <span style="color: orange">
+    <ul>
+      Update Password        
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: green">Product Mangement</span>
+  <details>
+  <summary><span style="color: green">Features for Shop Owners:</span></summary>
+    <span style="color: green">
+    <ul>
+      Add a new Product<br>
+      <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account.webp" name="Product Management of Plörr">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Edit Product</span>
+  <details>
+  <summary><span style="color: orange">Features for Shop Owners:</span></summary>
+    <span style="color: orange">
+    <ul>
+      Update a Product<br>
+      <details>
+      <summary>Image 1</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-admin.webp" name="Edit Product in Products">
+      </details>
+      <details>
+      <summary>Image 2</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-admin.webp" name="Edit Product in Product Details">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: red">Delete Product</span>
+  <span style="color: red"><details></span>
+  <summary><span style="color: red">Features for Shop Owners</span></summary>
+    <span style="color: red">
+    <ul>
+      Delete a Product<br>
+      <details>
+      <summary>Image 1</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-admin.webp" name="Delete Product in Product Details">
+      </details>
+      <details>
+      <summary>Image 2</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-admin.webp" name="Delete Product in Products">
+      </details>
+    </ul>
+    </span>
+  </details>
 
 ## Defensive Programming
-Keeping the application secure and a protected profile requires the user to be logged in.
-Any product creation, updating, or deletion is feature restricted to the administrator.
-The payment is handled by stripe and therefore makes sure that the payment process is secure.
-The user is always informed of changes via messages.
+To keep the application secure and the profile/profile information protected requires the user to be logged in if they want to save delivery information. Users have only access to their profile and delivery information.<br>
+The user is always informed of changes via messages. A custom 404-Error Page was created.<br>
+Stripe handles the payment and makes sure that the payment process is secure.<br>
+Any product creation, updating, or deletion is feature restricted to the administrator. All deletions of products require a confirmation.<br><br>
+To access an order-summary the  order number is required.<br>The order number is randomly created and only given to the customer of that purchase. A security breach outside this app/website (for example: customers email account was compromised, etc.) is required  to have any effect.
+
+## SEO-Dokumentation
+- ### Advertising Strategy
+    As the website is about a brewery, beer, and spirits dealer there are a lot of options for commercial placements, like TV & Radio Commercials, sponsoring sports teams, banners, flyers, and so on.<br>
+    However, the 𝔓𝔩ö𝔯𝔯 GmbH is a smaller company and therefore has to rely on more cost-efficient commercial placements.<br><br>
+    The best options for that social media interactions and newsletters:<br>
+    Therefore a Facebook business page has been created and is connected to the website.
+    <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/facebook-page.webp" name="Facebook Business Page">
+    </details>
+    <br>
+    Right next to the Facebook link on the website is the option to subscribe to a newsletter via MailChimp.
+    <details>
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-footer-nav.webp" name="Facebook and Newsletter">
+    </details>
+    <br>
+
+- ### Website Planning
+  Before the website was created keywords and keyphrases were brainstormed:
+  1.  A list of words associated with beer/brewery by using a [Thesaurus](https://www.thesaurus.com/):
+      - beer -> ale, brew, brewage, refreshment
+      - brewery -> brewhouse
+  <br><br>
+  2.  As the product is supposed to be "cheap" better wording was needed.<br>
+    In the end, it was the consensus that the product was to be marked as:
+      - inexpensive brew/ale/beer
+  <br><br>
+  3.  As mentioned in the [Project Goals](#project-goals):
+    Plörrbräu <small>(-> Dishwaterbrew)</small> is based on a joke by Otto Waalkes and makes fun of beer commercials.
+    The joke 𝔓𝔩ö𝔯𝔯𝔟𝔯ä𝔲 was presented in two variances:
+      - normal 𝔓𝔩ö𝔯𝔯
+      - 𝔓𝔩ö𝔯𝔯 Lau <small>(-> half-hearted, lukewarm)</small>
+    The challenge is to go along with the joke and still be a serious business website and promote the product.<br>
+    Therefore normal 𝔓𝔩ö𝔯𝔯 will be promoted as high carbonated, sparkling and 𝔓𝔩ö𝔯𝔯 Lau as low carbonated, smooth brew
+  <br><br>
+  4.  Health and untreated products are a big concern for most customers nowadays. For that reason the products will be promoted as:
+      - being naturally carbonated
+      - having no exogen food additive 290
+      - being made with local natural reserve water and from local ingredients
+  <br><br>
+  5.  To find keywords with a good volume and low competition rate [wordtraker](https://www.wordtracker.com/) was used and yielded the following additional keywords:
+      - brewing company
+      - craft beer near me
+      - german beers
+  <br><br>
+  6.  This led to the creation of the final keywords list:
+      - brewing company
+      - beer near me
+      - german beer
+      - brewhouse
+      - inexpensive brew/ale/beer
+      - smooth brew
+      - sparkling brew
+      - beer from local ingredients
+      - local natural reserve water
+      - traditional german beer brewing
+      - traditional brew
+  <br><br>
+- ### Implementing Keywords into Website:
+  By taking inspiration from the brewing company [Pott's](https://www.potts.de/) it was decided to give visitors of the website a lot of information about the company, the ingredients, the brewing process, and the products themselves.<br>
+  This way it was possible to insinuate that the products must be of high quality without stating it anywhere on the website. It does the opposite, but in a context that makes it appear to be something good.
+  <br><br>
+    As the index page is styled to have the [backgound as the main stage](https://usersnap.com/blog/background-webdesign/), the content has to be diverted to other pages. This led to the creation of:
+  <ul>
+    <li>
+      quality.html
+    </li>
+    <li>
+      brewery.html
+    </li>
+      This was a great opportunity to insert certain keywords into these pages as part of their content without looking out of place, like putting "beer from local ingredients", "local natural reserve water" into the quality.html, and "traditional german beer brewing" into brewery.html.<br>
+      These pages add a lot of value, as a site user find out more information on the company and the product.
+  </ul>
+  <br>
+    To give the appearance of a serious business page, the following pages were added to the footer in an extra navigation bar at the bottom of the page:
+  <ul>
+    <li>
+      contact.html
+    </li>
+    <li>
+      imprint.html
+    </li>
+    <li>
+      privacypolicy.html
+    </li>
+    <li>
+      GTC.html
+    </li>
+    While being mostly dry text pages, they display all needed information policywise and open the door for business-to-business deals.
+    In the contact.html the keyword "beer near me" was able to be implemented into the meta description, as it does make sense content-wise.
+  </ul>
+  <br>
+    Another great place to use the meta description was the products.html, as it allowed to insert the keyword "inexpensive ale & beer" in a kind of stealthy but still appropriate way.
+  <br><br>
+- ### Pictures, Videos, and external sources:
+  One of the biggest successes is the index page with the video of "beer being handed out to customers" running in a loop.<br>It is supposed to subtly encourage a desire to get a beer or a drink and according to our website testers, it seems to work quite well.
+  <br><br>
+  The video and pictures in brewery.html also underline the professional tone of the website, helping to build trust in the company and insinuate a high-quality product.
+  <br><br>
+  As finding external resources for a brewing company is challenging, but the quality.html opened up a great opportunity to link to [local framers](https://www.magdochjeder.de/) and display a youtube video from them, that fits the content of the page. This is helping to make the company appear more open, friendly, and less corporate.
 
 ## Future Implementation
 * offer more payment options

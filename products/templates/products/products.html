@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    {{ block.super }}
+    <meta name="description" content="Inexpensive ale and beer">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -44,8 +49,8 @@
                                     {% endif %}
                                     {% if request.user.is_staff %}
                                         <strong class="ml-3 ms-2">
-                                            <a class="text-warning" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                            <a class="text-danger" href="{% url 'product_detail' product.id %}" title="This will send you to the Product Details, as you can only delete the product there">Delete</a>
+                                            <a class="text-warning edit-btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                            <a class="text-danger delete-btn" href="{% url 'confirm_delete' product.id %}">Delete</a>
                                         </strong>
                                     {% endif %}
                                 </div>

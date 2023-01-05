@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    {{ block.super }}
+    <meta name="description" content="beer near me">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
