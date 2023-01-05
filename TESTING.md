@@ -160,6 +160,8 @@ Created:
     * [/accounts/login/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Flogin%2F)
     * [/accounts/logout/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Flogout%2F)
     * [/password/change/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Fpassword%2Fchange%2F)
+    * [/privacypolicy/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprivacypolicy%2F)
+    * [/products/confirm/delete/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fconfirm%2Fdelete%2F1%2F)
     
 
 - ### CSS: W3C CSS Validator Test Results
@@ -208,30 +210,96 @@ This could be fixed with a smaller font but was deemed unnecessary as the smalle
 ## Testing User Stories
   - ### Site User Goals - As a Site User I want to be able to
     * know how to get in contact with the brewery so that I can visit the brewery and purchase products right there to save shipping costs
+        - Contact Information is available in contact.html and imprint.html
+        - A Google Map with a custom marker for Plörr and directions is in contact.html<br>
+        ![contact](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-contact-1.webp)
     * learn more about the brewery and ingredients so that I can have a better understanding of the product and quality
+        - the brewery page is dedicated to information on the history of the company and the brewing process<br>
+        ![Brewery](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-brewery-1.webp)
+        - the quality page is dedicated to information on the ingredients<br>
+        ![Quality](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-quality-1.webp)
     * easily register for an account so that I can have a personal account and be able to view my profile
+        - by using django-allauth quick and secure registration is possible by using the account dropdown menu <br>
+        ![Account](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account-2.webp)
     * quickly log in or log out so I can access my account information
+        - by using django-allauth quick and secure login and logout is possible from using the account dropdown menu <br>
+        ![Account](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account-2.webp)<br>
+        ![Account](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account-3.webp)
     * have a personalized user profile so that I can view my order history and order confirmations and save my payment information
+        - the profile app was created and has the option to save payment information, update the function for profile settings and the order history<br>
+        ![Profile](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-profile-1.webp)
     * receive an email confirmation after registering so that I can verify that my account registration was successful
+        - by using django-allauth and setting up the email connection, registration confirmation emails are sent and working as intended
     * quickly recover my password so that I can recover access to my account
+        - by using django-allauth the option to reset your password is on the login page
+        - the option to change the password is in the personal profile
     <br><br>
   - ### Customer Goals - As a Shopper, I want to be able to:
     * easily select the quantity of a product when purchasing it so that I can ensure that I don't accidentally select the wrong product or quantity
+        - to add a product to the shopping cart, one has to be on the product detail page
+        - a quantity selector is on the product detail page<br>
+        ![Product Detail](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details.webp)<br>
+        ![Product Detail](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-quantity.webp)<br>
+        ![Product Detail](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-addtobag.webp)<br>
     * adjust the number of individual products in my bag so that I can easily make changes to my purchases before checkout
+        - the option to adjust the quantity or remove items from the shopping card is in the bag.html<br>
+        ![Bag](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-shopping-cart-1.webp)
     * view items in my bag to be purchased so that I can identify the total cost of my purchase and all items I will receive
+        - in bag.html all items that have been added to the shopping cart are listed and the costs are calculated<br>
+        ![Bag](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-shopping-cart-1.webp)<br>
+        ![Bag](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-shopping-cart-2.webp)
     * feel my personal and payment information is safe & secure so that I can confidently provide the needed information to make a purchase
+        - the payment process is done by the stripe API, which provides a safe and secure checkout and payment
+        <br>
+        ![checkout](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-checkout-2.webp)
     * view an order confirmation after checkout so that I can verify that I have not made any mistakes
+        - after a successful order the checkout.html will forward every customer to an order summary<br>
+        ![checkout success](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-checkout-success-1.webp)
     * quickly enter my payment information so that I can check out quickly
+        - to purchase in the online shop, login is optional and orders can be made anonymously
     * quickly identify deals and special offers so that I can take advantage of special savings on products I'd like to buy
+        - the newsletter option will inform customers about new deals
+        - new promotions are displayed on the homepage
     * easily view the total of my purchase at any time so that I can avoid spending too much
+        - the total of the order is visible on the header by the card symbol
+        <br>
+        ![Account](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account-3.webp)
+        - a summary of the shopping bag is shown per message with every change in the shopping cart content
+        <br>
+        ![Message](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-messages-2.webp)
     * view individual product details so that I can identify the price, description, ingredients, product rating, product image, and volume
+        - all information on the product is listed on the product-details page<br>
+        ![Product Detail](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details.webp)
     * view a list of all products so that I can select some to purchase
+        - the overview of all products ist on products.html<br>
+        ![Products](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products.webp)
     * receive an email confirmation after checking out so that I can keep the confirmation on what I've purchased for my records
+        - an order confirmation email with a small order summary is sent by email after a successful checkout
     * search and sort the products so that I can quickly find the product I'm looking for
+        - all products are listed on products.html
+        - a search or sort function is not implemented as there are too few products to make that function necessary
+        - it is under future implementation if more products are added
     <br><br>
   - ### Store Owner Goals - As a Store Owner I want to be able to:
     * add a product so that I can add new items to my store
+        - adding a product can be done with: Product Management in the Account dropdown menu, if the user is set as "staff"<br>
+        ![Account](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account.webp)
     * edit/update a product so that I can change product prices, descriptions, images, and other product criteria
+        - updating products can be done the products.html and profuct_details.html
+        <br>
+        ![products](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-admin.webp)
+        <br>
+        ![Product details](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-admin.webp)
     * delete a product so that I can remove items that are no longer for sale
+        - deleting products can be done the products.html and profuct_details.html
+        <br>
+        ![products](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-admin.webp)
+        <br>
+        ![Product details](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-admin.webp)
     * offer a link to relevant third-party websites so that I can offer interested customers more information on our ingredients and the quality of our products
+        - link to local farmers has been added to quality.html<br>
+        ![Quality](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-quality-link.webp)
+        - link to Facebook business is on the footer and therefore on every page
+        <br>
+        ![Footer](https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-footer-nav.webp)
     <br><br>

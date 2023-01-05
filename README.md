@@ -224,7 +224,7 @@
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout.png">Checkout Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout-success.png">Checkout Success Page</a><br>
     </details>
-
+    <br>
     During the development, the profile and product pages became overcrowded with information and features.
     Therefore these pages were changed and split up into:
     - Products and Product Details
@@ -234,8 +234,7 @@
     - the private policy page, which is a wireframe copy of the Imprint Page
     - a custom 404-Error-Page with just standard wireframe from the base with centered text in the content block
     - the confirm deletion page, which is a wireframe copy of the Product Detail Page.
-
-
+  <br><br>
   - ### Design
     [Bootstrap5  CSS](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used for styling and customized for the front-end development.
     [Bootstrap4  JS](https://getbootstrap.com/docs/4.0/getting-started/introduction/) was used for java script as the toast worked better on Bootstrap4 and was customized for the front-end development.
@@ -988,6 +987,7 @@ To access an order-summary the  order number is required.<br>The order number is
 
 ## Future Implementation
 * offer more payment options
+* search and sort function if more products are added
 * update the model for products by splitting it into two connected models:
   * one for product: Plörr, Plörr Lau
   * one for the container: Single Can, Sixpack, 4x Sixpack, 10l-keg, 25l-keg, 50l-keg
