@@ -155,6 +155,18 @@ body {
     .header-container {
         padding-top: 210px;
     }
+
+    .content-container{
+        bottom: 160px;
+    }
+
+    .footer-container {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -194,5 +206,11 @@ body {
 @media (max-width: 625px) {
     .header-container {
         padding-top: 116px;
+    }
+}
+
+@media (max-height: 770px) {
+    .footer-container {
+        position: static;
     }
 }
