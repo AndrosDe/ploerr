@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}- {{ product.name }}{% endblock %}
+{% block extra_title %}- {{ product_item.name }}{% endblock %}
 
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
             <div class="col text-shadow">
                 <h1 class="my-5 display-5 text-light text-center">
-                    {{ product.name }}
+                    {{ product_item.name }}
                 </h1>
             </div>
         </div>
@@ -20,79 +20,85 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
-                    {% if product.image %}
-                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% if product_item.image %}
+                        <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{{ product_item.name }}">
                     {% else %}
-                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}">
+                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product_item.name }}">
                     {% endif %}
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mt-3 mb-2 h6">{{ product.product.description }}</p>
-                    {% if product.product.ingredients %}
-                        <p class="mb-1"><strong>Ingredients:</strong> {{ product.product.ingredients }}</p>
+                    <p class="mt-3 mb-2 h6">{{ product_item.product.description }}</p>
+                    {% if product_item.product.ingredients %}
+                        <p class="mb-1"><strong>Ingredients:</strong> {{ product_item.product.ingredients }}</p>
                     {% endif %}
-                    {% if product.product.character %}
-                        <p class="mb-1"><strong>Character:</strong> {{ product.product.character }}</p>
+                    {% if product_item.product.character %}
+                        <p class="mb-1"><strong>Character:</strong> {{ product_item.product.character }}</p>
                     {% endif %}
-                    {% if product.product.harmonize_with %}
-                        <p class="mb-1"><strong>Goes well with:</strong> {{ product.product.harmonize_with }}</p>
+                    {% if product_item.product.harmonize_with %}
+                        <p class="mb-1"><strong>Goes well with:</strong> {{ product_item.product.harmonize_with }}</p>
                     {% endif %}
-                    {% if product.product.brewing_type %}
-                        <p class="mb-1"><strong>Type of brewing:</strong> {{ product.product.brewing_type }}</p>
+                    {% if product_item.product.brewing_type %}
+                        <p class="mb-1"><strong>Type of brewing:</strong> {{ product_item.product.brewing_type }}</p>
                     {% endif %}
-                    {% if product.product.bitter %}
-                        <p class="mb-1"><strong>Bitter units:</strong> {{ product.product.bitter }}</p>
+                    {% if product_item.product.bitter %}
+                        <p class="mb-1"><strong>Bitter units:</strong> {{ product_item.product.bitter }}</p>
                     {% endif %}
-                    {% if product.product.original_wort %}
-                        <p class="mb-1"><strong>Original wort:</strong> {{ product.product.original_wort }}%</p>
+                    {% if product_item.product.original_wort %}
+                        <p class="mb-1"><strong>Original wort:</strong> {{ product_item.product.original_wort }}%</p>
                     {% endif %}
-                    {% if product.alcohol_content %}
-                        <p class="mb-1"><strong>Alcohol content:</strong> {{ product.alcohol_content }}% vol.</p>
+                    {% if product_item.product.alcohol_content %}
+                        <p class="mb-1"><strong>Alcohol content:</strong> {{ product_item.product.alcohol_content }}% vol.</p>
                     {% endif %}
-                    {% if product.product.energy_100ml %}
-                        <p class="mb-1"><strong>Energy per 100 ml: </strong>{{ product.product.energy_100ml }}</p>
+                    {% if product_item.product.energy_100ml %}
+                        <p class="mb-1"><strong>Energy per 100 ml: </strong>{{ product_item.product.energy_100ml }}</p>
                     {% endif %}
-                    <p class="mb-1"><strong>Drinking temperature:</strong> {{ product.product.temperature }}°C</p>
-                    <p class="mb-1">{{ product.weight}} liter
-                        {% if product.container.units > 1 %}
-                             - <small>{{ product.container.volumen_per_unit }} liter a can</small>
+                    <p class="mb-1"><strong>Drinking temperature:</strong> {{ product_item.product.temperature }}°C</p>
+                    <p class="mb-1">{{ product_item.weight}} liter
+                        {% if product_item.container.units > 1 %}
+                             - <small>{{ product_item.container.volumen_per_unit }} liter a 
+                                {% if product_item.container.volumen_per_unit < 10 %}
+                                can
+                                {% else %}
+                                keg
+                                {% endif %}
+                            </small>
                         {% endif %}
                     </p>
-                    <p class="lead mb-0 text-left font-weight-bold">{{ product.price }} EUR</p>
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    <p class="lead mb-0 text-left font-weight-bold">{{ product_item.price }} EUR</p>
+                    {% if product_item.rating %}
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product_item.rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
                     {% if request.user.is_staff %}
                         <strong class="ml-3 ms-2">
-                            <a class="text-warning edit-btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <a class="text-warning edit-btn" href="{% url 'edit_product' product_item.id %}">Edit</a> | 
                             <a class="text-danger delete-btn" value="Delete" onclick = "getConfirmation();"> Delete</a>
                         </strong>
                     {% endif %}
-                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form class="form" action="{% url 'add_to_bag' product_item.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-xs-12 col-sm-10">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-75 sm-w-50">
-                                    <div class="input-group input-group-{{ product.id }}">
+                                    <div class="input-group input-group-{{ product_item.id }}">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-light rounded-0 decrement-qty_{{ product.id }}" 
-                                                data-item_id="{{ product.id }}" aria-label="decrease quantity">
+                                            <button class="decrement-qty btn btn-light rounded-0 decrement-qty_{{ product_item.id }}" 
+                                                data-item_id="{{ product_item.id }}" aria-label="decrease quantity">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control qty_input id_qty_{{ product.id }} py-0 border-0 text-center" type="number"
+                                        <input class="form-control qty_input id_qty_{{ product_item.id }} py-0 border-0 text-center" type="number"
                                             name="quantity" value="1" min="1" max="99" 
-                                            data-item_id="{{ product.id }}">
+                                            data-item_id="{{ product_item.id }}">
                                         <div class="input-group-append" aria-label="set quantity">
-                                            <button class="increment-qty btn btn-light rounded-0 increment-qty_{{ product.id }}" 
-                                                data-item_id="{{ product.id }}" aria-label="increase quantity">
+                                            <button class="increment-qty btn btn-light rounded-0 increment-qty_{{ product_item.id }}" 
+                                                data-item_id="{{ product_item.id }}" aria-label="increase quantity">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
                                                 </span>
@@ -109,7 +115,7 @@
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
-                                <input type="submit" class="btn rounded-4 text-uppercase mt-5 btn-light" value="Add to Bag" aria-label="Add {{ product.friendly_name }} to your shopping card">
+                                <input type="submit" class="btn rounded-4 text-uppercase mt-5 btn-light" value="Add to Bag" aria-label="Add {{ product_item.name }} to your shopping card">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
@@ -125,9 +131,9 @@
     {% include 'products/includes/quantity_input_script.html' %}
     <script type = "text/javascript">
         function getConfirmation() {
-        var retVal = confirm("This will delete {{ product.friendly_name }}.\nDo you want to continue ?");
+        var retVal = confirm("This will delete {{ product_item.name }}.\nDo you want to continue ?");
         if( retVal == true ) {
-                location.href="{% url 'delete_product' product.id %}"
+                location.href="{% url 'delete_product' product_item.id %}"
                 return true;
         }
         }

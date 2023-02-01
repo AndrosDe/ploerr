@@ -123,10 +123,10 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
-                    product = Item.objects.get(id=item_id)
+                    product_item = Item.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
-                        item=product,
+                        product_item=product_item,
                         quantity=item_data,
                     )
                     order_line_item.save()

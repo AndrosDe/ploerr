@@ -107,7 +107,7 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(
         Order, null=False, blank=False,
         on_delete=models.CASCADE, related_name='lineitems')
-    item = models.ForeignKey(
+    product_item = models.ForeignKey(
         Item, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(
         null=False, blank=False, default=0)
@@ -129,9 +129,9 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total lines
         and update the order total.
         """
-        self.lineitem_total_price = self.item.price * self.quantity
-        self.lineitem_total_deposit = self.item.deposit * self.quantity
-        self.lineitem_total_weight = self.item.weight * self.quantity
+        self.lineitem_total_price = self.product_item.price * self.quantity
+        self.lineitem_total_deposit = self.product_item.deposit * self.quantity
+        self.lineitem_total_weight = self.product_item.weight * self.quantity
         self.lineitem_total = (
             self.lineitem_total_price + self.lineitem_total_deposit
             )

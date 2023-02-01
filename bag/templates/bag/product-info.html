@@ -1,12 +1,17 @@
 {% load bag_tools %}
 
-<p class="my-0"><strong>{{ item.product.name}}</strong></p>
-<p class="my-0">{{ item.product.weight | calc_subweight:item.quantity }} liter
-    {% if calc_subweight != item.product.weight and item.quantity != 1 or item.product.container.units > 1 %}
-        {% if item.product.volumen < 10 %}
-        <p class="my-0"><small>{{ item.product.container.volumen_per_unit }} liter a can</small></p>
-        {% else %}
-        <p class="my-0"><small>{{ item.product.container.volumen_per_unit }} liter a keg</small></p>
-        {% endif %}
+<p class="my-0"><strong>{{ item.product_item.name}}</strong></p>
+<p class="my-0">{{ item.product_item.weight | calc_subweight:item.quantity }} liter
+    {% if calc_subweight != item.product_item.weight and item.quantity != 1 or item.product_item.container.units > 1 %}
+        <p class="my-0">
+            <small>
+                {{ item.product_item.container.volumen_per_unit }} liter a 
+                    {% if item.product_item.container.volumen_per_unit < 10 %}
+                        can
+                    {% else %}
+                        keg
+                    {% endif %}
+            </small>
+        </p>     
     {% endif %}
 </p>

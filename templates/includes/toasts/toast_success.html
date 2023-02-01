@@ -20,14 +20,14 @@
                 {% for item in bag_items %}
                     <div class="row">
                         <div class="col-3 my-1">
-                        {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        {% if item.product_item.image %}
+                            <img class="w-100" src="{{ item.product_item.image.url }}" alt="{{ item.product_item.name }}">
                         {% else %}
-                            <img class="w-100" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ item.product.name }}">
+                            <img class="w-100" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ item.product_item.name }}">
                         {% endif %}
                         </div>
                         <div class="col-9">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0"><strong>{{ item.product_item.name }}</strong></p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>

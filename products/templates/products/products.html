@@ -23,34 +23,34 @@
         <div class="row mt-1 mb-2">
         </div>
         <div class="row justify-content-md-center">
-            {% for product in products %}
+            {% for product_item in products %}
                 <div class="col-sm-6 col-md-6 col-lg-3 text-dark">
                     <div class="card h-100 border-0 mx-3">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}" aria-label="Go to {{ product.friendly_name }} details">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.friendly_name }}">
+                        {% if product_item.image %}
+                        <a href="{% url 'product_detail' product_item.id %}" aria-label="Go to {{ product_item.name }} details">
+                            <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{{ product_item.name }}">
                         </a>
                         {% else %}
-                        <a href="{% url 'product_detail' product.id %}" aria-label="Go to {{ product.friendly_name }} details">
-                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.friendly_name }}">
+                        <a href="{% url 'product_detail' product_item.id %}" aria-label="Go to {{ product_item.friendly_name }} details">
+                            <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product_item.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.name }}</p>
+                            <p class="mb-0">{{ product_item.name }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">{{ product.price }} EUR</p>
-                                    {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                    <p class="lead mb-0 text-left font-weight-bold">{{ product_item.price }} EUR</p>
+                                    {% if product_item.rating %}
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product_item.rating }} / 5</small>
                                     {% else %}
                                         <small class="text-muted">No Rating</small>
                                     {% endif %}
                                     {% if request.user.is_staff %}
                                         <strong class="ml-3 ms-2">
-                                            <a class="text-warning edit-btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                            <a class="text-danger delete-btn" href="{% url 'confirm_delete' product.id %}">Delete</a>
+                                            <a class="text-warning edit-btn" href="{% url 'edit_product' product_item.id %}">Edit</a> | 
+                                            <a class="text-danger delete-btn" href="{% url 'confirm_delete' product_item.id %}">Delete</a>
                                         </strong>
                                     {% endif %}
                                 </div>

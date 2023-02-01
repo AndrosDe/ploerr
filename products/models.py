@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Product(models.Model):
+    ''' Product Information '''
     product_name = models.CharField(max_length=254)
     description = models.TextField()
     ingredients = models.CharField(max_length=254, null=True, blank=True)
@@ -22,6 +23,7 @@ class Product(models.Model):
 
 
 class Container(models.Model):
+    ''' Container  Data '''
     type = models.CharField(max_length=254)
     units = models.IntegerField(default=1)
     size = models.CharField(max_length=254, null=True, blank=True)
@@ -34,6 +36,7 @@ class Container(models.Model):
 
 
 class Item(models.Model):
+    ''' Product Item Data '''
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True)
     product = models.ForeignKey(Product, null=True,
@@ -55,8 +58,8 @@ class Item(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the lineitem total lines
-        and update the order total.
+        Override the original save method to set the item weight and deposit
+        automatically.
         """
         self.weight = self.container.volumen_per_unit * self.container.units
         self.deposit = self.container.deposit_per_unit * self.container.units
