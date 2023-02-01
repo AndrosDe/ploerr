@@ -1,13 +1,13 @@
 '''Imports'''
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product
+from .models import Item
 
 
-class ProductForm(forms.ModelForm):
+class ItemForm(forms.ModelForm):
 
     class Meta:
-        model = Product
+        model = Item
         fields = '__all__'
 
     image = forms.ImageField(
