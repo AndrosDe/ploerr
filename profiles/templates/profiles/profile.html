@@ -81,7 +81,7 @@
                                     <ul class="list-unstyled">
                                         {% for item in order.lineitems.all %}
                                             <li class="small">
-                                                {{ item.product.friendly_name }} x{{ item.quantity }}
+                                                {{ item.product.name }} x{{ item.quantity }}
                                             </li>
                                         {% endfor %}
                                     </ul>

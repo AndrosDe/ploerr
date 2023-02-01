@@ -91,14 +91,32 @@
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">{{ item.product.price }} EUR</p>
-                                    <p class="my-0"><small>+ {{ item.product.deposit }} EUR<br>can deposit</small></p>
+                                    <p class="my-0">
+                                        <small>+ {{ item.product.deposit }} EUR<br>
+                                            {% if item.product.container.volumen_per_unit < 10 %}
+                                                can 
+                                            {% else %}
+                                                keg 
+                                            {% endif %}
+                                            deposit
+                                        </small>
+                                    </p>
                                 </td>
                                 <td class="py-3 w-25">
                                     {% include "bag/quantity-form.html" %}
                                 </td>
                                 <td class="py-3 text-end">
                                     <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} EUR</p>
-                                    <p class="my-0"><small>+ {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR<br>can deposit</small></p>
+                                    <p class="my-0">
+                                        <small>+ {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR<br>
+                                            {% if item.product.container.volumen_per_unit < 10 %}
+                                                can 
+                                            {% else %}
+                                                keg 
+                                            {% endif %}
+                                            deposit
+                                        </small>
+                                    </p>
                                 </td>
                             </tr>
                         {% endfor %}

@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
-from products.models import Product
+from products.models import Item
 from profiles.models import UserProfile
 
 import json
@@ -123,10 +123,10 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
-                    product = Product.objects.get(id=item_id)
+                    product = Item.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
-                        product=product,
+                        item=product,
                         quantity=item_data,
                     )
                     order_line_item.save()
