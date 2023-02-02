@@ -8,7 +8,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from products.models import Item
+from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
@@ -63,14 +63,14 @@ def checkout(request):
             order.save()
             for item_id, item_data in bag.items():
                 try:
-                    product_item = Item.objects.get(id=item_id)
+                    product = Product.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
-                        product_item=product_item,
+                        product=product,
                         quantity=item_data,
                     )
                     order_line_item.save()
-                except Item.DoesNotExist:
+                except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't "
                         "found in our database. "

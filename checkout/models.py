@@ -6,7 +6,7 @@ from django.db.models import Sum
 
 from django_countries.fields import CountryField
 
-from products.models import Item
+from products.models import Product
 from profiles.models import UserProfile
 
 
@@ -107,8 +107,9 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(
         Order, null=False, blank=False,
         on_delete=models.CASCADE, related_name='lineitems')
-    product_item = models.ForeignKey(
-        Item, null=False, blank=False, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product, null=False, blank=False,
+        on_delete=models.CASCADE)
     quantity = models.IntegerField(
         null=False, blank=False, default=0)
     lineitem_total_price = models.DecimalField(
@@ -129,9 +130,9 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total lines
         and update the order total.
         """
-        self.lineitem_total_price = self.product_item.price * self.quantity
-        self.lineitem_total_deposit = self.product_item.deposit * self.quantity
-        self.lineitem_total_weight = self.product_item.weight * self.quantity
+        self.lineitem_total_price = self.product.price * self.quantity
+        self.lineitem_total_deposit = self.product.deposit * self.quantity
+        self.lineitem_total_weight = self.product.weight_volumen * self.quantity
         self.lineitem_total = (
             self.lineitem_total_price + self.lineitem_total_deposit
             )
@@ -139,5 +140,5 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'''
-        {self.item.name} on order {self.order.order_number}
+        {self.product.name} on order {self.order.order_number}
         '''

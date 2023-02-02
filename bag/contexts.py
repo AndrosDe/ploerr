@@ -1,6 +1,6 @@
 '''imports'''
 from django.shortcuts import get_object_or_404
-from products.models import Item
+from products.models import Product
 
 
 def bag_contents(request):
@@ -14,15 +14,15 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for item_id, quantity in bag.items():
-        product_item = get_object_or_404(Item, pk=item_id)
-        total += quantity * product_item.price
-        weight += quantity * product_item.weight
-        total_deposit += quantity * product_item.deposit
+        product = get_object_or_404(Product, pk=item_id)
+        total += quantity * product.price
+        weight += quantity * product.weight_volumen
+        total_deposit += quantity * product.deposit
         product_count += quantity
         bag_items.append({
             'item_id': item_id,
             'quantity': quantity,
-            'product_item': product_item,
+            'product': product,
         })
 
     if weight >= 5:

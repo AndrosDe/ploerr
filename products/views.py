@@ -3,14 +3,14 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Item
-from .forms import ItemForm
+from .models import Product
+from .forms import ProductForm
 
 
 def all_products(request):
     """ A view to show all products """
 
-    products = Item.objects.all().order_by('weight')
+    products = Product.objects.all().order_by('weight_volumen')
 
     context = {
         'products': products,
@@ -19,13 +19,13 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_item_id):
+def product_detail(request, product_id):
     """ A view to show individual product details """
 
-    product_item = get_object_or_404(Item, pk=product_item_id)
+    product = get_object_or_404(Product, pk=product_id)
 
     context = {
-        'product_item': product_item,
+        'product': product,
     }
 
     return render(request, 'products/product_details.html', context)
@@ -39,17 +39,17 @@ def add_product(request):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = ItemForm(request.POST, request.FILES)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            product_item = form.save()
+            product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product_item.id]))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request,
                            ('Failed to update the product. '
                             'Please ensure the form is valid.'))
     else:
-        form = ItemForm()
+        form = ProductForm()
 
     template = 'products/add_product.html'
     context = {
@@ -60,60 +60,60 @@ def add_product(request):
 
 
 @login_required
-def edit_product(request, product_item_id):
+def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_staff:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product_item = get_object_or_404(Item, pk=product_item_id)
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        form = ItemForm(request.POST, request.FILES, instance=product_item)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product_item.id]))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request,
                            ('Failed to update the product. '
                             'Please ensure the form is valid.'))
     else:
-        form = ItemForm(instance=product_item)
-        messages.info(request, f'You are editing {product_item.name}')
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
 
     template = 'products/edit_product.html'
     context = {
         'form': form,
-        'product_item': product_item,
+        'product': product,
     }
 
     return render(request, template, context)
 
 
 @login_required
-def delete_product_confirm(request, product_item_id):
+def delete_product_confirm(request, product_id):
     """ A view to confirm product deletion """
     if not request.user.is_staff:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product_item = get_object_or_404(Item, pk=product_item_id)
+    product = get_object_or_404(Product, pk=product_id)
 
     context = {
-        'product_item': product_item,
+        'product': product,
     }
 
     return render(request, 'products/confirm_delete.html', context)
 
 
 @login_required
-def delete_product_item(request, product_item_id):
+def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_staff:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product_item = get_object_or_404(Item, pk=product_item_id)
-    product_item.delete()
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))

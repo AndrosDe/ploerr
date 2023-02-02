@@ -50,8 +50,8 @@
                                 {% include "bag/product-info.html" %}
                             </div>
                             <div class="col-12 col-sm-6 order-sm-last mb-3">
-                                <p class="my-0">{{ item.product_item.price | calc_subtotal:item.quantity }} EUR</p>
-                                <p class="my-0"><small>+ {{ item.product_item.deposit | calc_subdeposit:item.quantity }} EUR can deposit</small></p>
+                                <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} EUR</p>
+                                <p class="my-0"><small>+ {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR can deposit</small></p>
                             </div>
                             <div class="col-12 col-sm-6 mx-auto" style="width: 260px;">
                                 {% include "bag/quantity-form.html" %}
@@ -90,15 +90,16 @@
                                     {% include "bag/product-info.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">{{ item.product_item.price }} EUR</p>
+                                    <p class="my-0">{{ item.product.price }} EUR</p>
                                     <p class="my-0">
-                                        <small>+ {{ item.product_item.deposit }} EUR<br>
-                                            {% if item.product_item.container.volumen_per_unit < 10 %}
-                                                can 
+                                        <small>
+                                            + {{ item.product.deposit }} EUR<br>
+                                            {% if item.product.container.volumen_per_unit < 10 %}
+                                                can
                                             {% else %}
-                                                keg 
+                                                keg
                                             {% endif %}
-                                            deposit
+                                             deposit
                                         </small>
                                     </p>
                                 </td>
@@ -106,15 +107,16 @@
                                     {% include "bag/quantity-form.html" %}
                                 </td>
                                 <td class="py-3 text-end">
-                                    <p class="my-0">{{ item.product_item.price | calc_subtotal:item.quantity }} EUR</p>
+                                    <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} EUR</p>
                                     <p class="my-0">
-                                        <small>+ {{ item.product_item.deposit | calc_subdeposit:item.quantity }} EUR<br>
-                                            {% if item.product_item.container.volumen_per_unit < 10 %}
-                                                can 
+                                        <small>
+                                            + {{ item.product.deposit | calc_subdeposit:item.quantity }} EUR<br>
+                                            {% if item.product.container.volumen_per_unit < 10 %}
+                                                can
                                             {% else %}
-                                                keg 
+                                                keg
                                             {% endif %}
-                                            deposit
+                                             deposit
                                         </small>
                                     </p>
                                 </td>
