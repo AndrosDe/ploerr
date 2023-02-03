@@ -32,6 +32,16 @@ def product_detail(request, product_id):
 
 
 @login_required
+def products_management(request):
+    """ A view to return the products_management page """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    return render(request, 'products/products_management.html')
+
+
+@login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_staff:

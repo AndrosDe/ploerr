@@ -47,11 +47,11 @@ body {
     text-decoration-style: double;
   }
 
-.delete-btn, .cancel-btn, .edit-btn{
+.delete-btn, .cancel-btn, .edit-btn, .add-btn{
     text-decoration-line: none;
 }
 
-.main-nav-link:hover, .delete-btn:hover, .cancel-btn:hover, .edit-btn:hover {
+.main-nav-link:hover, .delete-btn:hover, .cancel-btn:hover, .edit-btn:hover, .add-btn:hover {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
 }
@@ -160,7 +160,7 @@ body {
         bottom: 160px;
     }
 
-    .footer-container {
+    .footer-container, .footer-container2{
         position: fixed;
         bottom: 0;
         right: 0;
@@ -211,6 +211,12 @@ body {
 
 @media (max-height: 770px) {
     .footer-container {
+        position: static;
+    }
+}
+
+@media (max-height: 950px) {
+    .footer-container2 {
         position: static;
     }
 }
