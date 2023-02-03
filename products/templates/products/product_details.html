@@ -64,7 +64,7 @@
                             {% if product.container.units > 1 %}
                                 - <small>
                                     {{ product.container.volumen_per_unit }} liter a 
-                                    {% if item.product.container.volumen_per_unit < 10 %}
+                                    {% if product.container.volumen_per_unit < 10 %}
                                         can
                                     {% else %}
                                         keg

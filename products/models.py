@@ -12,9 +12,6 @@ class Category(models.Model):
     category_slug = models.SlugField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        return self.category_slug
-
-    def get_name(self):
         return self.category_name
 
 
@@ -22,7 +19,7 @@ class ProductDescription(models.Model):
     ''' Product Information '''
     product_name = models.CharField(max_length=254)
     product_slug = models.SlugField(max_length=254, null=True, blank=True)
-    category = models.ForeignKey(Category, null=True,
+    category = models.ForeignKey(Category,
                                  on_delete=models.CASCADE,
                                  related_name="categories")
     description = models.TextField()
@@ -39,9 +36,6 @@ class ProductDescription(models.Model):
     temperature = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.product_slug
-
-    def get_name(self):
         return self.product_name
 
 
@@ -57,9 +51,6 @@ class Container(models.Model):
         default=0, max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return self.container_slug
-
-    def get_name(self):
         return self.type
 
 
