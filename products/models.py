@@ -11,6 +11,13 @@ class Category(models.Model):
     category_name = models.CharField(max_length=254)
     category_slug = models.SlugField(max_length=254, null=True, blank=True)
 
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the slug automatically.
+        """
+        self.category_slug = slugify(self.category_name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.category_name
 
@@ -35,6 +42,13 @@ class ProductDescription(models.Model):
     energy_100ml = models.CharField(max_length=254, null=True, blank=True)
     temperature = models.IntegerField(null=True, blank=True)
 
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the slug automatically.
+        """
+        self.product_slug = slugify(self.product_name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.product_name
 
@@ -49,6 +63,13 @@ class Container(models.Model):
         default=0, max_digits=6, decimal_places=3)
     deposit_per_unit = models.DecimalField(
         default=0, max_digits=6, decimal_places=2)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the slug automatically.
+        """
+        self.container_slug = slugify(self.type)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.type
@@ -83,12 +104,13 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the item weight and deposit
-        automatically.
+        Override the original save method to set the item weight, deposit
+        and slug automatically.
         """
         self.volumen = self.container.volumen_per_unit * self.container.units
         self.weight_volumen = self.volumen + self.weight
         self.deposit = self.container.deposit_per_unit * self.container.units
+        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     def __str__(self):

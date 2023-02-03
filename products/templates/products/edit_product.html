@@ -32,6 +32,18 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
+                    <p class="mb-2">Product Total Volumen (Depents on the container):</p>
+                    <div class="mb-3 py-1 rounded-3 bg-secondary text-dark">
+                        <p class="mb-1 ms-2">{{ product.volumen }}</p>
+                    </div>
+                    <p class="mb-2">Weight + Volumen (Updates after submitting changes):</p>
+                    <div class="mb-3 py-1 rounded-3 bg-secondary text-dark">
+                        <p class="mb-1 ms-2">{{ product.weight_volumen }}</p>
+                    </div>
+                    <p class="mb-2">Product Total Deposit (Depents on the container):</p>
+                    <div class="mb-3 py-1 rounded-3 bg-secondary text-dark">
+                        <p class="mb-1 ms-2">{{ product.deposit }}</p>
+                    </div>
                     <div class="text-end">
                         <a class="btn btn-outline-light rounded-3" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-light rounded-3" type="submit">Update Product</button>

@@ -107,7 +107,7 @@ def add_description(request):
             description = form.save()
             messages.success(request, 'Successfully added description!')
             return redirect(reverse(
-                'products_management', args=[description.id]))
+                'all_descriptions'))
         else:
             messages.error(request,
                            ('Failed to update the description. '
@@ -136,7 +136,7 @@ def add_container(request):
             container = form.save()
             messages.success(request, 'Successfully added container!')
             return redirect(reverse(
-                'products_management', args=[container.id]))
+                'all_containers'))
         else:
             messages.error(request,
                            ('Failed to update the container. '
@@ -196,7 +196,7 @@ def delete_product_confirm(request, product_id):
         'product': product,
     }
 
-    return render(request, 'products/confirm_delete.html', context)
+    return render(request, 'products/confirm_delete_product.html', context)
 
 
 @login_required
