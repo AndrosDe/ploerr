@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Product
-from .forms import ProductForm
+from .forms import ProductForm, ProductDescriptionForm, ContainerForm
 
 
 def all_products(request):
@@ -62,6 +62,64 @@ def add_product(request):
         form = ProductForm()
 
     template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_description(request):
+    """ Add a description for a product """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductDescriptionForm(request.POST, request.FILES)
+        if form.is_valid():
+            description = form.save()
+            messages.success(request, 'Successfully added description!')
+            return redirect(reverse(
+                'products_management', args=[description.id]))
+        else:
+            messages.error(request,
+                           ('Failed to update the description. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductDescriptionForm()
+
+    template = 'products/add_description.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_container(request):
+    """ Add a container for a product """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ContainerForm(request.POST, request.FILES)
+        if form.is_valid():
+            container = form.save()
+            messages.success(request, 'Successfully added container!')
+            return redirect(reverse(
+                'products_management', args=[container.id]))
+        else:
+            messages.error(request,
+                           ('Failed to update the container. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ContainerForm()
+
+    template = 'products/add_container.html'
     context = {
         'form': form,
     }

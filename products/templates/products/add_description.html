@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block extra_title %}- Product Management{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-shadow">
+                <h1 class="my-5 display-5 text-light text-center">
+                    Product Management
+                </h1>
+                <h5 class="my-5 text-light text-center">
+                    Add a new Product Description
+                </h5>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-0 col-lg-2"></div>
+            <div class="col-12 col-lg-8 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+                <form method="POST" action="{% url 'add_description' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
+                    {% endfor %}
+                    <div class="text-end">
+                        <a class="btn btn-outline-light rounded-3" href="{% url 'products_management' %}">Cancel</a>
+                        <button class="btn btn-light rounded-3" type="submit">Add Product Description</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-0 col-lg-2"></div>
+        </div>
+    </div>
+{% endblock %}
