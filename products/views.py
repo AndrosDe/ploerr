@@ -31,6 +31,8 @@ def product_detail(request, product_id):
     return render(request, 'products/product_details.html', context)
 
 
+# ------ Products Management Views ------ #
+# 1. Overview
 @login_required
 def products_management(request):
     """ A view to return the products_management page """
@@ -66,6 +68,7 @@ def all_containers(request):
     return render(request, 'products/containers.html', context)
 
 
+# 2. Adding Products, Product Descriptions & Containers
 @login_required
 def add_product(request):
     """ Add a product to the store """
@@ -152,6 +155,7 @@ def add_container(request):
     return render(request, template, context)
 
 
+# 3. Update Products, Product Descriptions & Containers
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
@@ -183,6 +187,7 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+# 4. Deleting Products, Product Descriptions & Containers
 @login_required
 def delete_product_confirm(request, product_id):
     """ A view to confirm product deletion """
@@ -210,3 +215,35 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def delete_description_confirm(request, description_id):
+    """ A view to confirm description deletion """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    description = get_object_or_404(ProductDescription, pk=description_id)
+
+    context = {
+        'description': description,
+    }
+
+    return render(request, 'products/confirm_delete_description.html', context)
+
+
+@login_required
+def delete_container_confirm(request, container_id):
+    """ A view to confirm container deletion """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    container = get_object_or_404(Container, pk=container_id)
+
+    context = {
+        'container': container,
+    }
+
+    return render(request, 'products/confirm_delete_container.html', context)
