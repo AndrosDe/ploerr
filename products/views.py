@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Product
+from .models import Product, ProductDescription, Container
 from .forms import ProductForm, ProductDescriptionForm, ContainerForm
 
 
@@ -39,6 +39,31 @@ def products_management(request):
         return redirect(reverse('home'))
 
     return render(request, 'products/products_management.html')
+
+
+def all_descriptions(request):
+    """ A view to show all product descriptions """
+
+    descriptions = ProductDescription.objects.all().order_by(
+        'product_name', 'category')
+
+    context = {
+        'descriptions': descriptions,
+    }
+
+    return render(request, 'products/descriptions.html', context)
+
+
+def all_containers(request):
+    """ A view to show all containers """
+
+    containers = Container.objects.all().order_by('volumen_per_unit', 'units')
+
+    context = {
+        'containers': containers,
+    }
+
+    return render(request, 'products/containers.html', context)
 
 
 @login_required

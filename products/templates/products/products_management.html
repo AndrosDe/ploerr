@@ -37,8 +37,8 @@
                             <div class="row">
                                 <div class="col bg-white rounded-4">
                                     <strong class="ml-3 ms-2 text-dark">
-                                        <a class="text-warning edit-btn" href="#">Edit</a> | 
-                                        <a class="text-danger delete-btn" href="#">Delete</a>
+                                        <a class="text-warning edit-btn" href="{% url 'all_containers' %}">Edit</a> | 
+                                        <a class="text-danger delete-btn" href="{% url 'all_containers' %}">Delete</a>
                                     </strong>
                                 </div>
                             </div>
@@ -91,8 +91,8 @@
                             <div class="row">
                                 <div class="col bg-white rounded-4">
                                     <strong class="ml-3 ms-2">
-                                        <a class="text-warning edit-btn" href="#">Edit</a> | 
-                                        <a class="text-danger delete-btn" href="#">Delete</a>
+                                        <a class="text-warning edit-btn" href="{% url 'all_descriptions' %}">Edit</a> | 
+                                        <a class="text-danger delete-btn" href="{% url 'all_descriptions' %}">Delete</a>
                                     </strong>
                                 </div>
                             </div>
@@ -101,11 +101,13 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 mb-5 pb-5">
+        </div>
     </div>
 {% endblock %}
 
 {% block footer %}
-    <footer class="container-fluid d-none d-lg-block footer-container2">
+    <footer class="container-fluid d-none d-lg-block footer-container3">
         <div class="row text-center text-shadow mb-2">
             <div class="col-12 text-light">
                 <h5>Visit Us on Facebook and Suscribe to Our Newsletter!</h5>

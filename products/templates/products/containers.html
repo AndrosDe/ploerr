@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- Product Management{% endblock %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-shadow">
+                <h1 class="mt-5 display-5 text-light text-center">
+                    Container
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row mt-5 mb-2">
+        </div>
+        <div class="row justify-content-md-center">
+            {% for container in containers %}
+                <div class="col-sm-6 col-md-6 col-lg-3 text-dark text-center">
+                    <div class="card h-100 border-0 mx-3">
+                        <div class="card-body pb-0 mb-2">
+                            <strong>
+                                <p class="cart-title mb-0 ms-2">{{ container.type }}</p>
+                            </strong>
+                        </div>
+                        <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <strong class="ml-3 ms-2">
+                                        <a class="text-warning edit-btn" href="#">Edit</a> | 
+                                        <a class="text-danger delete-btn" href="#">Delete</a>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-5">
+                    </div>
+                {% endif %}                        
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-lg-block mb-5">
+                    </div>
+                {% endif %}
+            {% endfor %}
+        <div class="col-12 mb-5">
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="container-fluid d-none d-lg-block footer-container2">
+        <div class="row text-center text-shadow mb-2">
+            <div class="col-12 text-light">
+                <h5>Visit Us on Facebook and Suscribe to Our Newsletter!</h5>
+            </div>
+            <div class="row g-0 text-center">
+                <div class="col-4"></div>
+                <div class="col-2 text-light">
+                    <a class="font-weight-bold nav-link mr-5 facebook-link" href="https://www.facebook.com/profile.php?id=100089091254716" rel="external" target="_blank" aria-label="Facebook - Buissness Site Link">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                </div>
+                <div class="col-2 text-light">
+                    <div class="font-weight-bold nav-link mr-5 facebook-link" id="show-popup">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <div class="row slightly-less-dark-bg">
+            <nav class="navbar navbar-expand-lg navbar-light w-100 pt-1">
+                {% include 'includes/food_nav.html' %}
+            </nav>
+        </div> 
+    </footer>
+
+    <footer class="container-fluid mt-5 pt-5 d-block d-lg-none">
+        <div class="row text-center text-shadow mb-2">
+            <div class="col-12 text-light">
+                <h5>Visit us on Facebook and Suscribe to our Newsletter!</h5>
+            </div>
+            <div class="row g-0 text-center">
+                <div class="col-4"></div>
+                <div class="col-2 text-light">
+                    <a class="font-weight-bold nav-link mr-5 facebook-link" href="https://www.facebook.com/profile.php?id=100089091254716" rel="external" target="_blank" aria-label="Facebook - Buissness Site Link">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                </div>
+                <div class="col-2 text-light">
+                    <div class="font-weight-bold nav-link mr-5 facebook-link" id="show-popup">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <div class="row slightly-less-dark-bg">
+            <nav class="navbar navbar-expand-lg navbar-light w-100 pt-1">
+                {% include 'includes/food_nav.html' %}
+            </nav>
+        </div> 
+    </footer>
+{% endblock %}

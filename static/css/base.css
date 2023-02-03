@@ -160,7 +160,7 @@ body {
         bottom: 160px;
     }
 
-    .footer-container, .footer-container2{
+    .footer-container, .footer-container2, .footer-container3{
         position: fixed;
         bottom: 0;
         right: 0;
@@ -215,8 +215,14 @@ body {
     }
 }
 
-@media (max-height: 950px) {
+@media (max-height: 650px) {
     .footer-container2 {
+        position: static;
+    }
+}
+
+@media (max-height: 1200px) {
+    .footer-container3 {
         position: static;
     }
 }
