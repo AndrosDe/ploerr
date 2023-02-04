@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Product, ProductDescription, Container
+from .models import Product, ProductDescription, Container, Category
 from .forms import ProductForm, ProductDescriptionForm, ContainerForm
 
 
@@ -11,9 +11,11 @@ def all_products(request):
     """ A view to show all products """
 
     products = Product.objects.all().order_by('weight_volumen')
+    categories = Category.objects.all().order_by('category_name')
 
     context = {
         'products': products,
+        'categories': categories,
     }
 
     return render(request, 'products/products.html', context)
@@ -29,6 +31,19 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_details.html', context)
+
+
+def category_filter(request, category_id):
+
+    categories = Category.objects.all().order_by('category_name')
+    products = Product.objects.filter(product_description__category=category_id)
+
+    context = {
+        'products': products,
+        'categories': categories,
+    }
+
+    return render(request, 'products/category_filter.html', context)
 
 
 # ------ Products Management Views ------ #

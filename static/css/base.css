@@ -47,11 +47,20 @@ body {
     text-decoration-style: double;
   }
 
-.delete-btn, .cancel-btn, .edit-btn, .add-btn{
+.delete-btn,
+.cancel-btn,
+.edit-btn, 
+.add-btn,
+.cat-btn {
     text-decoration-line: none;
 }
 
-.main-nav-link:hover, .delete-btn:hover, .cancel-btn:hover, .edit-btn:hover, .add-btn:hover {
+.main-nav-link:hover,
+.delete-btn:hover,
+.cancel-btn:hover,
+.edit-btn:hover,
+.add-btn:hover,
+.cat-btn:hover {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
 }
