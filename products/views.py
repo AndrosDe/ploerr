@@ -36,10 +36,17 @@ def product_detail(request, product_id):
 def category_filter(request, category_id):
 
     categories = Category.objects.all().order_by('category_name')
-    products = Product.objects.filter(product_description__category=category_id)
+    
+    filter = Category.objects.filter(id=category_id)
+    for category in filter:
+        category_filter = category
+
+    products = Product.objects.filter(
+        product_description__category=category_id)
 
     context = {
         'products': products,
+        'category_filter': category_filter,
         'categories': categories,
     }
 
