@@ -75,7 +75,8 @@
         {% if request.user.is_staff %}
             <h3>
                 <strong>
-                    <a class="text-danger delete-btn me-3" value="Delete" href="#"> Delete</a> | 
+                    <a class="text-danger delete-btn me-3" value="Delete" href="{% url 'delete_description' description.id %}"> Delete</a> | 
+                    <a class="text-warning edit-btn" value="Edit" href="{% url 'edit_description' description.id %}"> Edit</a> | 
                     <a class="text-light cancel-btn ms-3" value="Cancel" href="{% url 'all_descriptions' %}"> Cancel</a>
                 </strong>
             </h3>

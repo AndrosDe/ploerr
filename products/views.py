@@ -165,7 +165,10 @@ def edit_product(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
+        form = ProductForm(
+            request.POST,
+            request.FILES,
+            instance=product)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product!')
@@ -182,6 +185,74 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_description(request, description_id):
+    """ Edit a description in the store """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    description = get_object_or_404(ProductDescription, pk=description_id)
+    if request.method == 'POST':
+        form = ProductDescriptionForm(
+            request.POST,
+            request.FILES,
+            instance=description)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated description!')
+            return redirect(reverse('all_descriptions'))
+        else:
+            messages.error(request,
+                           ('Failed to update the description. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductDescriptionForm(instance=description)
+        messages.info(request, f'You are editing {description.product_name}')
+
+    template = 'products/edit_description.html'
+    context = {
+        'form': form,
+        'description': description,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_container(request, container_id):
+    """ Edit a container in the store """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    container = get_object_or_404(Container, pk=container_id)
+    if request.method == 'POST':
+        form = ContainerForm(
+            request.POST,
+            request.FILES,
+            instance=container)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated container!')
+            return redirect(reverse('all_containers'))
+        else:
+            messages.error(request,
+                           ('Failed to update the container. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ContainerForm(instance=container)
+        messages.info(request, f'You are editing {container.type}')
+
+    template = 'products/edit_container.html'
+    context = {
+        'form': form,
+        'container': container,
     }
 
     return render(request, template, context)
@@ -234,6 +305,19 @@ def delete_description_confirm(request, description_id):
 
 
 @login_required
+def delete_description(request, description_id):
+    """ Delete a description from the store """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    description = get_object_or_404(ProductDescription, pk=description_id)
+    description.delete()
+    messages.success(request, 'Description deleted!')
+    return redirect(reverse('all_descriptions'))
+
+
+@login_required
 def delete_container_confirm(request, container_id):
     """ A view to confirm container deletion """
     if not request.user.is_staff:
@@ -247,3 +331,16 @@ def delete_container_confirm(request, container_id):
     }
 
     return render(request, 'products/confirm_delete_container.html', context)
+
+
+@login_required
+def delete_container(request, container_id):
+    """ Delete a container from the store """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    container = get_object_or_404(Container, pk=container_id)
+    container.delete()
+    messages.success(request, 'Container deleted!')
+    return redirect(reverse('all_containers'))

@@ -35,7 +35,7 @@
                             <div class="row">
                                 <div class="col">
                                     <strong class="ml-3 ms-2">
-                                        <a class="text-warning edit-btn" href="#">Edit</a> | 
+                                        <a class="text-warning edit-btn" href="{% url 'edit_description' description.id %}">Edit</a> | 
                                         <a class="text-danger delete-btn" href="{% url 'confirm_delete_description' description.id %}">Delete</a>
                                     </strong>
                                 </div>
