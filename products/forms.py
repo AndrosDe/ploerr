@@ -6,11 +6,6 @@ from .models import Product, ProductDescription, Container
 
 class ProductForm(forms.ModelForm):
     ''' The Form for the Products '''
-    rating = forms.DecimalField(
-        label="Rate Product from 0 to 5", required=False)
-    weight = forms.DecimalField(
-        label="Weight of the Products solid components")
-
     class Meta:
         model = Product
         fields = (
@@ -22,6 +17,10 @@ class ProductForm(forms.ModelForm):
             'price',
             'weight',
             )
+        labels = {
+            'rating': 'Rate Product from 0 to 5',
+            'weight': 'Weight of the Products solid Components',
+        }
 
     image = forms.ImageField(
         label='Image',
@@ -54,6 +53,13 @@ class ProductDescriptionForm(forms.ModelForm):
             'temperature',
             )
 
+        labels = {
+            'product_name' : 'Product Name',
+            'harmonize_with': 'Goes well with',
+            'energy_100ml': 'Energy on 100ml',
+            'temperature': 'Drinking Temperature',
+        }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -72,6 +78,10 @@ class ContainerForm(forms.ModelForm):
             'deposit_per_unit',
             'size',
             )
+ 
+        labels = {
+            'size': 'Product / Container Size',
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

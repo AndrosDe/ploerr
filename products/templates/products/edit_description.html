@@ -26,7 +26,9 @@
                 <form method="POST" action="{% url 'edit_description' description.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
+                    <strong>
                         {{ field | as_crispy_field }}
+                    </strong>
                     {% endfor %}
                     <div class="text-end">
                         <a class="btn btn-outline-light rounded-3" href="{% url 'all_descriptions' %}">Cancel</a>

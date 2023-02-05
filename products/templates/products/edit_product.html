@@ -27,20 +27,28 @@
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
+                        <strong>
                             {{ field | as_crispy_field }}
+                        </strong>
                         {% else %}
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-                    <p class="mb-2">Product Total Volumen (Depents on the container):</p>
+                    <strong>
+                        <p class="mb-2">Product Total Volumen (Depents on the container):</p>
+                    </strong>
                     <div class="mb-3 py-1 rounded-3 bg-secondary text-dark">
                         <p class="mb-1 ms-2">{{ product.volumen }}</p>
                     </div>
-                    <p class="mb-2">Weight + Volumen (Updates after submitting changes):</p>
+                    <strong>
+                        <p class="mb-2">Weight + Volumen (Updates after submitting changes):</p>
+                    </strong>
                     <div class="mb-3 py-1 rounded-3 bg-secondary text-dark">
                         <p class="mb-1 ms-2">{{ product.weight_volumen }}</p>
                     </div>
-                    <p class="mb-2">Product Total Deposit (Depents on the container):</p>
+                    <strong>
+                        <p class="mb-2">Product Total Deposit (Depents on the container):</p>
+                    </strong>
                     <div class="mb-3 py-1 rounded-3 bg-secondary text-dark">
                         <p class="mb-1 ms-2">{{ product.deposit }}</p>
                     </div>

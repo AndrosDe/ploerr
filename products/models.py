@@ -1,5 +1,6 @@
 '''imports'''
 from django.db import models
+from django.utils.text import slugify
 
 
 class Category(models.Model):
@@ -87,8 +88,7 @@ class Product(models.Model):
                                   related_name="containers")
     image = models.ImageField(null=True, blank=True)
     weight = models.DecimalField(
-        default=0, max_digits=6, decimal_places=3,
-        null=False, blank=False)
+        max_digits=6, decimal_places=3, null=False, default=0)
     volumen = models.DecimalField(
         max_digits=6, decimal_places=3,
         null=False, blank=False, editable=False)
@@ -96,8 +96,8 @@ class Product(models.Model):
         max_digits=6, decimal_places=3,
         null=False, blank=False, editable=False)
     deposit = models.DecimalField(
-        default=0, max_digits=6, decimal_places=2,
-        null=False, blank=False, editable=False)
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False, default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)

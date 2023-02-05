@@ -132,7 +132,9 @@ class OrderLineItem(models.Model):
         """
         self.lineitem_total_price = self.product.price * self.quantity
         self.lineitem_total_deposit = self.product.deposit * self.quantity
-        self.lineitem_total_weight = self.product.weight_volumen * self.quantity
+        self.lineitem_total_weight = (
+            self.product.weight_volumen * self.quantity
+            )
         self.lineitem_total = (
             self.lineitem_total_price + self.lineitem_total_deposit
             )

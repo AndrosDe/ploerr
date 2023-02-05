@@ -15,10 +15,10 @@ urlpatterns = [
      path('management/',
           views.products_management,
           name='products_management'),
-     path('management/descriptions',
+     path('management/descriptions/',
           views.all_descriptions,
           name='all_descriptions'),
-     path('management/containers',
+     path('management/containers/',
           views.all_containers,
           name='all_containers'),
      # Add Product, ProductDescription & Container
