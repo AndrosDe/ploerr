@@ -2,6 +2,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 
 class Category(models.Model):
@@ -112,6 +113,8 @@ class Product(models.Model):
         self.weight_volumen = self.volumen + self.weight
         self.deposit = self.container.deposit_per_unit * self.container.units
         self.slug = slugify(self.name)
+        self.rating = self.productreview.aggregate(
+            Avg('user_rating'))['user_rating__avg'] or None
         super().save(*args, **kwargs)
 
     def __str__(self):

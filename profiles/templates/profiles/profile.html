@@ -111,7 +111,6 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -119,10 +118,10 @@
                             <tr>
                                 <td>{{ review.product.name }}</td>
                                 <td>{{ review.product.rating }}</td>
-                                <td>Gave Rating: {{ review.user_rating}} out of 5</td>
                                 <td>
+                                    Gave Rating: {{ review.user_rating}} out of 5
                                     <a href="{% url 'edit_review' review.product.id review.id %}" 
-                                    class="rate-add-btn link-warning">
+                                    class="ms-2 rate-add-btn link-warning">
                                         Edit Raiting</a> - 
                                     <a href="{% url 'delete_review' review.product.id review.id %}"
                                     class="rate-add-btn link-danger"

@@ -412,6 +412,12 @@ def edit_review(request, product_id, review_id):
             instance=review)
         if form.is_valid():
             form.save()
+            form_2 = ProductForm(
+                request.POST,
+                request.FILES,
+                instance=product)
+            if form_2.is_valid():
+                form_2.save()
             messages.success(request, 'Successfully updated product rating')
             return redirect(reverse('profile'))
         else:
