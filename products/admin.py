@@ -1,6 +1,6 @@
 '''imports'''
 from django.contrib import admin
-from .models import Product, ProductDescription, Container, Category
+from .models import *
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -76,3 +76,4 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(Container, ContainerAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(ProductDescription, ProductDescriptionAdmin)
+admin.site.register(UserReview)

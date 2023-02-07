@@ -1,6 +1,7 @@
 '''imports'''
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -118,3 +119,20 @@ class Product(models.Model):
 
     def get_name(self):
         return self.name
+
+
+class UserReview(models.Model):
+    ''' Product User Review Data '''
+    product = models.ForeignKey(Product,
+                                on_delete=models.CASCADE,
+                                related_name="productreview")
+    user = models.ForeignKey(User,
+                             on_delete=models.CASCADE,
+                             related_name="userreviews")
+    user_rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
+
+    def __str__(self):
+        return f'''
+        {self.user.username} on product {self.product.name}
+        '''

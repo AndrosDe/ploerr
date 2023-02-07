@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Product, ProductDescription, Container, Category
-from .forms import ProductForm, ProductDescriptionForm, ContainerForm
+from .models import *
+from .forms import *
 
 
 def all_products(request):
@@ -365,3 +365,78 @@ def delete_container(request, container_id):
     container.delete()
     messages.success(request, 'Container deleted!')
     return redirect(reverse('all_containers'))
+
+
+# 5. User Review
+@login_required
+def add_review(request, product_id):
+    """ Add a review to a product """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        form = UserReviewForm(request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.product = product
+            review = form.save()
+
+            messages.success(request, 'Successfully added product rating')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request,
+                           ('Failed to update the product rating. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = UserReviewForm()
+
+    template = 'products/add_product_review.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_review(request, product_id, review_id):
+    """ Edit a review to a product """
+
+    product = get_object_or_404(Product, pk=product_id)
+    review = get_object_or_404(UserReview, product=product, pk=review_id)
+    if request.method == 'POST':
+        form = UserReviewForm(
+            request.POST,
+            request.FILES,
+            instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product rating')
+            return redirect(reverse('profile'))
+        else:
+            messages.error(request,
+                           ('Failed to update the product rating. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = UserReviewForm(instance=review)
+        messages.info(request, f"You are editing {product.name}'s rating.")
+
+    template = 'products/edit_product_review.html'
+    context = {
+        'form': form,
+        'product': product,
+        'review': review,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, product_id, review_id):
+    """ Delete a review to a product """
+    product = get_object_or_404(Product, pk=product_id)
+    review = get_object_or_404(UserReview, product=product, pk=review_id)
+    review.delete()
+    messages.success(request, 'Rating deleted!')
+    return redirect(reverse('profile'))

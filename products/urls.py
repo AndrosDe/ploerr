@@ -60,4 +60,14 @@ urlpatterns = [
      path('confirm/delete/container/<int:container_id>/',
           views.delete_container_confirm,
           name='confirm_delete_container'),
+     # UserReview
+     path('add/review/<int:product_id>/',
+          views.add_review,
+          name='add_review'),
+     path('edit/review/<int:product_id>/<int:review_id>',
+          views.edit_review,
+          name='edit_review'),
+     path('delete/review/<int:product_id>/<int:review_id>',
+          views.delete_review,
+          name='delete_review'),
 ]

@@ -1,7 +1,7 @@
 '''Imports'''
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, ProductDescription, Container
+from .models import Product, ProductDescription, Container, UserReview
 
 
 class ProductForm(forms.ModelForm):
@@ -54,7 +54,7 @@ class ProductDescriptionForm(forms.ModelForm):
             )
 
         labels = {
-            'product_name' : 'Product Name',
+            'product_name': 'Product Name',
             'harmonize_with': 'Goes well with',
             'energy_100ml': 'Energy on 100ml',
             'temperature': 'Drinking Temperature',
@@ -78,10 +78,25 @@ class ContainerForm(forms.ModelForm):
             'deposit_per_unit',
             'size',
             )
- 
+
         labels = {
             'size': 'Product / Container Size',
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'rounded-3'
+
+
+class UserReviewForm(forms.ModelForm):
+    ''' The Form for the UserReview'''
+    class Meta:
+        model = UserReview
+        fields = (
+            'user_rating',
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

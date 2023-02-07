@@ -25,12 +25,19 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    user_reviews = profile.user.userreviews.all()
+
+    review_filter = []
+    for review in user_reviews:
+        review_filter.append(review.product.id)
 
     template = 'profiles/profile.html'
     context = {
         'profile': profile,
         'form': form,
         'orders': orders,
+        'user_reviews': user_reviews,
+        'review_filter': review_filter,
         'on_profile_page': True
     }
 

@@ -46,15 +46,15 @@
         <div class="col-0 col-lg-3"></div>
     </div>
     <div class="row mx-3">
-        <div class="col-12 col-lg-6 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+        <div class="col-12 col-lg-5 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
             <h5 class="text-light">Default Delivery Information</h5>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
-                {{ form|crispy }}
+                {{ form | crispy }}
                 <button class="btn btn-outline-light rounded-3 float-end btn-width">Update Information</button>
             </form>
         </div>
-        <div class="col-12 col-lg-6 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+        <div class="col-12 col-lg-7 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
             <h5 class="text-light">Order History</h5>
             <div class="order-history table-responsive">
                 <table class="table table-sm table-borderless text-light">
@@ -82,11 +82,53 @@
                                         {% for item in order.lineitems.all %}
                                             <li class="small">
                                                 {{ item.product.name }} x {{ item.quantity }}
+                                                {% if not item.product.id in review_filter %}
+                                                     - 
+                                                    <a href="{% url 'add_review' item.product.id %}"
+                                                    class="rate-add-btn link-success">
+                                                        Rate
+                                                    </a>
+                                                {% endif %}
                                             </li>
                                         {% endfor %}
                                     </ul>
                                 </td>
                                 <td>{{ order.grand_total }} EUR</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4 mx-3">
+        <div class="col-12 col-lg-7 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+            <h5 class="text-light">Reviewed Products</h5>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless text-light">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for review in user_reviews %}
+                            <tr>
+                                <td>{{ review.product.name }}</td>
+                                <td>{{ review.product.rating }}</td>
+                                <td>Gave Rating: {{ review.user_rating}} out of 5</td>
+                                <td>
+                                    <a href="{% url 'edit_review' review.product.id review.id %}" 
+                                    class="rate-add-btn link-warning">
+                                        Edit Raiting</a> - 
+                                    <a href="{% url 'delete_review' review.product.id review.id %}"
+                                    class="rate-add-btn link-danger"
+                                    onclick="return confirm('Are you sure want to delete this?')">
+                                        Delete Rating</a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>

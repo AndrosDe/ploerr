@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block extra_title %}- Confirm Deletion{% endblock %}
+{% load crispy_forms_tags %}
+{% block extra_title %}- {{ product.name }}{% endblock %}
 
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
             <div class="col text-shadow">
                 <h1 class="my-5 display-5 text-light text-center">
-                    Confirm Deletion
+                    Rate {{ product.name }}
                 </h1>
-                <h3 class="text-center">
-                    Are you sure you want to delete:<br>
-                    {{ product.name }} ?
-                </h3>
             </div>
         </div>
     </div>
@@ -89,15 +85,21 @@
             </div>
         </div>
     <div class="row text-center">
-        <div class="col">
-        {% if request.user.is_staff %}
-            <h3>
+        <div class="col-0 col-lg-2"></div>
+        <div class="col-12 col-lg-8 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+            <form method="POST" action="{% url 'add_review' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
                 <strong>
-                    <a class="text-danger delete-btn me-3" value="Delete" href="{% url 'delete_product' product.id %}"> Delete</a> | 
-                    <a class="text-light cancel-btn ms-3" value="Cancel" href="{% url 'products' %}"> Cancel</a>
+                    {{ field | as_crispy_field }}
                 </strong>
-            </h3>
-        {% endif %}
+                {% endfor %}
+                <div class="text-end">
+                    <a class="btn btn-outline-light rounded-3" href="{% url 'profile' %}">Cancel</a>
+                    <button class="btn btn-light rounded-3" type="submit">Add Product Review</button>
+                </div>
+            </form>
         </div>
+        <div class="col-0 col-lg-2"></div>
     </div>
 {% endblock %}

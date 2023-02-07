@@ -51,6 +51,7 @@ body {
 .cancel-btn,
 .edit-btn, 
 .add-btn,
+.rate-add-btn,
 .cat-btn {
     text-decoration-line: none;
 }
@@ -60,6 +61,7 @@ body {
 .cancel-btn:hover,
 .edit-btn:hover,
 .add-btn:hover,
+.rate-add-btn:hover,
 .cat-btn:hover {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
