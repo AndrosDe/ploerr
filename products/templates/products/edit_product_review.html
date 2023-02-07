@@ -90,9 +90,11 @@
             <form method="POST" action="{% url 'edit_review' product.id review.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
-                <strong>
-                    {{ field | as_crispy_field }}
-                </strong>
+                    <label for="rangeInput" class="form-label">Rate Product</label>
+                    <br>
+                    <input type="range" id="rangeInput" name="user_rating" min="0" max="5" value="{{ review.user_rating }}" step="1" oninput="amount.value=rangeInput.value">
+                    <br>
+                    <output name="amount" id="amount" for="rangeInput">{{ review.user_rating }}</output>
                 {% endfor %}
                 <div class="text-end">
                     <a class="btn btn-outline-light rounded-3" href="{% url 'profile' %}">Cancel</a>

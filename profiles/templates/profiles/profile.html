@@ -117,9 +117,9 @@
                         {% for review in user_reviews %}
                             <tr>
                                 <td>{{ review.product.name }}</td>
-                                <td>{{ review.product.rating }}</td>
+                                <td><i class="fas fa-star mr-1"></i> {{ review.product.rating }} / 5</td>
                                 <td>
-                                    Gave Rating: {{ review.user_rating}} out of 5
+                                    Gave Rating: <i class="fas fa-star mr-1"></i> {{ review.user_rating}}
                                     <a href="{% url 'edit_review' review.product.id review.id %}" 
                                     class="ms-2 rate-add-btn link-warning">
                                         Edit Raiting</a> - 

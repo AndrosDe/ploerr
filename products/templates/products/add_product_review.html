@@ -91,7 +91,11 @@
                 {% csrf_token %}
                 {% for field in form %}
                 <strong>
-                    {{ field | as_crispy_field }}
+                    <label for="rangeInput" class="form-label">Rate Product</label>
+                    <br>
+                    <input type="range" id="rangeInput" name="user_rating" min="0" max="5" value="{{ review.user_rating }}" step="1" oninput="amount.value=rangeInput.value">
+                    <br>
+                    <output name="amount" id="amount" for="rangeInput">{{ review.user_rating }}</output>
                 </strong>
                 {% endfor %}
                 <div class="text-end">
