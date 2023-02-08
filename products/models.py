@@ -108,9 +108,6 @@ class Product(models.Model):
         """
         Updating when a reivew was made or something changed with the container
         """
-        self.volumen = self.container.volumen_per_unit * self.container.units
-        self.weight_volumen = self.volumen + self.weight
-        self.deposit = self.container.deposit_per_unit * self.container.units
         self.rating = self.productreview.aggregate(
             Avg('user_rating'))['user_rating__avg'] or None
 
