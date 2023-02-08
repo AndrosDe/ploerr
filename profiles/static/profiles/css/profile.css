@@ -23,3 +23,19 @@
 #id_default_country option:first-child {
     color: #757373;
 }
+
+/* -------------------------------- Media Queries */
+
+/* smaller font on smaller screens */
+@media (max-width: 420px) {
+    .profile-table {
+        font-size: small;
+    }
+}
+
+/* smaller font on smaller screens */
+@media (max-width: 350px) {
+    .profile-table {
+        font-size: x-small;
+    }
+}

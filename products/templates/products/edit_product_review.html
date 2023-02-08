@@ -92,9 +92,15 @@
                 {% for field in form %}
                     <label for="rangeInput" class="form-label">Rate Product</label>
                     <br>
-                    <input type="range" id="rangeInput" name="user_rating" min="0" max="5" value="{{ review.user_rating }}" step="1" oninput="amount.value=rangeInput.value">
                     <br>
-                    <output name="amount" id="amount" for="rangeInput">{{ review.user_rating }}</output>
+                    <div class="star-rating">
+                        <span class="fa fa-star-o" data-rating="1"></span>
+                        <span class="fa fa-star-o" data-rating="2"></span>
+                        <span class="fa fa-star-o" data-rating="3"></span>
+                        <span class="fa fa-star-o" data-rating="4"></span>
+                        <span class="fa fa-star-o" data-rating="5"></span>
+                        <input type="hidden" name="user_rating" class="rating-value" value="{{ review.user_rating }}">
+                    </div>
                 {% endfor %}
                 <div class="text-end">
                     <a class="btn btn-outline-light rounded-3" href="{% url 'profile' %}">Cancel</a>
@@ -104,4 +110,31 @@
         </div>
         <div class="col-0 col-lg-2"></div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type = "text/javascript">
+        var $star_rating = $('.star-rating .fa');
+
+        var SetRatingStar = function() {
+        return $star_rating.each(function() {
+            if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+            return $(this).removeClass('fa-star-o').addClass('fa-star');
+            } else {
+            return $(this).removeClass('fa-star').addClass('fa-star-o');
+            }
+        });
+        };
+
+        $star_rating.on('click', function() {
+        $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+        return SetRatingStar();
+        });
+
+        SetRatingStar();
+        $(document).ready(function() {
+
+        });
+    </script> 
 {% endblock %}

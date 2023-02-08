@@ -1217,11 +1217,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   * This project was heavily influenced by the "Boutique Ado"-Project from Code Institute / [Chris Z.](https://github.com/ckz8780).<br>
   Especially the checkout app, stripe, and java scripts, as they were very well made and exactly what I was looking for implementing into my store part of the project.<br>
   The biggest difference is, that I prefer to use more bootstrap classes and less custom css.
-  * CSS Font Border - [code:](https://stackoverflow.com/questions/2570972/css-font-border)
+  * CSS Font Border - [code](https://stackoverflow.com/questions/2570972/css-font-border)
   * Youtube implementation - [w3schools](https://www.w3schools.com/html/html_youtube.asp)
   * Responsive iFrames - [w3schools](https://www.w3schools.com/howto/howto_css_responsive_iframes.asp)
   * Google maps - [w3schools](https://www.w3schools.com/graphics/google_maps_intro.asp)
   * Mailchimp PopUp on Click -[Rahman Zeb](https://rahmanzeb.com/how-to-make-mailchimps-popup-window-appear-with-click-only/)
+  * Star Rating by alisuarez - [codepen.io](https://codepen.io/alisuarez/pen/RWGNLm)
 ### Media
   * #### Videos
     * The main background video on the index page was Stock footage provided by <a class="link author-link-popup" target="_blank" href="https://www.videvo.net/profile/videvo">Videvo</a>, downloaded from <a class="videvo-redirect" target="_blank" href="https://www.videvo.net">videvo.net</a>

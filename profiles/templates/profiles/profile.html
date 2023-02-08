@@ -19,9 +19,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row mx-3 mb-5 pb-4">
+    <div class="row mx-sm-1 mx-md-3 mb-5 pb-4">
         <div class="col-0 col-lg-3"></div>
-        <div class="col-12 col-lg-6 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+        <div class="col-12 col-lg-6 px-xs-2 px-sm-4 px-lg-3 px-xl-5">
             <div class="h6" >
                 Username:
                 <span class="float-end">{{ profile }}</span>
@@ -45,7 +45,7 @@
         </div>
         <div class="col-0 col-lg-3"></div>
     </div>
-    <div class="row mx-3">
+    <div class="row mx-sm-0 mx-md-3">
         <div class="col-12 col-lg-5 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
             <h5 class="text-light">Default Delivery Information</h5>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
@@ -57,7 +57,7 @@
         <div class="col-12 col-lg-7 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
             <h5 class="text-light">Order History</h5>
             <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless text-light">
+                <table class="table table-sm table-borderless table-dark table-hover profile-table">
                     <thead>
                         <tr>
                             <th>Order Number</th>
@@ -78,16 +78,18 @@
                                 </td>
                                 <td>{{ order.date }}</td>
                                 <td>
-                                    <ul class="list-unstyled">
+                                    <ul class="list-unstyled my-0">
                                         {% for item in order.lineitems.all %}
                                             <li class="small">
                                                 {{ item.product.name }} x {{ item.quantity }}
                                                 {% if not item.product.id in review_filter %}
-                                                     - 
-                                                    <a href="{% url 'add_review' item.product.id %}"
-                                                    class="rate-add-btn link-success">
-                                                        Rate
-                                                    </a>
+                                                    <span>
+                                                        <a href="{% url 'add_review' item.product.id %}" class="rate-add-btn link-success">
+                                                            <strong>
+                                                                 - Rate
+                                                            </strong>
+                                                        </a>
+                                                    </span>
                                                 {% endif %}
                                             </li>
                                         {% endfor %}
@@ -101,32 +103,51 @@
             </div>
         </div>
     </div>
-    <div class="row my-4 mx-3">
-        <div class="col-12 col-lg-7 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+    <div class="row my-4 mx-sm-0 mx-md-3">
+        <div class="col-12 col-lg-9 px-xs-2 px-sm-4 px-lg-3 px-xl-5 profile-table">
             <h5 class="text-light">Reviewed Products</h5>
             <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless text-light">
+                <table class="table table-sm table-borderless table-dark table-hover">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th></th>
+                            <th>Product</th>
+                            <th>Product Rating:</th>
+                            <th>Personal Rating:</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for review in user_reviews %}
                             <tr>
-                                <td>{{ review.product.name }}</td>
-                                <td><i class="fas fa-star mr-1"></i> {{ review.product.rating }} / 5</td>
-                                <td>
-                                    Gave Rating: <i class="fas fa-star mr-1"></i> {{ review.user_rating}}
-                                    <a href="{% url 'edit_review' review.product.id review.id %}" 
-                                    class="ms-2 rate-add-btn link-warning">
-                                        Edit Raiting</a> - 
-                                    <a href="{% url 'delete_review' review.product.id review.id %}"
-                                    class="rate-add-btn link-danger"
-                                    onclick="return confirm('Are you sure want to delete this?')">
-                                        Delete Rating</a>
+                                <td class="w-25">{{ review.product.name }}</td>
+                                <td class="w-25"><i class="fas fa-star mr-1 link-warning"></i> {{ review.product.rating }} / 5</td>
+                                <td class="w-25 link-warning">
+                                    {% if review.user_rating == 1 %}
+                                    <i class="fa-solid fa-star"></i> 
+                                    {% endif %}
+                                    {% if review.user_rating == 2 %}
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>  
+                                    {% endif %}
+                                    {% if review.user_rating == 3 %}
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                    {% endif %}
+                                    {% if review.user_rating == 4 %}
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                    {% endif %}
+                                    {% if review.user_rating == 5 %}
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                    {% endif %}
+                                </td>
+                                <td class="w-50">
+                                    <small>
+                                        <a href="{% url 'edit_review' review.product.id review.id %}" 
+                                        class="rate-add-btn link-warning">
+                                            Edit Raiting</a> - 
+                                        <a href="{% url 'delete_review' review.product.id review.id %}"
+                                        class="rate-add-btn link-danger"
+                                        onclick="return confirm('Are you sure want to delete this?')">
+                                            Delete Rating</a>
+                                    </small>
                                 </td>
                             </tr>
                         {% endfor %}
