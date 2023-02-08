@@ -104,6 +104,18 @@ class Product(models.Model):
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
 
+    def update(self):
+        """
+        Updating when a reivew was made or something changed with the container
+        """
+        self.volumen = self.container.volumen_per_unit * self.container.units
+        self.weight_volumen = self.volumen + self.weight
+        self.deposit = self.container.deposit_per_unit * self.container.units
+        self.rating = self.productreview.aggregate(
+            Avg('user_rating'))['user_rating__avg'] or None
+
+        self.save()
+
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the item weight, deposit
@@ -113,8 +125,7 @@ class Product(models.Model):
         self.weight_volumen = self.volumen + self.weight
         self.deposit = self.container.deposit_per_unit * self.container.units
         self.slug = slugify(self.name)
-        self.rating = self.productreview.aggregate(
-            Avg('user_rating'))['user_rating__avg'] or None
+
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -126,10 +137,10 @@ class Product(models.Model):
 
 class UserReview(models.Model):
     ''' Product User Review Data '''
-    product = models.ForeignKey(Product, null=True,
+    product = models.ForeignKey(Product, null=True, blank=True,
                                 on_delete=models.CASCADE,
                                 related_name="productreview")
-    user = models.ForeignKey(User, null=True,
+    user = models.ForeignKey(User, null=True, blank=True,
                              on_delete=models.CASCADE,
                              related_name="userreviews")
     user_rating = models.IntegerField(null=True, blank=True)
