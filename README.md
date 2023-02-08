@@ -203,7 +203,7 @@
     <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/database-schema/plorr-database.webp" name="POSTGRES DATABASES SCHEMA of PLÖRR">
   </details>
   <br>
-  <summary><p>The privious version</p></summary>
+  <summary><p>The previous version</p></summary>
   <details>
     <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/database-schema/ploerr-database.webp" name="OLD POSTGRES DATABASES SCHEMA of PLÖRR">
   </details>
@@ -240,10 +240,10 @@
     - a custom 404-Error-Page with just standard wireframe from the base with centered text in the content block
     
     Updates:
-    - the ProductMangement page, description page, container page are wireframe copies of the Products Page
-    - add_description page, add_container page are wireframe copies of the Add Product Page
-    - edit_description page, edit_container page are wireframe copies of the Edit Product Page
-    - the conifrm_delete_product was delted, but the wireframe ( a copy of Product_Details ) was used to create conifrm_delete_description and conifrm_delete_container
+    - the ProductMangement page, description page, and container page is wireframe copies of the Products Page
+    - add_description page and add_container page are wireframe copies of the Add Product Page
+    - edit_description page and edit_container page are wireframe copies of the Edit Product Page
+    - the conifrm_delete_product was deleted, but the wireframe ( a copy of Product_Details ) was used to create conifrm_delete_description and conifrm_delete_container
     - the add_product_review and edit_product_review pages are wireframe copies Product_Details
 
   <br><br>
@@ -869,7 +869,7 @@ The CRUD is depicted in the feature with the following color code:
   <details>
   <summary>Features for Shop Owners:</summary>
     <ul>
-      Overview of the Product Mangement Featuers<br>
+      Overview of the Product Management Featuers<br>
       <details>
       <summary>Image</summary>
       <img src="#" name="Product Management of Plörr">
@@ -927,7 +927,8 @@ The CRUD is depicted in the feature with the following color code:
     </ul>
     </span>
   </details>
-  - ## <span style="color: orange">Add ProductDescription</span>
+  <br>
+- ## <span style="color: green">Add ProductDescription</span>
   <details>
   <summary><span style="color: green">Features for Shop Owners:</span></summary>
     <span style="color: green">
@@ -976,7 +977,8 @@ The CRUD is depicted in the feature with the following color code:
     </ul>
     </span>
   </details>
-  - ## <span style="color: orange">Add Container</span>
+  <br>
+- ## <span style="color: green">Add Container</span>
   <details>
   <summary><span style="color: green">Features for Shop Owners:</span></summary>
     <span style="color: green">
@@ -1027,11 +1029,11 @@ The CRUD is depicted in the feature with the following color code:
   </details>
 
 ## Defensive Programming
-To keep the application secure and the profile/profile information protected requires the user to be logged in if they want to save delivery information. Users have only access to their profile and delivery information.<br>
+Keeping the application secure and the profile/profile information protected requires the user to be logged in if they want to save delivery information. Users have only access to their profile and delivery information.<br>
 The user is always informed of changes via messages. A custom 404-Error Page was created.<br>
 Stripe handles the payment and makes sure that the payment process is secure.<br>
 Any product creation, updating, or deletion is feature restricted to the administrator. All deletions of products require a confirmation.<br><br>
-To access an order-summary the  order number is required.<br>The order number is randomly created and only given to the customer of that purchase. A security breach outside this app/website (for example: customers email account was compromised, etc.) is required  to have any effect.
+To access an order summary the order number is required.<br>The order number is randomly created and only given to the customer of that purchase. A security breach outside this app/website (for example customer's email account was compromised, etc.) is required to have any effect.
 
 ## SEO-Dokumentation
 - ### Advertising Strategy
@@ -1067,7 +1069,7 @@ To access an order-summary the  order number is required.<br>The order number is
       - normal 𝔓𝔩ö𝔯𝔯
       - 𝔓𝔩ö𝔯𝔯 Lau <small>(-> half-hearted, lukewarm)</small>
     The challenge is to go along with the joke and still be a serious business website and promote the product.<br>
-    Therefore normal 𝔓𝔩ö𝔯𝔯 will be promoted as high carbonated, sparkling and 𝔓𝔩ö𝔯𝔯 Lau as low carbonated, smooth brew
+    Therefore normal 𝔓𝔩ö𝔯𝔯 will be promoted as high carbonated, sparkling, and 𝔓𝔩ö𝔯𝔯 Lau as low carbonated, smooth brew
   <br><br>
   4.  Health and untreated products are a big concern for most customers nowadays. For that reason the products will be promoted as:
       - being naturally carbonated
@@ -1105,7 +1107,7 @@ To access an order-summary the  order number is required.<br>The order number is
       brewery.html
     </li>
       This was a great opportunity to insert certain keywords into these pages as part of their content without looking out of place, like putting "beer from local ingredients", "local natural reserve water" into the quality.html, and "traditional german beer brewing" into brewery.html.<br>
-      These pages add a lot of value, as a site user find out more information on the company and the product.
+      These pages add a lot of value, as a site user finds out more information on the company and the product.
   </ul>
   <br>
     To give the appearance of a serious business page, the following pages were added to the footer in an extra navigation bar at the bottom of the page:
@@ -1126,7 +1128,7 @@ To access an order-summary the  order number is required.<br>The order number is
     In the contact.html the keyword "beer near me" was able to be implemented into the meta description, as it does make sense content-wise.
   </ul>
   <br>
-    Another great place to use the meta description was the products.html, as it allowed to insert the keyword "inexpensive ale & beer" in a kind of stealthy but still appropriate way.
+    Another great place to use the meta description was the products.html, as it allowed to insert the keyword "inexpensive ale & beer" in a kind of stealthy but still an appropriate way.
   <br><br>
 - ### Pictures, Videos, and external sources:
   One of the biggest successes is the index page with the video of "beer being handed out to customers" running in a loop.<br>It is supposed to subtly encourage a desire to get a beer or a drink and according to our website testers, it seems to work quite well.
@@ -1219,7 +1221,7 @@ To access an order-summary the  order number is required.<br>The order number is
 | :--- | :--- | :--- |
 | 1 | Purchase confirmation Email not sent | Removed the new updates to deal with the changes in Stripe in November 2022 to the webhook_handler.py code and went with the old code - My Stripe-API-keys were created in October 2022, which might be the reason why only the old code is accepted |
 | 2 | Heroku deployment failed - backports.zoneinfo could not be built | Removed backports.zoneinfo==0.2.1 from requirments.txt |
-| 3 | Toasts not working with Bootstrap 5 | Used Bootstrap 4 for the JS-toolkit and it worked perfectly
+| 3 | Toasts not working with Bootstrap 5 | Used Bootstrap 4 for the JS toolkit and it worked perfectly
 | 4 | CSS for the checkbox is not applied | No solution found so far - as the issue is so minor, it will be ignored
 
 <br>
@@ -1306,7 +1308,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
     $  python3 manage.py createsuperuser
   ```
   9. To prevent exposing the **ElephantSQL database** when pushing to GitHub, delete it again from settings.py, as it will be set up using an environment variable after the first deployment.<br>
-  Reconnect to the local sqlite database.
+  Reconnect to the local SQLite database.
 
   ```
     DATABASES = {
@@ -1327,7 +1329,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
     * Select the correct branch for deployment from the drop-down menu and click the "Deploy Branch" button for manual deployment.
 
 ### Local Development
-* How to Fork To fork the repository, use the following steps:
+* To fork the repository, use the following steps:
 Login or signup to Github and locate the repository.
 Click the Fork button in the top right corner
 

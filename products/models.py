@@ -126,10 +126,10 @@ class Product(models.Model):
 
 class UserReview(models.Model):
     ''' Product User Review Data '''
-    product = models.ForeignKey(Product,
+    product = models.ForeignKey(Product, null=True,
                                 on_delete=models.CASCADE,
                                 related_name="productreview")
-    user = models.ForeignKey(User,
+    user = models.ForeignKey(User, null=True,
                              on_delete=models.CASCADE,
                              related_name="userreviews")
     user_rating = models.IntegerField(null=True, blank=True)

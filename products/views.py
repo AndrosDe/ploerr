@@ -35,7 +35,7 @@ def product_detail(request, product_id):
 
 def category_filter(request, category_id):
 
-    categories = Category.objects.all().order_by('category_name')
+    categories = Category.objects.all().order_by('id')
     filter = Category.objects.filter(id=category_id)
     for category in filter:
         category_filter = category
