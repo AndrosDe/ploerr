@@ -13,12 +13,10 @@ class ProductForm(forms.ModelForm):
             'product_description',
             'container',
             'image',
-            'rating',
             'price',
             'weight',
             )
         labels = {
-            'rating': 'Rate Product from 0 to 5',
             'weight': 'Weight of the Products solid Components',
         }
 
