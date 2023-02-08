@@ -181,26 +181,31 @@
   The grey elements in these diagrams are the pages not accessible to a particular user.<br>
   <summary><h3><strong>Guest User</strong></h3></summary>
   <details>
-    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/ploerr-authorisation-visitor.webp" name="GUEST USER JOURNEY ACROSS PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/plorr-visitor-authorisation.webp" name="GUEST USER JOURNEY ACROSS PLÖRR">
   </details>
   <br>
 
   <summary><h3><strong>Registered User</strong></h3></summary>
   <details>
-    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/ploerr-authorisation-user.webp" name="REGISTERED USER'S JOURNEY ACROSS PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/plorr-user-authorisation.webp" name="REGISTERED USER'S JOURNEY ACROSS PLÖRR">
   </details>
   <br>
 
   <summary><h3><strong>Administrator / Staff Memeber</strong></h3></summary>
   <details>
-    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/ploerr-authorisation-admin.webp" name="STAFF MEMBER'S PERMISSION AND ACCESS ACROSS PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/topology-diagram/plorr-shop-owner-authorisation.webp" name="STAFF MEMBER'S PERMISSION AND ACCESS ACROSS PLÖRR">
   </details>
   <br>
 - ### Database Schema and Structure
   Plörr uses PostgreSQL and was created with Django+sqlparse.
   <summary><p>The current version can be seen below in the details.</p></summary>
   <details>
-    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/database-schema/ploerr-database.webp" name="POSTGRES DATABASES SCHEMA of PLÖRR">
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/database-schema/plorr-database.webp" name="POSTGRES DATABASES SCHEMA of PLÖRR">
+  </details>
+  <br>
+  <summary><p>The privious version</p></summary>
+  <details>
+    <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/database-schema/ploerr-database.webp" name="OLD POSTGRES DATABASES SCHEMA of PLÖRR">
   </details>
 <hr>
 
@@ -219,7 +224,7 @@
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-profile.png">Profile Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-products.png">Product Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-add-product.png">Edit Product Page</a><br>
-      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-updeate-product.png">Add Product Page Page</a><br>
+      - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-updeate-product.png">Add Product Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-shopping-cart.png">Bag Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout.png">Checkout Page</a><br>
       - <a href="https://ploerr.s3.eu-central-1.amazonaws.com/readme/wireframes/ploerr-checkout-success.png">Checkout Success Page</a><br>
@@ -233,7 +238,14 @@
     Last-minute additions were:
     - the private policy page, which is a wireframe copy of the Imprint Page
     - a custom 404-Error-Page with just standard wireframe from the base with centered text in the content block
-    - the confirm deletion page, which is a wireframe copy of the Product Detail Page.
+    
+    Updates:
+    - the ProductMangement page, description page, container page are wireframe copies of the Products Page
+    - add_description page, add_container page are wireframe copies of the Add Product Page
+    - edit_description page, edit_container page are wireframe copies of the Edit Product Page
+    - the conifrm_delete_product was delted, but the wireframe ( a copy of Product_Details ) was used to create conifrm_delete_description and conifrm_delete_container
+    - the add_product_review and edit_product_review pages are wireframe copies Product_Details
+
   <br><br>
   - ### Design
     [Bootstrap5  CSS](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used for styling and customized for the front-end development.
@@ -508,7 +520,10 @@ The CRUD is depicted in the feature with the following color code:
   <details>
     <summary>Overview of all products with image, price, and product rating</summary>
   </details>
-    <details>
+  <details>
+    <summary>Sort Product by Catergory</summary>
+  </details> 
+  <details>
     <summary>Link to the products details</summary>
   </details> 
   <details>
@@ -784,6 +799,30 @@ The CRUD is depicted in the feature with the following color code:
           <li>
             Links to the order summary of checkout success for these specific orders
           </li>
+          <span style="color: green">
+            <li>
+              Rate a product
+            </li>
+          </span>
+        </ul>
+      </li>
+      <br>
+      <li>
+      Section 4 - Review history:
+        <ul>
+          <li>
+            Displaying all products rated by the user
+          </li>
+          <span style="color: orange">
+            <li>
+              Update user rating for a product
+            </li>
+          </span>
+          <span style="color: red">
+            <li>
+              Delete user rating for a product
+            </li>
+          </span>
         </ul>
       </li>
     </ul>
@@ -826,7 +865,20 @@ The CRUD is depicted in the feature with the following color code:
     </span>
   </details>
   <br>
-- ## <span style="color: green">Product Mangement</span>
+- ## <span>Product Mangement</span>
+  <details>
+  <summary>Features for Shop Owners:</summary>
+    <ul>
+      Overview of the Product Mangement Featuers<br>
+      <details>
+      <summary>Image</summary>
+      <img src="#" name="Product Management of Plörr">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Add Product</span>
   <details>
   <summary><span style="color: green">Features for Shop Owners:</span></summary>
     <span style="color: green">
@@ -834,7 +886,7 @@ The CRUD is depicted in the feature with the following color code:
       Add a new Product<br>
       <details>
       <summary>Image</summary>
-      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-header-nav-account.webp" name="Product Management of Plörr">
+      <img src="" name="Product Management of Plörr">
       </details>
     </ul>
     </span>
@@ -866,11 +918,109 @@ The CRUD is depicted in the feature with the following color code:
       Delete a Product<br>
       <details>
       <summary>Image 1</summary>
-      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-admin.webp" name="Delete Product in Product Details">
+      <img src="#" name="Delete Product in Product Details">
       </details>
       <details>
       <summary>Image 2</summary>
-      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-admin.webp" name="Delete Product in Products">
+      <img src="#" name="Delete Product in Products">
+      </details>
+    </ul>
+    </span>
+  </details>
+  - ## <span style="color: orange">Add ProductDescription</span>
+  <details>
+  <summary><span style="color: green">Features for Shop Owners:</span></summary>
+    <span style="color: green">
+    <ul>
+      Add a new ProductDescription<br>
+      <details>
+      <summary>Image</summary>
+      <img src="#" name="Product Management of Plörr">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Edit ProductDescription</span>
+  <details>
+  <summary><span style="color: orange">Features for Shop Owners:</span></summary>
+    <span style="color: orange">
+    <ul>
+      Update a ProductDescription<br>
+      <details>
+      <summary>Image 1</summary>
+      <img src="#" name="Edit Product in Products">
+      </details>
+      <details>
+      <summary>Image 2</summary>
+      <img src="#" name="Edit Product in Product Details">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: red">Delete ProductDescription</span>
+  <span style="color: red"><details></span>
+  <summary><span style="color: red">Features for Shop Owners</span></summary>
+    <span style="color: red">
+    <ul>
+      Delete a ProductDescription<br>
+      <details>
+      <summary>Image 1</summary>
+      <img src="#" name="Delete Product in Product Details">
+      </details>
+      <details>
+      <summary>Image 2</summary>
+      <img src="#" name="Delete Product in Products">
+      </details>
+    </ul>
+    </span>
+  </details>
+  - ## <span style="color: orange">Add Container</span>
+  <details>
+  <summary><span style="color: green">Features for Shop Owners:</span></summary>
+    <span style="color: green">
+    <ul>
+      Add a new Container<br>
+      <details>
+      <summary>Image</summary>
+      <img src="#" name="Product Management of Plörr">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: orange">Edit Container</span>
+  <details>
+  <summary><span style="color: orange">Features for Shop Owners:</span></summary>
+    <span style="color: orange">
+    <ul>
+      Update a Container<br>
+      <details>
+      <summary>Image 1</summary>
+      <img src="#" name="Edit Product in Products">
+      </details>
+      <details>
+      <summary>Image 2</summary>
+      <img src="#" name="Edit Container in Product Details">
+      </details>
+    </ul>
+    </span>
+  </details>
+  <br>
+- ## <span style="color: red">Delete Container</span>
+  <span style="color: red"><details></span>
+  <summary><span style="color: red">Features for Shop Owners</span></summary>
+    <span style="color: red">
+    <ul>
+      Delete a Container<br>
+      <details>
+      <summary>Image 1</summary>
+      <img src="#">
+      </details>
+      <details>
+      <summary>Image 2</summary>
+      <img src="#" name="Delete Product in Products">
       </details>
     </ul>
     </span>
@@ -987,11 +1137,7 @@ To access an order-summary the  order number is required.<br>The order number is
 
 ## Future Implementation
 * offer more payment options
-* search and sort function if more products are added
-* update the model for products by splitting it into two connected models:
-  * one for product: Plörr, Plörr Lau
-  * one for the container: Single Can, Sixpack, 4x Sixpack, 10l-keg, 25l-keg, 50l-keg
-* rating system for customers
+* search and more sort function if more products are added
 * login via social media account
 * securing order history to be only viewed by the customer that made the order
 <hr>
