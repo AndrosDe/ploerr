@@ -11,7 +11,7 @@ def all_products(request):
     """ A view to show all products """
 
     products = Product.objects.all().order_by('weight_volumen')
-    categories = Category.objects.all().order_by('category_name')
+    categories = Category.objects.all().order_by('id')
 
     context = {
         'products': products,
@@ -41,7 +41,7 @@ def category_filter(request, category_id):
         category_filter = category
 
     products = Product.objects.filter(
-        product_description__category=category_id)
+        product_description__category=category_id).order_by('weight_volumen')
 
     context = {
         'products': products,

@@ -23,7 +23,7 @@
                     {% if product.image %}
                         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                     {% else %}
-                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dbscsb8w1/image/upload/v1670944399/Pl%C3%B6rr/ploerr-logo_wbfur6.png" alt="{{ product.name }}">
+                        <img class="card-img-top img-fluid" src="https://ploerr.s3.eu-central-1.amazonaws.com/media/main/no-product-pic.webp" alt="{{ product.name }}">
                     {% endif %}
                 </div>
             </div>
@@ -84,7 +84,7 @@
                     {% if request.user.is_staff %}
                         <strong class="ml-3 ms-2">
                             <a class="text-warning edit-btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger delete-btn" href="{% url 'delete_product' product.id %}" value="Delete" onclick="return confirm('Are you sure want to delete this?')"> Delete</a>
+                            <a class="text-danger delete-btn" href="{% url 'delete_product' product.id %}" value="Delete" onclick="return confirm('Are you sure want to delete this?')">Delete</a>
                         </strong>
                     {% endif %}
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
