@@ -59,7 +59,7 @@
                                     {% if request.user.is_staff %}
                                         <strong class="ml-3 ms-2">
                                             <a class="text-warning edit-btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                            <a class="text-danger delete-btn" href="{% url 'confirm_delete_product' product.id %}">Delete</a>
+                                            <a class="text-danger delete-btn" href="{% url 'delete_product' product.id %}" value="Delete" onclick="return confirm('Are you sure want to delete this?')"> Delete</a>
                                         </strong>
                                     {% endif %}
                                 </div>

@@ -84,7 +84,7 @@
                     {% if request.user.is_staff %}
                         <strong class="ml-3 ms-2">
                             <a class="text-warning edit-btn" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger delete-btn" value="Delete" onclick = "getConfirmation();"> Delete</a>
+                            <a class="text-danger delete-btn" href="{% url 'delete_product' product.id %}" value="Delete" onclick="return confirm('Are you sure want to delete this?')"> Delete</a>
                         </strong>
                     {% endif %}
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -138,13 +138,4 @@
 {% block postloadjs %}
     {{ block.super }}
     {% include 'products/includes/quantity_input_script.html' %}
-    <script type = "text/javascript">
-        function getConfirmation() {
-        var retVal = confirm("This will delete {{ product.name }}.\nDo you want to continue ?");
-        if( retVal == true ) {
-                location.href="{% url 'delete_product' product.id %}"
-                return true;
-        }
-        }
-    </script> 
 {% endblock %}
