@@ -16,45 +16,33 @@
 [View the live project here](https://ploerr.herokuapp.com/)
 
 <hr>
+<h2> Updates </h2>
 
+### Updates 09.02.2023:
+- updated database structure: 
+  - Product-Database was spat up into Products, ProductDescription, Container
+  - added Category and UserReview
+- updated Product Management Web-Interface for Shop Owners:
+  - added a dedicated website for Product Management
+  - added a website for listing all Containers
+  - added website for listing all ProductDescriptions
+  - added features to add, edit and delete Containers / ProductDescriptions
+- updated Products page:
+  - added filtering by category
+- updated Profile page:
+  - added a feature to rate a product in the order history section
+  - added product rating history
+  - added a feature to edit and delete product ratings for users
+
+<hr>
 <h2> Table of content </h2>
 
 - ### [Strategy](#strategy-1)
-  - [Project Goals](#project-goals)
-  - [User Demographic](#user-demographic)
 - ### [User Stories](#user-stories-1)
 - ### [Scope](#scope-1)
-  - [Feature Ideas Planning](#feature-ideas-planning)
-  - [Functionality Requirements](#functionality-requirements)
 - ### [Structure](#structure-1)
-  - [Topology Diagrams](#topology-diagrams)
-  - [Database Schema and Structure](#database-schema-and-structure)
 - ### [Skeleton](#skeleton-1)
-  - [Wireframes](#wireframes)
-  - [Design](#design)
 - ### [Features](#features-1)
-  - [Multi Page Elements](#multi-page-elements)
-  - [Home/Index Page](#homeindex)
-  - [Quality](#quality)
-  - [Brewery](#brewery)
-  - [Contact](#contact)
-  - [Imprint](#imprint)
-  - [Private Policy](#privacy-policy)
-  - [GTC](#gtc)
-  - [Products](#products)
-  - [Product Details](#product-details)
-  - [Bag](#bag)
-  - [Checkout](#checkout)
-  - [Checkout Success](#checkout-success)
-  - [Register](#register)
-  - [Login](#login)
-  - [Reset Password](#reset-password)
-  - [Profile](#profile)
-  - [Profile Settings](#profile-settings)
-  - [Change Password](#change-password)
-  - [Product Mangement](#product-mangement)
-  - [Edit Product](#edit-product)
-  - [Delete Product](#delete-product)
 - ### [Defensive Programming](#defensive-programming-1)
 - ### [SEO-Dokumentation](#seo-dokumentation-1)
 - ### [Future Implementation](#future-implementation-1)
@@ -62,13 +50,7 @@
 - ### [Testing](#testing-1)
 - ### [Bugs, Issues, and Solutions](#bugs-issues-and-solutions-1)
 - ### [Deployment & Local Development](#deployment--local-development-1)
-  - [Deployment to Heroku](#deployment-to-heroku)
-  - [Local Development](#local-development)
-  - [Making Local Clone](#making-local-clone)
 - ### [Credits](#credits-1)
-  - [Code](#code)
-  - [Media](#media)
-  - [Resources](#resources)
 - ### [Acknowledgements](#acknowledgements-1)
 - ### [Copyrights](#copyrights-1)
 
@@ -872,13 +854,13 @@ The CRUD is depicted in the feature with the following color code:
       Overview of the Product Management Featuers<br>
       <details>
       <summary>Image</summary>
-      <img src="#" name="Product Management of Plörr">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-main.webp" name="Product Management of Plörr">
       </details>
     </ul>
     </span>
   </details>
   <br>
-- ## <span style="color: orange">Add Product</span>
+- ## <span style="color: green">Add Product</span>
   <details>
   <summary><span style="color: green">Features for Shop Owners:</span></summary>
     <span style="color: green">
@@ -886,7 +868,7 @@ The CRUD is depicted in the feature with the following color code:
       Add a new Product<br>
       <details>
       <summary>Image</summary>
-      <img src="" name="Product Management of Plörr">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-add-product.webp" name="Add Product in Product Management of Plörr">
       </details>
     </ul>
     </span>
@@ -918,11 +900,11 @@ The CRUD is depicted in the feature with the following color code:
       Delete a Product<br>
       <details>
       <summary>Image 1</summary>
-      <img src="#" name="Delete Product in Product Details">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-details-admin.webp" name="Delete Product in Product Details">
       </details>
       <details>
       <summary>Image 2</summary>
-      <img src="#" name="Delete Product in Products">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-products-admin.webp" name="Delete Product in Products">
       </details>
     </ul>
     </span>
@@ -936,7 +918,7 @@ The CRUD is depicted in the feature with the following color code:
       Add a new ProductDescription<br>
       <details>
       <summary>Image</summary>
-      <img src="#" name="Product Management of Plörr">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-add-productdescription.webp" name="Add ProductDescription in Product Details">
       </details>
     </ul>
     </span>
@@ -950,12 +932,9 @@ The CRUD is depicted in the feature with the following color code:
       Update a ProductDescription<br>
       <details>
       <summary>Image 1</summary>
-      <img src="#" name="Edit Product in Products">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-product.webp" name="Edit ProductDescription in Product Details">
       </details>
       <details>
-      <summary>Image 2</summary>
-      <img src="#" name="Edit Product in Product Details">
-      </details>
     </ul>
     </span>
   </details>
@@ -967,12 +946,8 @@ The CRUD is depicted in the feature with the following color code:
     <ul>
       Delete a ProductDescription<br>
       <details>
-      <summary>Image 1</summary>
-      <img src="#" name="Delete Product in Product Details">
-      </details>
-      <details>
-      <summary>Image 2</summary>
-      <img src="#" name="Delete Product in Products">
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-product.webp" name="Delete ProductDescription in Product Details">
       </details>
     </ul>
     </span>
@@ -986,7 +961,7 @@ The CRUD is depicted in the feature with the following color code:
       Add a new Container<br>
       <details>
       <summary>Image</summary>
-      <img src="#" name="Product Management of Plörr">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-add-con.webp" name="Add Container in ProductManagement">
       </details>
     </ul>
     </span>
@@ -999,12 +974,8 @@ The CRUD is depicted in the feature with the following color code:
     <ul>
       Update a Container<br>
       <details>
-      <summary>Image 1</summary>
-      <img src="#" name="Edit Product in Products">
-      </details>
-      <details>
-      <summary>Image 2</summary>
-      <img src="#" name="Edit Container in Product Details">
+      <summary>Image</summary>
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-contain.webp" name="Edit Container in ProductManagement">
       </details>
     </ul>
     </span>
@@ -1018,11 +989,7 @@ The CRUD is depicted in the feature with the following color code:
       Delete a Container<br>
       <details>
       <summary>Image 1</summary>
-      <img src="#">
-      </details>
-      <details>
-      <summary>Image 2</summary>
-      <img src="#" name="Delete Product in Products">
+      <img src="https://ploerr.s3.eu-central-1.amazonaws.com/readme/features/ploerr-productmanagement-contain.webp" name="Delete Container in ProductManagement">
       </details>
     </ul>
     </span>
@@ -1030,6 +997,8 @@ The CRUD is depicted in the feature with the following color code:
 
 ## Defensive Programming
 Keeping the application secure and the profile/profile information protected requires the user to be logged in if they want to save delivery information. Users have only access to their profile and delivery information.<br>
+Rating a product is a feature only for authenticated users. Trying to rate the same product twice, will display a custom error message. Ratings can be updated and deleted from the profile. Once a rating has been deleted, the product can be rated again.
+<br>
 The user is always informed of changes via messages. A custom 404-Error Page was created.<br>
 Stripe handles the payment and makes sure that the payment process is secure.<br>
 Any product creation, updating, or deletion is feature restricted to the administrator. All deletions of products require a confirmation.<br><br>

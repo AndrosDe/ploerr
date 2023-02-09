@@ -80,6 +80,7 @@ Created:
         | 7 | delete_product | product is deleted | fail | fail - redirected to login page |
         | 8 | order_history | content is visible | pass | pass - sadly that is true for all orders |
         | 9 | delete_product | access to the confirm delete page | fail | fail - redirected to login page |
+        | 10 | # | # | # | # |
 
         Conclusion:<br>
         As expected the visitor is prohibited from using any other feature that would require to be logged in.<br>
