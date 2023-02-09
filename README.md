@@ -27,6 +27,7 @@
   - added a website for listing all Containers
   - added website for listing all ProductDescriptions
   - added features to add, edit and delete Containers / ProductDescriptions
+  - categories can not be added, edited, or deleted on the website<br>The DjangoAdmin Panel has to be accessed for that
 - updated Products page:
   - added filtering by category
 - updated Profile page:
@@ -1001,7 +1002,8 @@ Rating a product is a feature only for authenticated users. Trying to rate the s
 <br>
 The user is always informed of changes via messages. A custom 404-Error Page was created.<br>
 Stripe handles the payment and makes sure that the payment process is secure.<br>
-Any product creation, updating, or deletion is feature restricted to the administrator. All deletions of products require a confirmation.<br><br>
+Any product creation, updating, or deletion is feature restricted to the shop-admin. All deletions of products require a confirmation.<br>
+Categories are off-limits to all but the administrator and need to be handled in the DjangoAdmin panel, as deleting a category would remove all associated products.<br><br>
 To access an order summary the order number is required.<br>The order number is randomly created and only given to the customer of that purchase. A security breach outside this app/website (for example customer's email account was compromised, etc.) is required to have any effect.
 
 ## SEO-Dokumentation

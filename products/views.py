@@ -64,8 +64,12 @@ def products_management(request):
     return render(request, 'products/products_management.html')
 
 
+@login_required
 def all_descriptions(request):
     """ A view to show all product descriptions """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     descriptions = ProductDescription.objects.all().order_by(
         'product_name', 'category')
@@ -77,8 +81,12 @@ def all_descriptions(request):
     return render(request, 'products/descriptions.html', context)
 
 
+@login_required
 def all_containers(request):
     """ A view to show all containers """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     containers = Container.objects.all().order_by('volumen_per_unit', 'units')
 

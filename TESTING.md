@@ -32,37 +32,38 @@ Created:
         | 2 | index | Navigation links | pass | pass |
         | 3 | products | content is visible | pass | pass |
         | 4 | products | link to product details | pass | pass |
-        | 5 | products | edit & delete function | fail | fail - these features are only visible to Store Owners |
-        | 6 | product_details | content is visible | pass | pass |
-        | 7 | product_details | quantity can be selected  | pass | pass |
-        | 8 | product_details | "Add To Bag" - button adds the product with the selected quantity to the bag | pass | pass |
-        | 9 | - | "Message: Success" is shown, with the bag contents visible | pass | pass |
-        | 10 | - | "Message: Success" links to bag | pass | pass |
-        | 11 | - | "Message: Success" links to checkout | pass | pass |
-        | 12 | quality | content is visible | pass | pass - the youtube video might need a refresh of the page to start up |
-        | 13 | quality | link to third-party website | pass | pass |
-        | 14 | brewery | content is visible | pass | pass |
-        | 15 | impressum | content is visible | pass | pass |
-        | 16 | agb | content is visible | pass | pass |
-        | 17 | contact | content is visible | pass | pass |
-        | 18 | bag | content is visible | pass | pass - either the selected products or "bag is empty" |
-        | 19 | bag | products can be removed | pass | pass |
-        | 20 | bag | products quantity can be updated | pass | pass |
-        | 21 | bag | bag total, weight, deposit total, shipping costs, grand total are displayed | pass | pass - they change according to the products and quantity in the bag |
-        | 22 | checkout | content is visible | pass | pass |
-        | 23 | checkout | order summary is visible | pass | pass |
-        | 24 | checkouts | save delivery information | fail | fail -  You need to be logged in to have that feature |
-        | 25 | checkout | prompted to login or create account under the delivery information| pass | pass -  not needed to complete the order |
-        | 26 | checkout | enter credit card details | pass | pass |
-        | 27 | checkout | complete order (with correct credit card details) | pass | pass |
-        | 28 | checkout_success | content (Oder Summary)  is visible | pass | pass |
-        | 29 | checkout | email confirmation is send | pass | pass |
-        | 30 | login | content is visible | pass | pass |
-        | 31 | password_reset | content is visible | pass | pass |
-        | 32 | signup | content is visible | pass | pass |
-        | 33 | - | email confirmations are sent| pass | pass |
-        | 34 | - | messages are shown| pass | pass |
-        | 32 | privacy policy | content is visible | pass | pass |
+        | 5 | products | filter products by category | pass | pass |
+        | 6 | products | edit & delete function | fail | fail - these features are only visible to Store Owners |
+        | 7 | product_details | content is visible | pass | pass |
+        | 8 | product_details | quantity can be selected  | pass | pass |
+        | 9 | product_details | "Add To Bag" - button adds the product with the selected quantity to the bag | pass | pass |
+        | 10 | - | "Message: Success" is shown, with the bag contents visible | pass | pass |
+        | 11 | - | "Message: Success" links to bag | pass | pass |
+        | 12 | - | "Message: Success" links to checkout | pass | pass |
+        | 13 | quality | content is visible | pass | pass - the youtube video might need a refresh of the page to start up |
+        | 14 | quality | link to third-party website | pass | pass |
+        | 15 | brewery | content is visible | pass | pass |
+        | 16 | impressum | content is visible | pass | pass |
+        | 17 | agb | content is visible | pass | pass |
+        | 18 | contact | content is visible | pass | pass |
+        | 19 | bag | content is visible | pass | pass - either the selected products or "bag is empty" |
+        | 20 | bag | products can be removed | pass | pass |
+        | 21 | bag | products quantity can be updated | pass | pass |
+        | 22 | bag | bag total, weight, deposit total, shipping costs, grand total are displayed | pass | pass - they change according to the products and quantity in the bag |
+        | 23 | checkout | content is visible | pass | pass |
+        | 24 | checkout | order summary is visible | pass | pass |
+        | 25 | checkouts | save delivery information | fail | fail -  You need to be logged in to have that feature |
+        | 26 | checkout | prompted to login or create account under the delivery information| pass | pass -  not needed to complete the order |
+        | 27 | checkout | enter credit card details | pass | pass |
+        | 28 | checkout | complete order (with correct credit card details) | pass | pass |
+        | 29 | checkout_success | content (Oder Summary)  is visible | pass | pass |
+        | 30 | checkout | email confirmation is send | pass | pass |
+        | 31 | login | content is visible | pass | pass |
+        | 32 | password_reset | content is visible | pass | pass |
+        | 33 | signup | content is visible | pass | pass |
+        | 34 | - | email confirmations are sent| pass | pass |
+        | 35 | - | messages are shown| pass | pass |
+        | 36 | privacy policy | content is visible | pass | pass |
 
         Conclusion:<br>
         The visitor has exactly as much access to the Plörr-Website and Online Shop as intended.
@@ -79,8 +80,17 @@ Created:
         | 6 | edit_product | content is visible | fail | fail - redirected to login page |
         | 7 | delete_product | product is deleted | fail | fail - redirected to login page |
         | 8 | order_history | content is visible | pass | pass - sadly that is true for all orders |
-        | 9 | delete_product | access to the confirm delete page | fail | fail - redirected to login page |
-        | 10 | # | # | # | # |
+        | 9 | containers | access to the containers page | # | # |
+        | 10 | add_containers | access to the add containers page | # | # |
+        | 10 | edit_containers | access to the edit containers page | # | # |
+        | 10 | delete_containers | access to the delete containers page | # | # |
+        | 10 | description | access to the product description page | # | # |
+        | 10 | add_description | access to the add product description page | # | # |
+        | 10 | edit_description|access to the edit product description page | # | # |
+        | 10 | delete_description | access to the delete product description page | # | # |
+        | 10 | productmanagement | access to the product management page | # | # |
+        | 10 | add_product_review | access to the add product review page | # | # |
+        | 10 | edit_product_review | access to the edit product review page | # | # |
 
         Conclusion:<br>
         As expected the visitor is prohibited from using any other feature that would require to be logged in.<br>
@@ -90,12 +100,18 @@ Created:
 2. Test runs - Registered User access:
     User used: abeier
     
-    * a) Reviewing user journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
+    * a) Reviewing user journey through the PLÖRR-Website.<br> User can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
         | :--- | :--- | :--- | :--- | :--- |
         | 1 | profile | content is visible | pass | pass |
         | 2 | profile | delivery information can be updated | pass | pass |
         | 3 | profile | "Message: Success" is displayed without the bag contents | pass | pass |
+        | 3 | profile | rate product feature visible | # | # |
+        | 3 | profile | list of rated products, once the user rated a product | # | # |
+        | 3 | profile | edit / delete product rating visible | # | # |
+        | 3 | add_profile_review | # | # | # |
+        | 3 | edit_profile_review | # | # | # |
+        | 3 | delete_profile_review | # | # | # |
         | 4 | password_change | content is visible | pass | pass |
         | 5 | password_change | password can be changed | pass | pass |
         | 6 | profile_settings | content is visible | pass | pass |
@@ -115,14 +131,25 @@ Created:
         | 2 | edit_product | content is visible | fail | fail - error message shown |
         | 3 | delete_product | product is deleted | fail | fail - error message shown |
         | 4 | delete_product | access to the confirm delete page | fail | fail - error message shown |
+        | 5 | containers | access to the containers page | # | # |
+        | 6 | add_containers | access to the add containers page | # | # |
+        | 7 | edit_containers | access to the edit containers page | # | # |
+        | 8 | delete_containers | access to the delete containers page | # | # |
+        | 9 | description | access to the product description page | # | # |
+        | 10 | add_description | access to the add product description page | # | # |
+        | 11 | edit_description|access to the edit product description page | # | # |
+        | 12 | delete_description | access to the delete product description page | # | # |
+        | 13 | productmanagement | access to the product management page | # | # |
+        | 14 | add_product_review | access to the add product review page | # | # |
+        | 15 | edit_product_review | access to the edit product review page | # | # |
 
         Conclusion:<br>
         Trying to access restricted features will display a custom error message.<br><br>
     
 3. Test runs - Administrator access:
-    User used: admin
+    User used: shop-admin
 
-    * a) Reviewing user journey through the PLÖRR-Website.<br> Visitors can access and use the following features:
+    * a) Reviewing user journey through the PLÖRR-Website.<br> Shop-admin can access and use the following features:
         | # | Site | Feature | Expected Outcome | Result |
         | :--- | :--- | :--- | :--- | :--- |
         | 1 | add_product | link is shown in the navigation bar | pass | pass |
@@ -134,10 +161,21 @@ Created:
         | 7 | delete_product | link is shown in produc_details | pass | pass |
         | 8 | delete_product | product is deleted | pass | pass |
         | 9 | delete_product | access to the confirm delete page | pass | pass |
+        | 10 | containers | access to the containers page | pass | pass |
+        | 11 | add_containers | access to the add containers page | pass | pass |
+        | 12 | edit_containers | access to the edit containers page | pass | pass |
+        | 13 | delete_containers | access to the delete containers page | pass | pass |
+        | 14 | description | access to the product description page | pass | pass |
+        | 15 | add_description | access to the add product description page | pass | pass |
+        | 16 | edit_description|access to the edit product description page | pass | pass |
+        | 17 | delete_description | access to the delete product description page | pass | pass |
+        | 18 | productmanagement | access to the product management page | pass | pass |
+        | 19 | add_product_review | access to the add product review page | pass | pass |
+        | 20 | edit_product_review | access to the edit product review page | pass | pass |
 
         Conclusion:<br>
-        Store Owners have extra features to add, edit and delete products.<br>
-        Deleting the product can only be done from the product details and requires confirmation.
+        Store Owners have extra features to add, edit and delete products, containers, product-description.<br>
+        Deleting the product, container, and product-description requires confirmation. Containers and product-description will remove all associated products.
     
 
 ## Validation Results
@@ -145,14 +183,14 @@ Created:
     * [/home](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2F)
     * [/contact](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fcontact%2F)
     * [/quality](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fquality%2F)
-    * [/brewery](https://ploerr.herokuapp.com/brewery/)
+    * [/brewery](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fbrewery%2F)
     * [/impressum](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fimpressum%2F)
     * [/agb](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fagb%2F)
     * [/checkout/checkout_success](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprofile%2Forder_history%2FDA7D7DB2A8D64C90B25D91661592393E)
     * [/checkout](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fcheckout%2F)
     * [/bag](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fbag%2F)
-    * [/profiles/profile](https://ploerr.herokuapp.com/profile/)
-    * [/profiles/profile_settings_edit](https://ploerr.herokuapp.com/profile/settings/)
+    * [/profiles/profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprofile%2F)
+    * [/profiles/profile_settings_edit](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprofile%2Fsettings%2F)
     * [/products](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2F)
     * [/products/product_details](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2F1%2F)
     * [/products/add_product](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fadd%2F)
@@ -162,7 +200,18 @@ Created:
     * [/accounts/logout/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Flogout%2F)
     * [/password/change/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Faccounts%2Fpassword%2Fchange%2F)
     * [/privacypolicy/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fprivacypolicy%2F)
-    * [/products/confirm/delete/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fconfirm%2Fdelete%2F1%2F)
+    * [/management/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fmanagement%2F)
+    * [/management/descriptions/](https://ploerr.herokuapp.com/products/management/descriptions/)
+    * [/management/containers/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fmanagement%2Fcontainers%2F)
+    * [/management/add/description/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fadd%2Fcontainer%2F)
+    * [/management/edit/description/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fedit%2Fcontainer%2F10%2F)
+    * [/management/delete/description/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fconfirm%2Fdelete%2Fcontainer%2F10%2F)
+    * [/management/add/container/](https://ploerr.herokuapp.com/products/add/description/)
+    * [/management/edit/container/](https://ploerr.herokuapp.com/products/edit/description/4/)
+    * [/management/delete/container/](https://ploerr.herokuapp.com/products/confirm/delete/description/4/)
+    * [/products/category/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fcategory%2F1%2F)
+    * [/add/review/](#)
+    * [/edit/review/](#)
     
 
 - ### CSS: W3C CSS Validator Test Results
