@@ -1194,6 +1194,8 @@ To access an order summary the order number is required.<br>The order number is 
 | 2 | Heroku deployment failed - backports.zoneinfo could not be built | Removed backports.zoneinfo==0.2.1 from requirments.txt |
 | 3 | Toasts not working with Bootstrap 5 | Used Bootstrap 4 for the JS toolkit and it worked perfectly
 | 4 | CSS for the checkbox is not applied | No solution found so far - as the issue is so minor, it will be ignored
+| 5 | Purchase confirmation email not sent | This issue was due to the changes in the database, once correctly migrated the bug was solved |
+| 6 | Two orders are created, only one confirmation email for one order and only one order to be charged by stripe<br> Apperently something is wrong with the webhook, as it can't find the created order and creates a new one. |  |
 
 <br>
 <hr>

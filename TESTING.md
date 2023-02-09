@@ -80,17 +80,17 @@ Created:
         | 6 | edit_product | content is visible | fail | fail - redirected to login page |
         | 7 | delete_product | product is deleted | fail | fail - redirected to login page |
         | 8 | order_history | content is visible | pass | pass - sadly that is true for all orders |
-        | 9 | containers | access to the containers page | # | # |
-        | 10 | add_containers | access to the add containers page | # | # |
-        | 10 | edit_containers | access to the edit containers page | # | # |
-        | 10 | delete_containers | access to the delete containers page | # | # |
-        | 10 | description | access to the product description page | # | # |
-        | 10 | add_description | access to the add product description page | # | # |
-        | 10 | edit_description|access to the edit product description page | # | # |
-        | 10 | delete_description | access to the delete product description page | # | # |
-        | 10 | productmanagement | access to the product management page | # | # |
-        | 10 | add_product_review | access to the add product review page | # | # |
-        | 10 | edit_product_review | access to the edit product review page | # | # |
+        | 9 | containers | access to the containers page | fail | fail - redirected to login page |
+        | 10 | add_containers | access to the add containers page | fail | fail - redirected to login page |
+        | 11 | edit_containers | access to the edit containers page | fail | fail - redirected to login page |
+        | 12 | delete_containers | access to the delete containers page | fail | fail - redirected to login page |
+        | 13 | description | access to the product description page | fail | fail - redirected to login page |
+        | 14 | add_description | access to the add product description page | fail | fail - redirected to login page |
+        | 15 | edit_description|access to the edit product description page | fail | fail - redirected to login page |
+        | 16 | delete_description | access to the delete product description page | fail | fail - redirected to login page |
+        | 17 | productmanagement | access to the product management page | fail | fail - redirected to login page |
+        | 18 | add_product_review | access to the add product review page | fail | fail - redirected to login page |
+        | 19 | edit_product_review | access to the edit product review page | fail | fail - redirected to login page |
 
         Conclusion:<br>
         As expected the visitor is prohibited from using any other feature that would require to be logged in.<br>
@@ -106,20 +106,20 @@ Created:
         | 1 | profile | content is visible | pass | pass |
         | 2 | profile | delivery information can be updated | pass | pass |
         | 3 | profile | "Message: Success" is displayed without the bag contents | pass | pass |
-        | 3 | profile | rate product feature visible | # | # |
-        | 3 | profile | list of rated products, once the user rated a product | # | # |
-        | 3 | profile | edit / delete product rating visible | # | # |
-        | 3 | add_profile_review | # | # | # |
-        | 3 | edit_profile_review | # | # | # |
-        | 3 | delete_profile_review | # | # | # |
-        | 4 | password_change | content is visible | pass | pass |
-        | 5 | password_change | password can be changed | pass | pass |
-        | 6 | profile_settings | content is visible | pass | pass |
-        | 7 | profile_settings | username, name & email can be updated | pass | pass |
-        | 8 | checkout | save delivery information | pass | pass |
-        | 9 | checkout | save delivery information checkbox is red | pass | fail - for some reason the css is not applied |
-        | 10 | logout | content is visible | pass | pass |
-        | 11 | logout | able to log out from the profile | pass | pass |
+        | 4 | profile | rate product feature visible | pass | pass |
+        | 5 | profile | list of rated products, once the user rated a product | pass | pass |
+        | 6 | profile | edit / delete product rating visible | pass | pass |
+        | 7 | add_profile_review | able to rate a product | pass | pass |
+        | 8 | edit_profile_review | edit exsitng rating | pass | pass |
+        | 9 | delete_profile_review | # | pass | pass |
+        | 10 | password_change | content is visible | pass | pass |
+        | 11 | password_change | password can be changed | pass | pass |
+        | 12 | profile_settings | content is visible | pass | pass |
+        | 13 | profile_settings | username, name & email can be updated | pass | pass |
+        | 14 | checkout | save delivery information | pass | pass |
+        | 15 | checkout | save delivery information checkbox is red | pass | fail - for some reason the css is not applied |
+        | 16 | logout | content is visible | pass | pass |
+        | 17 | logout | able to log out from the profile | pass | pass |
 
         Conclusion:<br>
         In addition to all the normal visitor access logged in users have some little conveniences with their profile, where they can update delivery and personal information, as well as an overview of all previously made orders.
@@ -131,17 +131,17 @@ Created:
         | 2 | edit_product | content is visible | fail | fail - error message shown |
         | 3 | delete_product | product is deleted | fail | fail - error message shown |
         | 4 | delete_product | access to the confirm delete page | fail | fail - error message shown |
-        | 5 | containers | access to the containers page | # | # |
-        | 6 | add_containers | access to the add containers page | # | # |
-        | 7 | edit_containers | access to the edit containers page | # | # |
-        | 8 | delete_containers | access to the delete containers page | # | # |
-        | 9 | description | access to the product description page | # | # |
-        | 10 | add_description | access to the add product description page | # | # |
-        | 11 | edit_description|access to the edit product description page | # | # |
-        | 12 | delete_description | access to the delete product description page | # | # |
-        | 13 | productmanagement | access to the product management page | # | # |
-        | 14 | add_product_review | access to the add product review page | # | # |
-        | 15 | edit_product_review | access to the edit product review page | # | # |
+        | 5 | containers | access to the containers page | fail | fail - error message shown |
+        | 6 | add_containers | access to the add containers page | fail | fail - error message shown |
+        | 7 | edit_containers | access to the edit containers page | fail | fail - error message shown |
+        | 8 | delete_containers | access to the delete containers page | fail | fail - error message shown |
+        | 9 | description | access to the product description page | fail | fail - error message shown |
+        | 10 | add_description | access to the add product description page | fail | fail - error message shown |
+        | 11 | edit_description|access to the edit product description page | fail | fail - error message shown |
+        | 12 | delete_description | access to the delete product description page | fail | fail - error message shown |
+        | 13 | productmanagement | access to the product management page | fail | fail - error message shown |
+        | 14 | add_product_review | access to the add product review page | fail | fail - error message shown |
+        | 15 | edit_product_review | access to the edit product review page | fail | fail - error message shown |
 
         Conclusion:<br>
         Trying to access restricted features will display a custom error message.<br><br>
@@ -176,7 +176,7 @@ Created:
         Conclusion:<br>
         Store Owners have extra features to add, edit and delete products, containers, product-description.<br>
         Deleting the product, container, and product-description requires confirmation. Containers and product-description will remove all associated products.
-    
+
 
 ## Validation Results
 - ### HTML: W3C Markup Validator Test Results
@@ -210,8 +210,8 @@ Created:
     * [/management/edit/container/](https://ploerr.herokuapp.com/products/edit/description/4/)
     * [/management/delete/container/](https://ploerr.herokuapp.com/products/confirm/delete/description/4/)
     * [/products/category/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fcategory%2F1%2F)
-    * [/add/review/](#)
-    * [/edit/review/](#)
+    * [/add/review/](https://validator.w3.org/nu/?doc=https%3A%2F%2Fploerr.herokuapp.com%2Fproducts%2Fadd%2Freview%2F6%2F)
+    * [/edit/review/](https://ploerr.herokuapp.com/products/edit/review/1/2)
     
 
 - ### CSS: W3C CSS Validator Test Results
