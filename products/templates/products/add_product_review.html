@@ -84,33 +84,44 @@
                 </div>
             </div>
         </div>
-    <div class="row text-center">
-        <div class="col-0 col-lg-2"></div>
-        <div class="col-12 col-lg-8 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
-            <form method="POST" action="{% url 'add_review' product.id %}" class="form mb-2" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-                <strong>
-                    <label for="user_rating" class="form-label">Rate Product</label>
-                    <br>
-                    <div class="star-rating">
-                        <span class="fa fa-star-o" data-rating="1"></span>
-                        <span class="fa fa-star-o" data-rating="2"></span>
-                        <span class="fa fa-star-o" data-rating="3"></span>
-                        <span class="fa fa-star-o" data-rating="4"></span>
-                        <span class="fa fa-star-o" data-rating="5"></span>
-                        <input type="hidden" name="user_rating" class="rating-value" value="1">
+    {% if not product_filter %}
+        <div class="row text-center">
+            <div class="col-0 col-lg-2"></div>
+            <div class="col-12 col-lg-8 px-xs-2 px-sm-5 px-lg-3 px-xl-5">
+                <form method="POST" action="{% url 'add_review' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <strong>
+                        <label for="user_rating" class="form-label">Rate Product</label>
+                        <br>
+                        <div class="star-rating">
+                            <span class="fa fa-star-o" data-rating="1"></span>
+                            <span class="fa fa-star-o" data-rating="2"></span>
+                            <span class="fa fa-star-o" data-rating="3"></span>
+                            <span class="fa fa-star-o" data-rating="4"></span>
+                            <span class="fa fa-star-o" data-rating="5"></span>
+                            <input type="hidden" name="user_rating" class="rating-value" value="1">
+                        </div>
+                    </strong>
+                    {% endfor %}
+                    <div class="text-end mt-3">
+                        <a class="btn btn-outline-light rounded-3" href="{% url 'profile' %}">Cancel</a>
+                        <button class="btn btn-light rounded-3" type="submit">Add Product Review</button>
                     </div>
-                </strong>
-                {% endfor %}
-                <div class="text-end">
-                    <a class="btn btn-outline-light rounded-3" href="{% url 'profile' %}">Cancel</a>
-                    <button class="btn btn-light rounded-3" type="submit">Add Product Review</button>
-                </div>
-            </form>
+                </form>
+            </div>
+            <div class="col-0 col-lg-2"></div>
         </div>
-        <div class="col-0 col-lg-2"></div>
-    </div>
+    {% else %}
+        <div class="row text-center">
+            <h6>
+                You already rated this product.
+            </h6>
+            <div class="mt-3">
+                <a class="btn btn-outline-light rounded-3" href="{% url 'profile' %}">Go back to Profile</a>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block postloadjs %}

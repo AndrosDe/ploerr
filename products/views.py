@@ -357,6 +357,13 @@ def add_review(request, product_id):
     """ Add a review to a product """
 
     product = get_object_or_404(Product, pk=product_id)
+    product_filter = product.productreview.filter(user=request.user)
+
+    if product_filter:
+        messages.error(request, ('Sorry, once you rated a product you '
+                                 'can only update it in your profile - '
+                                 'unless you delete your product rating.'))
+        return redirect(reverse('profile'))
 
     if request.method == 'POST':
         form = UserReviewForm(request.POST)
@@ -378,6 +385,7 @@ def add_review(request, product_id):
     context = {
         'form': form,
         'product': product,
+        'product_filter': product_filter,
     }
 
     return render(request, template, context)
