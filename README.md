@@ -1195,7 +1195,7 @@ To access an order summary the order number is required.<br>The order number is 
 | 3 | Toasts not working with Bootstrap 5 | Used Bootstrap 4 for the JS toolkit and it worked perfectly
 | 4 | CSS for the checkbox is not applied | No solution found so far - as the issue is so minor, it will be ignored
 | 5 | Purchase confirmation email not sent | This issue was due to the changes in the database, once correctly migrated the bug was solved |
-| 6 | Two orders are created, only one confirmation email for one order and only one order to be charged by stripe<br> Apperently something is wrong with the webhook, as it can't find the created order and creates a new one. |  |
+| 6 | Two orders are created, only one confirmation email is for one order, and only one order is charged by stripe.<br> Something is wrong with the webhook, as it can't find the created order and creates a new one. | The order model.py charged the deposit twice,<br> causing a difference in the grand_total of the bag and the grand_total of the order.<br> Correcting the code in the order model.py solved the issue |
 
 <br>
 <hr>

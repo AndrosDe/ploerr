@@ -40,7 +40,7 @@ def bag_contents(request):
         shipping_cost = 0
 
     grand_total = (total + deposit_total + shipping_cost)
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
