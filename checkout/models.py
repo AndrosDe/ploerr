@@ -74,7 +74,7 @@ class Order(models.Model):
             self.shipping_cost = 0
 
         self.grand_total = (
-            self.order_total + self.deposit_total + self.shipping_cost
+            self.order_total + self.shipping_cost
             )
         self.save()
 

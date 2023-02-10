@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-5">
                     <p class="my-0">{{ total | floatformat:2 }} EUR</p>
-                    <p class="my-0"><small>+ {{ total_deposit | floatformat:2 }} EUR</small></p>
+                    <p class="my-0"><small>+ {{ deposit_total | floatformat:2 }} EUR</small></p>
                     {% if shipping_cost == 0 %}
                         <p class="my-0 text-end"><small>Free Shipping</small></p>
                     {% else %}

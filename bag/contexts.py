@@ -10,14 +10,14 @@ def bag_contents(request):
     weight = 0
     product_count = 0
     shipping_cost = 0
-    total_deposit = 0
+    deposit_total = 0
     bag = request.session.get('bag', {})
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
         total += quantity * product.price
         weight += quantity * product.weight_volumen
-        total_deposit += quantity * product.deposit
+        deposit_total += quantity * product.deposit
         product_count += quantity
         bag_items.append({
             'item_id': item_id,
@@ -39,15 +39,15 @@ def bag_contents(request):
     else:
         shipping_cost = 0
 
-    grand_total = total + shipping_cost + total_deposit
-
+    grand_total = (total + deposit_total + shipping_cost)
+    
     context = {
         'bag_items': bag_items,
         'total': total,
         'product_count': product_count,
         'weight': weight,
         'shipping_cost': shipping_cost,
-        'total_deposit': total_deposit,
+        'deposit_total': deposit_total,
         'grand_total': grand_total,
     }
 
